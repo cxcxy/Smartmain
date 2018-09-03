@@ -1,0 +1,30 @@
+platform :ios, '9.0'
+install! 'cocoapods',:deterministic_uuids => false
+target 'SmartMain' do
+    inhibit_all_warnings!
+	use_frameworks!
+
+   	pod 'Moya' 
+	pod 'Moya/RxSwift'
+	pod 'RxDataSources'
+    pod 'SnapKit'
+    pod 'EZSwiftExtensions', :git => 'https://github.com/goktugyil/EZSwiftExtensions.git', :branch => 'swift4tag' 
+  	pod 'IQKeyboardManagerSwift'
+	pod 'ObjectMapper'
+    pod 'SwiftyJSON'
+	pod 'SVProgressHUD'
+	pod 'Kingfisher'
+   	pod 'VTMagic'   , :git => 'https://github.com/aycgithub/VTMagic.git'
+	pod 'MJRefresh'
+	pod 'DZNEmptyDataSet'
+    	pod 'KMNavigationBarTransition'
+
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ENABLE_BITCODE'] = 'NO'
+        end
+    end
+end
