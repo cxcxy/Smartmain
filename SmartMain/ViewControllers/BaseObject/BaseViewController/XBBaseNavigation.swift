@@ -15,13 +15,14 @@ class XBBaseNavigation: UINavigationController,UIGestureRecognizerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.isTranslucent                 = false // 取消半透明效果
+       
         interactivePopGestureRecognizer?.delegate   = self   // 使用系统返回手势
         // 修改隐藏导航栏“返回”字体
         let appearance = UIBarButtonItem.appearance()
         appearance.setBackButtonTitlePositionAdjustment(UIOffset.init(horizontal: 0.0, vertical: 0.0), for: .default)
 
-        self.navigationBar.barTintColor = UIColor.init(hexString: "0091DE")  // 统一 导航条背景色
+        self.navigationBar.barTintColor = MGRgb(0, g: 145, b: 222) // 统一 导航条背景色
+         navigationBar.isTranslucent                 = false // 取消半透明效果
         
 //        self.navigationBar.tintColor = UIColor.black // 统一 导航条上面字体的颜色
 //

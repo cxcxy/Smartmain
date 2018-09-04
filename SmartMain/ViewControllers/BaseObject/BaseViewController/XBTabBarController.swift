@@ -71,7 +71,7 @@ class XBTabBarController: UITabBarController {
         let mainVC2 = ContentMainVC()
         let mainVC3 = ContentMainVC()
         let mainVC1 = EquipmentVC.init(style: .grouped)
-        let mainVC4 = FourViewController()
+        let mainVC4 = MeViewController()
         /// 初始化 tabbar 下标对应的 vc
         let viewContrllers:[XBBaseViewController] = [mainVC1,mainVC2, mainVC3, mainVC4]
         

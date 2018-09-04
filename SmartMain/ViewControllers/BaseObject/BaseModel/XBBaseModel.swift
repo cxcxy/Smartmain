@@ -62,17 +62,15 @@ class XBBaseResModel: Mappable {
     var resdata:AnyObject?      // 若返回无数据，returnObject字段也得带上,可为空值
     var code: Int?              // 返回代码
     var message: String?        // 返回消息
-    var privatefield: String?   // 返回客户端生成的唯一序号
-    var restime: String?        // 响应时间
+
     
     required init?(map: Map) {
     }
     func mapping(map: Map) {
-        resdata             <-    map["resdata"]
-        code                <-    map["code"]
+        resdata             <-    map["data"]
+        code                <-    map["result"]
         message             <-    map["msg"]
-        restime             <-    map["restime"]
-        privatefield        <-    map["privatefield"]
+
     }
 }
 /**

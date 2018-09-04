@@ -9,16 +9,43 @@
 import UIKit
 
 class ContentVC: XBBaseTableViewController {
-
+    var dataArr: [ModulesResModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.currentNavigationTitleColor = UIColor.black
         tableView.cellId_register("ContentHeaderCell")
         tableView.cellId_register("ContentShowCell")
         tableView.cellId_register("ContentShowThreeCell")
-        
+        tableView.mj_header = self.mj_header
     }
+    override func setUI() {
+        super.setUI()
+        request()
+    }
+    override func request() {
+        super.request()
+//        let req_model = ContentReqModel()
+//        req_model.appId = "EvXLUN3xtyON74KY"
+//        req_model.token = "786203ce01256d1d590e2d0a1c1f11b62076"
+//        req_model.clientId = "10110000002003C7"
+//        req_model.userId = ""
+        var params_task = [String: Any]()
+        params_task["appId"] = "EvXLUN3xtyON74KY"
+        params_task["token"] = "786203ce01256d1d590e2d0a1c1f11b62076"
+        params_task["clientId"] = "10110000002003C7"
+        params_task["userId"] = ""
+        params_task["tags"] = []
 
+        Net.requestWithTarget(.test(req: params_task), successClosure: { (result, code, message) in
+            let arr = Mapper<ModulesResModel>().mapArray(JSONObject:JSON(result)["modules"].arrayObject)
+            print(arr)
+            if let ar = arr {
+                self.dataArr = ar
+                self.tableView.reloadData()
+            }
+            
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -28,7 +55,7 @@ extension ContentVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return dataArr.count > 6 ? 6 : dataArr.count
         
     }
 
@@ -40,16 +67,18 @@ extension ContentVC {
         }
         if indexPath.row == 1 || indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentShowCell", for: indexPath) as! ContentShowCell
-            cell.collectionDataArr = ["1","2","3","4"]
+//            cell.collectionDataArr = ["1","2","3","4"]
+            cell.dataModel = dataArr[indexPath.row]
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentShowThreeCell", for: indexPath) as! ContentShowThreeCell
-        cell.collectionDataArr = ["1","2","3","4","1","2","3","4","1"]
+//        cell.collectionDataArr = ["1","2","3","4","1","2","3","4","1"]
+        cell.dataModel = dataArr[indexPath.row]
         return cell
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        VCRouter.toContentSubVC()
     }
     
 }

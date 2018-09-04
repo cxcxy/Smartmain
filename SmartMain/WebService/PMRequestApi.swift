@@ -15,7 +15,8 @@ enum RequestApi{
     //MARK: 登录注册相关接口
    
     case test(req: [String: Any])
-    case getLikeList()
+    case contentsub(req: [String: Any])
+    case getLikeList(openId: String)
 }
 extension RequestApi {
     /**
@@ -62,12 +63,18 @@ extension RequestApi:TargetType{
         case .test(let req):
 //            params_task = formatDic(dic: req)
 //            var params: [String: Any] = [:]
-            params_task["appId"] = "EvXLUN3xtyON74KY"
-            params_task["token"] = "786203ce01256d1d590e2d0a1c1f11b62076"
-            params_task["clientId"] = "10110000002003C7"
-            params_task["userId"] = ""
-            params_task["tags"] = []
+//            params_task["appId"] = "EvXLUN3xtyON74KY"
+//            params_task["token"] = "786203ce01256d1d590e2d0a1c1f11b62076"
+//            params_task["clientId"] = "10110000002003C7"
+//            params_task["userId"] = ""
+//            params_task["tags"] = []
+            params_task = req
             break
+        case .contentsub(let req):
+            params_task = req
+            break
+        case .getLikeList(let openId):
+            params_task["openId"] = "15981870363"
         default:
             return .requestPlain
         }
@@ -83,6 +90,8 @@ extension RequestApi:TargetType{
     // 接口请求类型
     public var method:Moya.Method{
         switch self {
+        case .getLikeList:
+            return .get
         default:
             return .post
         }

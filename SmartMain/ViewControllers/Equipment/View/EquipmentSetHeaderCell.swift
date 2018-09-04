@@ -1,16 +1,15 @@
 //
-//  EquipmentListCell.swift
+//  EquipmentSetHeaderCell.swift
 //  SmartMain
 //
-//  Created by mac on 2018/9/4.
+//  Created by 陈旭 on 2018/9/4.
 //  Copyright © 2018年 上海际浩智能科技有限公司（InfiniSmart）. All rights reserved.
 //
 
 import UIKit
 
-class EquipmentListCell: BaseTableViewCell {
+class EquipmentSetHeaderCell: UITableViewCell {
 
-    @IBOutlet weak var lbTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

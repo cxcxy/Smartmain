@@ -64,6 +64,7 @@
             <connections>
                 <outlet property="collectionView" destination="eqC-lD-KFa" id="6Dd-Hv-F98"/>
                 <outlet property="heightCollectionViewLayout" destination="S8a-kz-0ze" id="uR1-SK-tlf"/>
+                <outlet property="lbTitle" destination="RYI-FD-Kvz" id="b6L-02-H0V"/>
             </connections>
             <point key="canvasLocation" x="25" y="163"/>
         </tableViewCell>

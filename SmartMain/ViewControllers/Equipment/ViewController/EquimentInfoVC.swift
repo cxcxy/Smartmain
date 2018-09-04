@@ -1,56 +1,48 @@
 //
-//  EquipmentVC.swift
+//  EquimentInfoVC.swift
 //  SmartMain
 //
-//  Created by mac on 2018/9/4.
+//  Created by 陈旭 on 2018/9/4.
 //  Copyright © 2018年 上海际浩智能科技有限公司（InfiniSmart）. All rights reserved.
 //
 
 import UIKit
 
-class EquipmentVC: XBBaseTableViewController {
-
+class EquimentInfoVC: XBBaseTableViewController {
+    var sourceArr:[String] = ["设备号","存储空间","固件版本"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "我的设备"
-        makeItemNavRight()
-        tableView.cellId_register("EquipmentListCell")
+
+        // Do any additional setup after loading the view.
     }
-    func makeItemNavRight()  {
-        //MARK: 点击添加商家
-        makeCustomerImageNavigationItem("icon_tianjia", left: false) {
-            
-        }
+    override func setUI() {
+        super.setUI()
+        title = "设备信息"
+        tableView.cellId_register("EquipmentListCell")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 
 }
-extension EquipmentVC {
+extension EquimentInfoVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return sourceArr.count
         
-    }
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 310
-    }
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return EquipmentTopView.loadFromNib()
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipmentListCell", for: indexPath) as! EquipmentListCell
-        
+        cell.lbTitle.set_text = sourceArr[indexPath.row]
         return cell
+
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        VCRouter.toEquipmentSettingVC()
+        
     }
     
 }

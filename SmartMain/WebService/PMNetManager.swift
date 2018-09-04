@@ -113,47 +113,17 @@ class XBNetManager {
                 let info = Mapper<XBBaseResModel>().map(JSONString:jsonString)
                 self.log_print(jsonString, info)
         
-                guard let code = info?.code else {
+                guard let data = info?.resdata else {
                     XBHud.showWarnMsg("服务器内部错误")
                     if let failClosure = failClosure{
                         failClosure("服务器内部错误")
                     }
                     return
                 }
-                guard code == RequestCode.Success.rawValue else{
-                    XBHud.dismiss() // 之所以在这写一个dismiss 是因为， 当有多个网络请求串行的时候， 有可能第一个网络请求的isDissmissLoding 为NO，此时第一个网络请求出现错误， 就关闭掉。
-                    self.reportToLogWithBugly(taskParams: task_log, errorString: jsonString, errorMsg: info?.message ?? "")
-                    switch code{
-                    case RequestCode.RefreshTokenTimeout.rawValue: // RefreshToken已过期
-                        XBHud.showWarnMsg("登录已过期")
-                        break
-                    case RequestCode.AccessTokenTimeout.rawValue: // AccessToken已过期，客户端获取这个代码后需主动刷新Token。
-                        break
-                    case RequestCode.RefreshTokenError.rawValue,
-                         RequestCode.AccessTokenError.rawValue: // RefreshToken传入有误,AccessToken传入有误
-                        
 
-                        break
-                        
-                    case RequestCode.FailError.rawValue
-                        ,RequestCode.SystemError.rawValue: // 其他错误信息，直接显示即可
-                        if isShowErrorMessage {
-                             XBHud.showWarnMsg(info?.message)
-                        }
-                       
-                        if let failClosure = failClosure{
-                            failClosure(info?.message)
-                        }
-                        break
-                    default:
-                        break
-                    }
-                    return
-                }
+//                let res = info?.resdata ?? [] as AnyObject
                 
-                let res = info?.resdata ?? [] as AnyObject
-                
-                successClosure(res, info?.code,info?.message)
+                successClosure(data, info?.code,info?.message)
                 
             case .failure(_):
                 XBHud.showWarnMsg("网络错误")

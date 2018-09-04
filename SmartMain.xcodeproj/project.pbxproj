@@ -98,6 +98,15 @@
 		2D312AA0213D560100FCC499 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D312A9E213D560100FCC499 /* Main.storyboard */; };
 		2D312AA2213D560100FCC499 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D312AA1213D560100FCC499 /* Assets.xcassets */; };
 		2D312AA5213D560100FCC499 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D312AA3213D560100FCC499 /* LaunchScreen.storyboard */; };
+		2DC95587213E9EBB004D6F65 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95585213E9EBB004D6F65 /* MeViewController.swift */; };
+		2DC95588213E9EBB004D6F65 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC95586213E9EBB004D6F65 /* MeViewController.xib */; };
+		2DC9558A213EAC18004D6F65 /* EquipmentSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95589213EAC18004D6F65 /* EquipmentSettingVC.swift */; };
+		2DC9558D213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9558B213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift */; };
+		2DC9558E213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9558C213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib */; };
+		2DC95590213EB210004D6F65 /* EquimentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9558F213EB210004D6F65 /* EquimentInfoVC.swift */; };
+		2DC95592213EB36B004D6F65 /* MemberManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */; };
+		2DC95598213EBCC7004D6F65 /* ContentReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */; };
+		2DC9559A213ECD62004D6F65 /* ContentSubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95599213ECD62004D6F65 /* ContentSubVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,6 +208,15 @@
 		2D312AA4213D560100FCC499 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D312AA6213D560100FCC499 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D312AAC213D619F00FCC499 /* SmartMain-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartMain-Bridging-Header.h"; sourceTree = "<group>"; };
+		2DC95585213E9EBB004D6F65 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		2DC95586213E9EBB004D6F65 /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		2DC95589213EAC18004D6F65 /* EquipmentSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentSettingVC.swift; sourceTree = "<group>"; };
+		2DC9558B213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentSetHeaderCell.swift; sourceTree = "<group>"; };
+		2DC9558C213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentSetHeaderCell.xib; sourceTree = "<group>"; };
+		2DC9558F213EB210004D6F65 /* EquimentInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquimentInfoVC.swift; sourceTree = "<group>"; };
+		2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManagerVC.swift; sourceTree = "<group>"; };
+		2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentReqModel.swift; sourceTree = "<group>"; };
+		2DC95599213ECD62004D6F65 /* ContentSubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSubVC.swift; sourceTree = "<group>"; };
 		91EAC16658F9A180871B0B3F /* Pods-SmartMain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMain.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMain/Pods-SmartMain.release.xcconfig"; sourceTree = "<group>"; };
 		CD6A84A3D73AD65D2EE9B86B /* Pods_SmartMain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABD6F9026177145A29A261A /* Pods-SmartMain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMain/Pods-SmartMain.debug.xcconfig"; sourceTree = "<group>"; };
@@ -373,8 +391,8 @@
 		04C38749213E0B590063A799 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DC95583213E9E91004D6F65 /* Me */,
 				04C389E2213E228E0063A799 /* Equipment */,
-				04C389E5213E22D20063A799 /* Me */,
 				04C389E4213E22CA0063A799 /* Chat */,
 				04C389E3213E22BD0063A799 /* Content */,
 				04C38817213E0B590063A799 /* BaseObject */,
@@ -432,8 +450,8 @@
 		04C389E3213E22BD0063A799 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				04C389F7213E330C0063A799 /* Model */,
-				04C389F6213E33060063A799 /* ViewModel */,
+				2DC95596213EBC5C004D6F65 /* Model */,
+				2DC95595213EBC57004D6F65 /* ViewModel */,
 				04C389F5213E32FF0063A799 /* View */,
 				04C389F4213E32F40063A799 /* ViewController */,
 			);
@@ -447,17 +465,13 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		04C389E5213E22D20063A799 /* Me */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Me;
-			sourceTree = "<group>";
-		};
 		04C389E6213E22E00063A799 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				04C389EA213E231D0063A799 /* EquipmentVC.swift */,
+				2DC95589213EAC18004D6F65 /* EquipmentSettingVC.swift */,
+				2DC9558F213EB210004D6F65 /* EquimentInfoVC.swift */,
+				2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -465,6 +479,8 @@
 		04C389E7213E22EB0063A799 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2DC9558B213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift */,
+				2DC9558C213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib */,
 				04C389EC213E25500063A799 /* EquipmentTopView.swift */,
 				04C389EE213E25800063A799 /* EquipmentTopView.xib */,
 				04C389F0213E27CA0063A799 /* EquipmentListCell.swift */,
@@ -492,6 +508,7 @@
 			children = (
 				04C389F8213E33330063A799 /* ContentMainVC.swift */,
 				04C389FA213E5FC80063A799 /* ContentVC.swift */,
+				2DC95599213ECD62004D6F65 /* ContentSubVC.swift */,
 				04C38A0E213E6ED60063A799 /* LikeViewController.swift */,
 				04C38A10213E6EEA0063A799 /* HistoryViewController.swift */,
 				04C38A16213E79240063A799 /* SearchViewController.swift */,
@@ -515,20 +532,6 @@
 				04C38A07213E6CD70063A799 /* ContentShowCVCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		04C389F6213E33060063A799 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		04C389F7213E330C0063A799 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		04C38A1A213E7FF40063A799 /* FSPagerView */ = {
@@ -584,6 +587,38 @@
 				2D312AAC213D619F00FCC499 /* SmartMain-Bridging-Header.h */,
 			);
 			path = SmartMain;
+			sourceTree = "<group>";
+		};
+		2DC95583213E9E91004D6F65 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				2DC95584213E9E97004D6F65 /* ViewController */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		2DC95584213E9E97004D6F65 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DC95585213E9EBB004D6F65 /* MeViewController.swift */,
+				2DC95586213E9EBB004D6F65 /* MeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2DC95595213EBC57004D6F65 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2DC95596213EBC5C004D6F65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8DA45C6C51D8EE67A8A81939 /* Pods */ = {
@@ -674,10 +709,12 @@
 				04C38A05213E671F0063A799 /* ContentShowCell.xib in Resources */,
 				04C38A19213E79240063A799 /* SearchViewController.xib in Resources */,
 				04C38A15213E6FE70063A799 /* ContentShowThreeCell.xib in Resources */,
+				2DC9558E213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib in Resources */,
 				04C38A09213E6CD70063A799 /* ContentShowCVCell.xib in Resources */,
 				04C38712213E093F0063A799 /* Configuration.plist in Resources */,
 				2D312AA2213D560100FCC499 /* Assets.xcassets in Resources */,
 				2D312AA0213D560100FCC499 /* Main.storyboard in Resources */,
+				2DC95588213E9EBB004D6F65 /* MeViewController.xib in Resources */,
 				04C38A01213E64170063A799 /* ContentHeaderCell.xib in Resources */,
 				04C389E1213E21BA0063A799 /* OneViewController.xib in Resources */,
 			);
@@ -785,6 +822,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C38743213E09400063A799 /* PPGetAddressBook.swift in Sources */,
+				2DC9558D213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift in Sources */,
+				2DC95587213E9EBB004D6F65 /* MeViewController.swift in Sources */,
 				04C38729213E093F0063A799 /* Array+.swift in Sources */,
 				04C38A24213E7FF40063A799 /* FSPagerViewCell.swift in Sources */,
 				04C38A28213E7FF40063A799 /* FSPagerCollectionView.swift in Sources */,
@@ -794,12 +833,14 @@
 				04C38728213E093F0063A799 /* XBRxSectionManager.swift in Sources */,
 				04C38741213E09400063A799 /* PPPersonModel.swift in Sources */,
 				04C38A0F213E6ED60063A799 /* LikeViewController.swift in Sources */,
+				2DC95598213EBCC7004D6F65 /* ContentReqModel.swift in Sources */,
 				04C38A0C213E6D850063A799 /* ContentLikeCell.swift in Sources */,
 				04C38730213E093F0063A799 /* UITableView+.swift in Sources */,
 				04C3872C213E093F0063A799 /* UIViewController+.swift in Sources */,
 				04C38988213E0B5A0063A799 /* XBBaseModel.swift in Sources */,
 				04C38713213E093F0063A799 /* PMConfigManager.swift in Sources */,
 				04C389D5213E163F0063A799 /* TwoViewController.swift in Sources */,
+				2DC9559A213ECD62004D6F65 /* ContentSubVC.swift in Sources */,
 				2D312A9D213D560100FCC499 /* ViewController.swift in Sources */,
 				04C38721213E093F0063A799 /* AddImagePickerFragment.swift in Sources */,
 				04C38735213E093F0063A799 /* ETPopupView.swift in Sources */,
@@ -835,6 +876,7 @@
 				04C3872D213E093F0063A799 /* UILabel+.swift in Sources */,
 				04C3897E213E0B5A0063A799 /* XBBaseNavigation.swift in Sources */,
 				04C389F9213E33330063A799 /* ContentMainVC.swift in Sources */,
+				2DC95592213EB36B004D6F65 /* MemberManagerVC.swift in Sources */,
 				04C38742213E09400063A799 /* PPAddressBookHandle.swift in Sources */,
 				04C38A22213E7FF40063A799 /* FSPagerView.swift in Sources */,
 				04C3872E213E093F0063A799 /* XBExtensionAdd.swift in Sources */,
@@ -842,6 +884,7 @@
 				04C38745213E09400063A799 /* XBButton.swift in Sources */,
 				04C38A25213E7FF40063A799 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				04C3871B213E093F0063A799 /* XBNotificationManager.swift in Sources */,
+				2DC95590213EB210004D6F65 /* EquimentInfoVC.swift in Sources */,
 				04C389F2213E27CA0063A799 /* EquipmentListCell.swift in Sources */,
 				04C389EB213E231D0063A799 /* EquipmentVC.swift in Sources */,
 				2D312A9B213D560100FCC499 /* AppDelegate.swift in Sources */,
@@ -849,6 +892,7 @@
 				04C38746213E09400063A799 /* XBCustomUtil.swift in Sources */,
 				04C38A08213E6CD70063A799 /* ContentShowCVCell.swift in Sources */,
 				04C38739213E093F0063A799 /* UIViewExtension.swift in Sources */,
+				2DC9558A213EAC18004D6F65 /* EquipmentSettingVC.swift in Sources */,
 				04C38715213E093F0063A799 /* PMRequestApi.swift in Sources */,
 				04C38725213E093F0063A799 /* XBAddressManager.swift in Sources */,
 				04C38727213E093F0063A799 /* XBUserManager.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 
 class ContentShowCVCell: UICollectionViewCell {
 
+    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var imgIcon: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

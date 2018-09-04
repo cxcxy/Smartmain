@@ -15,6 +15,7 @@ extension RequestApi {
         case .test:   return "/roobo/appInterface.do?inter=/cms/modules"
         // 根据用户ID获取收藏列表
         case .getLikeList: return "/favorite/getlist.do"
+        case .contentsub: return "/roobo/appInterface.do?inter=/cms/categories"
         default:
             return ""
         }

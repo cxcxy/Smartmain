@@ -74,10 +74,11 @@ public enum RefreshStatus: Int {
         }else if let img = currentNavigationBackgroudImg {
             self.configNavBackgroundImage(defaultImg: img)
         }else if let current_color = self.currentNavigationColor {
+            self.navigationController?.navigationBar.isTranslucent  = false
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.barTintColor = current_color
         }
-
+      
 //         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.titleTextAttributes  = [NSAttributedStringKey.foregroundColor : currentNavigationTitleColor,
                                                                          NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)];
@@ -149,7 +150,7 @@ public enum RefreshStatus: Int {
     }
     
     //MARK: 返回按钮
-    func setCustomerBack(_ backIconName:String = "icon_fanhui") {
+    func setCustomerBack(_ backIconName:String = "nav_backArrow") {
         if let count = navigationController?.viewControllers.count {
             if count > 1 {
                 let img = UIImage.init(named: backIconName)?.withRenderingMode(.alwaysOriginal) // 使用原图渲染方式

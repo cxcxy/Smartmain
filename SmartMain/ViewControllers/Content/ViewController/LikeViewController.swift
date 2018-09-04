@@ -15,6 +15,16 @@ class LikeViewController: XBBaseTableViewController {
         self.currentNavigationTitleColor = UIColor.black
         tableView.cellId_register("ContentLikeCell")
     }
+    override func setUI() {
+        super.setUI()
+        request()
+    }
+    override func request() {
+        super.request()
+        Net.requestWithTarget(.getLikeList(openId: "15981870363"), successClosure: { (result, code, message) in
+            print(result)
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

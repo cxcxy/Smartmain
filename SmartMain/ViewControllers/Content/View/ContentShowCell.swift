@@ -17,13 +17,27 @@ class ContentShowCell: BaseTableViewCell {
     let itemSpacing:CGFloat = 20 // item 间隔
     let itemWidth:CGFloat = ( MGScreenWidth - 20 - 20 ) / 2 // item 宽度
     @IBOutlet weak var heightCollectionViewLayout: NSLayoutConstraint!
-    var collectionDataArr:[String] = [] {
+    
+    @IBOutlet weak var lbTitle: UILabel!
+    var dataModel: ModulesResModel? {
         didSet {
-            collectionView.reloadData()
-            let heightLine:CGFloat  = 20
-            self.heightCollectionViewLayout.constant      = CGFloat(2 * itemWidth) + heightLine
+            guard let m = dataModel else {
+                return
+            }
+            if let arr = m.contents {
+                self.contentArr = arr
+            }
+            self.lbTitle.set_text = m.name
         }
     }
+    var contentArr: [ModulesConetentModel] = [] {
+        didSet {
+            collectionView.reloadData()
+            let heightLine:CGFloat  = contentArr.count > 2 ? 20 : 0
+            self.heightCollectionViewLayout.constant      = CGFloat((contentArr.count > 2 ? 2 : 1) * itemWidth) + heightLine
+        }
+    }
+
     func configCollectionView()  {
         
         collectionView.delegate     = self
@@ -39,11 +53,12 @@ class ContentShowCell: BaseTableViewCell {
 }
 extension ContentShowCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return contentArr.count > 4 ? 4 : contentArr.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentShowCVCell", for: indexPath)as! ContentShowCVCell
-
+        cell.imgIcon.set_Img_Url(contentArr[indexPath.row].imgSmall)
+        cell.lbTitle.set_text = contentArr[indexPath.row].name
         return cell
     }
     //最小item间距
