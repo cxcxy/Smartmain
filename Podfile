@@ -12,12 +12,14 @@ target 'SmartMain' do
   	pod 'IQKeyboardManagerSwift'
 	pod 'ObjectMapper'
     pod 'SwiftyJSON'
-	pod 'SVProgressHUD'
+	pod 'SVProgressHUD', :git => 'https://github.com/Fidetro/SVProgressHUD.git'
 	pod 'Kingfisher'
    	pod 'VTMagic'   , :git => 'https://github.com/aycgithub/VTMagic.git'
 	pod 'MJRefresh'
 	pod 'DZNEmptyDataSet'
     	pod 'KMNavigationBarTransition'
+        pod 'ReachabilitySwift'
+        pod 'FCUUID'
 
 end
 
