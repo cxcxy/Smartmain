@@ -63,8 +63,8 @@ class XBTabBarController: UITabBarController {
         self.delegate                   = self
         
 //        let storys =        ["Home",    "Found",       "HotStyle",        "Brand",     "User"      ]
-        let images          =           ["icon_gongzuo_tab","icon_renwu_tab","icon_liucheng_tab","icon_liucheng_tab"]
-        let images_select   =           ["icon_gongzuo2_tab","icon_renwu2_tab","icon_liucheng2_tab","icon_liucheng2_tab"]
+        let images          =           ["tab_grayTransact","tab_grayPurse","tab_grayOrder","tab_grayMe"]
+        let images_select   =           ["tab_transact","tab_purse","tab_order","tab_me"]
         let imagesTitle     =           ["设备", "内容", "微聊", "宝宝"]
         
 //        let mainVC1 = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as! XBBaseViewController

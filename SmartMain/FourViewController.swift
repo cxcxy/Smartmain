@@ -13,7 +13,8 @@ class FourViewController: XBBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.green
-//        title = "宝宝"
+        title = "宝宝"
+        self.currentNavigationTitleColor = UIColor.black
         // Do any additional setup after loading the view.
     }
 

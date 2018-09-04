@@ -15,7 +15,7 @@ target 'SmartMain' do
 	pod 'SVProgressHUD', :git => 'https://github.com/Fidetro/SVProgressHUD.git'
 	pod 'Kingfisher'
    	pod 'VTMagic'   , :git => 'https://github.com/aycgithub/VTMagic.git'
-    pod 'FSPagerView'
+#    pod 'FSPagerView'
 	pod 'MJRefresh'
 	pod 'DZNEmptyDataSet'
     	pod 'KMNavigationBarTransition'

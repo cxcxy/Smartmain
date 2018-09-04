@@ -17,7 +17,7 @@
 @import IQKeyboardManagerSwift;
 @import SwiftyJSON;
 
-
+//@import FSPagerView;
 //#import "UIImageView+CornerRadius.h"
 //#import "HLChatListViewController.h"
 

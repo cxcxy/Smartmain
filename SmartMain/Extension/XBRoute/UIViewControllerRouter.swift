@@ -638,25 +638,25 @@
 //        topVC?.presentVC(alertC)
 //    }
 //}
-//extension UINavigationController {
-//    /**
-//     *   push --- 淡入淡出动画
-//     */
-//    func pushFadeAnimation(viewController: UIViewController) {
-//        let transition = CATransition.init()
-//        transition.type = kCATransitionFade
-//        transition.duration = 0.5
-//        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-//        view.layer.add(transition, forKey: nil)
-//        pushViewController(viewController, animated: false)
-//    }
-//    
-//    func popFadeAnimation() {
-//        let transition = CATransition.init()
-//        transition.type = kCATransitionFade
-//        transition.duration = 0.5
-//        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-//        view.layer.add(transition, forKey: nil)
-//        popViewController(animated: false)
-//    }
-//}
+extension UINavigationController {
+    /**
+     *   push --- 淡入淡出动画
+     */
+    func pushFadeAnimation(viewController: UIViewController) {
+        let transition = CATransition.init()
+        transition.type = kCATransitionFade
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        view.layer.add(transition, forKey: nil)
+        pushViewController(viewController, animated: false)
+    }
+    
+    func popFadeAnimation() {
+        let transition = CATransition.init()
+        transition.type = kCATransitionFade
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        view.layer.add(transition, forKey: nil)
+        popViewController(animated: false)
+    }
+}

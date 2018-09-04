@@ -15,7 +15,7 @@ enum RequestApi{
     //MARK: 登录注册相关接口
    
     case test(req: [String: Any])
-    
+    case getLikeList()
 }
 extension RequestApi {
     /**

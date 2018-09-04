@@ -34,18 +34,27 @@ class ContentMainVC: XBBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.currentNavigationColor = UIColor.white
+        self.currentNavigationTitleColor = UIColor.black
         self.title = "内容"
         configMagicView()
         view.backgroundColor = UIColor.white
+    }
+    override func setUI() {
+        super.setUI()
+        makeCustomerImageNavigationItem("search", left: true) {[weak self] in
+            guard let `self` = self else { return }
+            let vc = SearchViewController()
+            self.navigationController?.pushFadeAnimation(viewController: vc)
+        }
     }
     //MARK:配置所对应的左右滑动ViewControler
     func configMagicView()  {
         v                                       = VCVTMagic()
         v.magicView.dataSource                  = self
         v.magicView.delegate                    = self
-        let vc = OneViewController()
-        let vc1 = OneViewController()
-        let vc2 = OneViewController()
+        let vc = ContentVC()
+        let vc1 = LikeViewController()
+        let vc2 = HistoryViewController()
         controllerArray = [vc,vc1,vc2]
         v.magicView.reloadData()
         self.addChildViewController(v)
