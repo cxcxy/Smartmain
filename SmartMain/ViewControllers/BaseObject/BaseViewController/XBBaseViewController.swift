@@ -78,7 +78,7 @@ public enum RefreshStatus: Int {
         }
 
 //         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        self.navigationController?.navigationBar.titleTextAttributes  = [NSAttributedStringKey.foregroundColor : UIColor.red,
+        self.navigationController?.navigationBar.titleTextAttributes  = [NSAttributedStringKey.foregroundColor : UIColor.white,
                                                                          NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)];
         
     }

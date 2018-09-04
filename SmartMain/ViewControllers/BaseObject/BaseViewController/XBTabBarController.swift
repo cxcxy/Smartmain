@@ -70,7 +70,7 @@ class XBTabBarController: UITabBarController {
 //        let mainVC1 = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as! XBBaseViewController
         let mainVC2 = ThreeViewController()
         let mainVC3 = TwoViewController()
-        let mainVC1 = OneViewController()
+        let mainVC1 = EquipmentVC.init(style: .grouped)
         let mainVC4 = FourViewController()
         /// 初始化 tabbar 下标对应的 vc
         let viewContrllers:[XBBaseViewController] = [mainVC1,mainVC2, mainVC3, mainVC4]

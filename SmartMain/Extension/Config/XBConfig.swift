@@ -97,7 +97,7 @@ let XBLineBreakNumber: CGFloat            = 5
 var XBLoginShow:Int                 =  0
 
 //TODO: 全局tableView 背景色
-let tableColor                      =    MGRgb(249, g: 249, b: 251, alpha: 1.0)
+let tableColor                      =   UIColor.init(hexString: "F3F3F3")! 
 
 //MARK: 导航栏背景色
 

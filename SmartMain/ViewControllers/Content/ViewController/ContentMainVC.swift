@@ -1,5 +1,5 @@
 //
-//  FourViewController.swift
+//  ContentMainVC.swift
 //  SmartMain
 //
 //  Created by mac on 2018/9/4.
@@ -8,12 +8,11 @@
 
 import UIKit
 
-class FourViewController: XBBaseViewController {
+class ContentMainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.green
-//        title = "宝宝"
+
         // Do any additional setup after loading the view.
     }
 

@@ -13,7 +13,7 @@ class ThreeViewController: XBBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.red
-        title = "聊天群组"
+//        title = "聊天群组"
         // Do any additional setup after loading the view.
     }
 

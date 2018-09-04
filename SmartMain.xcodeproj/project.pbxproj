@@ -68,6 +68,11 @@
 		04C389E0213E21BA0063A799 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389DE213E21BA0063A799 /* OneViewController.swift */; };
 		04C389E1213E21BA0063A799 /* OneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C389DF213E21BA0063A799 /* OneViewController.xib */; };
 		04C389EB213E231D0063A799 /* EquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389EA213E231D0063A799 /* EquipmentVC.swift */; };
+		04C389ED213E25500063A799 /* EquipmentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389EC213E25500063A799 /* EquipmentTopView.swift */; };
+		04C389EF213E25800063A799 /* EquipmentTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C389EE213E25800063A799 /* EquipmentTopView.xib */; };
+		04C389F2213E27CA0063A799 /* EquipmentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389F0213E27CA0063A799 /* EquipmentListCell.swift */; };
+		04C389F3213E27CA0063A799 /* EquipmentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C389F1213E27CA0063A799 /* EquipmentListCell.xib */; };
+		04C389F9213E33330063A799 /* ContentMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389F8213E33330063A799 /* ContentMainVC.swift */; };
 		1AAA75D9F5935AC30D1FE386 /* Pods_SmartMain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6A84A3D73AD65D2EE9B86B /* Pods_SmartMain.framework */; };
 		2D312A9B213D560100FCC499 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D312A9A213D560100FCC499 /* AppDelegate.swift */; };
 		2D312A9D213D560100FCC499 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D312A9C213D560100FCC499 /* ViewController.swift */; };
@@ -143,6 +148,11 @@
 		04C389DE213E21BA0063A799 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		04C389DF213E21BA0063A799 /* OneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneViewController.xib; sourceTree = "<group>"; };
 		04C389EA213E231D0063A799 /* EquipmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVC.swift; sourceTree = "<group>"; };
+		04C389EC213E25500063A799 /* EquipmentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentTopView.swift; sourceTree = "<group>"; };
+		04C389EE213E25800063A799 /* EquipmentTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentTopView.xib; sourceTree = "<group>"; };
+		04C389F0213E27CA0063A799 /* EquipmentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListCell.swift; sourceTree = "<group>"; };
+		04C389F1213E27CA0063A799 /* EquipmentListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentListCell.xib; sourceTree = "<group>"; };
+		04C389F8213E33330063A799 /* ContentMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMainVC.swift; sourceTree = "<group>"; };
 		2D312A97213D560100FCC499 /* SmartMain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartMain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D312A9A213D560100FCC499 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D312A9C213D560100FCC499 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -394,6 +404,10 @@
 		04C389E3213E22BD0063A799 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				04C389F7213E330C0063A799 /* Model */,
+				04C389F6213E33060063A799 /* ViewModel */,
+				04C389F5213E32FF0063A799 /* View */,
+				04C389F4213E32F40063A799 /* ViewController */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -423,6 +437,10 @@
 		04C389E7213E22EB0063A799 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04C389EC213E25500063A799 /* EquipmentTopView.swift */,
+				04C389EE213E25800063A799 /* EquipmentTopView.xib */,
+				04C389F0213E27CA0063A799 /* EquipmentListCell.swift */,
+				04C389F1213E27CA0063A799 /* EquipmentListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +453,35 @@
 			sourceTree = "<group>";
 		};
 		04C389E9213E22F40063A799 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04C389F4213E32F40063A799 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				04C389F8213E33330063A799 /* ContentMainVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		04C389F5213E32FF0063A799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04C389F6213E33060063A799 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04C389F7213E330C0063A799 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -564,6 +611,8 @@
 			files = (
 				2D312AA5213D560100FCC499 /* LaunchScreen.storyboard in Resources */,
 				04C3871E213E093F0063A799 /* city.json in Resources */,
+				04C389F3213E27CA0063A799 /* EquipmentListCell.xib in Resources */,
+				04C389EF213E25800063A799 /* EquipmentTopView.xib in Resources */,
 				04C38712213E093F0063A799 /* Configuration.plist in Resources */,
 				2D312AA2213D560100FCC499 /* Assets.xcassets in Resources */,
 				2D312AA0213D560100FCC499 /* Main.storyboard in Resources */,
@@ -696,6 +745,7 @@
 				04C3873C213E093F0063A799 /* UIViewController+HUD.m in Sources */,
 				04C38985213E0B5A0063A799 /* XBBaseTableViewController.swift in Sources */,
 				04C3872B213E093F0063A799 /* String+.swift in Sources */,
+				04C389ED213E25500063A799 /* EquipmentTopView.swift in Sources */,
 				04C389D7213E164B0063A799 /* ThreeViewController.swift in Sources */,
 				04C3873A213E093F0063A799 /* PhotoToolBar.swift in Sources */,
 				04C38716213E093F0063A799 /* PMNetManager.swift in Sources */,
@@ -712,11 +762,13 @@
 				04C38722213E093F0063A799 /* XBEmptyManager.swift in Sources */,
 				04C3872D213E093F0063A799 /* UILabel+.swift in Sources */,
 				04C3897E213E0B5A0063A799 /* XBBaseNavigation.swift in Sources */,
+				04C389F9213E33330063A799 /* ContentMainVC.swift in Sources */,
 				04C38742213E09400063A799 /* PPAddressBookHandle.swift in Sources */,
 				04C3872E213E093F0063A799 /* XBExtensionAdd.swift in Sources */,
 				04C3873B213E093F0063A799 /* PhotoViewCell.swift in Sources */,
 				04C38745213E09400063A799 /* XBButton.swift in Sources */,
 				04C3871B213E093F0063A799 /* XBNotificationManager.swift in Sources */,
+				04C389F2213E27CA0063A799 /* EquipmentListCell.swift in Sources */,
 				04C389EB213E231D0063A799 /* EquipmentVC.swift in Sources */,
 				2D312A9B213D560100FCC499 /* AppDelegate.swift in Sources */,
 				04C38987213E0B5A0063A799 /* XBBaseViewController.swift in Sources */,
