@@ -52,6 +52,7 @@ class ContentMainVC: XBBaseViewController {
         v                                       = VCVTMagic()
         v.magicView.dataSource                  = self
         v.magicView.delegate                    = self
+        v.magicView.needPreloading      = false
         let vc = ContentVC()
         let vc1 = LikeViewController()
         let vc2 = HistoryViewController()

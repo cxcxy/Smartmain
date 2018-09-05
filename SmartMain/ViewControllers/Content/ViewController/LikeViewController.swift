@@ -21,7 +21,7 @@ class LikeViewController: XBBaseTableViewController {
     }
     override func request() {
         super.request()
-        Net.requestWithTarget(.getLikeList(openId: "15981870363"), successClosure: { (result, code, message) in
+        Net.requestWithTarget(.getLikeList(openId: "17621969367"), successClosure: { (result, code, message) in
             print(result)
         })
     }

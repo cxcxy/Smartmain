@@ -76,6 +76,8 @@ extension RequestApi:TargetType{
             break
         case .getLikeList(let openId):
             params_task["openId"] = openId
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
             break
         case .contentsings(let req):
             params_task = req
