@@ -17,7 +17,7 @@ class ContentShowCell: BaseTableViewCell {
     let itemSpacing:CGFloat = 20 // item 间隔
     let itemWidth:CGFloat = ( MGScreenWidth - 20 - 20 ) / 2 // item 宽度
     @IBOutlet weak var heightCollectionViewLayout: NSLayoutConstraint!
-    
+    var modouleId : String?
     @IBOutlet weak var lbTitle: UILabel!
     var dataModel: ModulesResModel? {
         didSet {
@@ -43,6 +43,10 @@ class ContentShowCell: BaseTableViewCell {
         collectionView.delegate     = self
         collectionView.dataSource   = self
         collectionView.cellId_register("ContentShowCVCell")
+    }
+    
+    @IBAction func clickAllAction(_ sender: Any) {
+        VCRouter.toContentSubVC(clientId: "3020040000000028", modouleId: dataModel?.id, navTitle: dataModel?.name)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

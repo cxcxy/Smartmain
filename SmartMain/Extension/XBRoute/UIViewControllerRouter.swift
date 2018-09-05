@@ -45,11 +45,12 @@ class VCRouter {
         
     }
     // MARK: - 跳转第二级页面
-    class func toContentSubVC(clientId: String!, albumId:String!,navTitle: String?) {
+    class func toContentSubVC(clientId: String!, albumId:String? = nil,modouleId:String? = nil, navTitle: String?) {
         
         let vc = ContentSubVC()
         vc.clientId = clientId
         vc.albumId = albumId
+        vc.modouleId = modouleId
         vc.title = navTitle
         topVC?.pushVC(vc)
         

@@ -95,3 +95,29 @@ class ConetentSingPlayModel: XBDataModel {
         url             <-    map["url"]
     }
 }
+class ConetentLikeModel: XBDataModel {
+    var openId:String?
+    var trackId: String?
+    var title: String?
+    var coverSmallUrl: String?
+    var duration: Int?
+    var albumTitle: String?
+    var albumCoverSmallUrl: String?
+    var url: String?
+    var downloadUrl: String?
+    var downloadSize: String?
+    var opDate: String?
+    override func mapping(map: Map) {
+        openId             <-    map["openId"]
+        trackId             <-    map["trackId"]
+        title          <-    map["title"]
+        coverSmallUrl            <-    map["coverSmallUrl"]
+        duration            <-    map["duration"]
+        albumTitle            <-    map["albumTitle"]
+        albumCoverSmallUrl            <-    map["albumCoverSmallUrl"]
+        url            <-    map["url"]
+        downloadUrl            <-    map["downloadUrl"]
+        downloadSize            <-    map["downloadSize"]
+        opDate            <-    map["opDate"]
+    }
+}

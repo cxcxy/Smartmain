@@ -9,11 +9,30 @@
 import UIKit
 
 class HistoryViewController: XBBaseTableViewController {
-
+var dataArr: [ConetentLikeModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.currentNavigationTitleColor = UIColor.black
-        tableView.cellId_register("ContentLikeCell")
+        tableView.cellId_register("ContentSingCell")
+        self.cofigMJRefresh()
+    }
+    override func setUI() {
+        super.setUI()
+        request()
+    }
+    override func request() {
+        super.request()
+        Net.requestWithTarget(.getHistoryList(openId: "17621969367"), successClosure: { (result, code, message) in
+            print(result)
+            if let arr = Mapper<ConetentLikeModel>().mapArray(JSONString: result as! String) {
+                if self.pageIndex == 1 {
+                    self.dataArr.removeAll()
+                }
+                self.dataArr += arr
+                self.refreshStatus(status: arr.checkRefreshStatus(self.pageIndex))
+                self.tableView.reloadData()
+            }
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -23,12 +42,15 @@ extension HistoryViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return dataArr.count
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentLikeCell", for: indexPath) as! ContentLikeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentSingCell", for: indexPath) as! ContentSingCell
+        cell.lbTitle.set_text = dataArr[indexPath.row].title
+        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].duration)
+        cell.lbLineNumber.set_text = (indexPath.row + 1).toString
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

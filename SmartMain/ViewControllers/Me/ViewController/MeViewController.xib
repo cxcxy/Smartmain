@@ -14,7 +14,9 @@
             <connections>
                 <outlet property="btnLoginOut" destination="h44-eu-I8s" id="ENg-mB-5to"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewAbout" destination="f0f-YV-92w" id="UrI-Xv-0Ry"/>
                 <outlet property="viewCenter" destination="x7D-Ol-xLr" id="dev-iZ-oex"/>
+                <outlet property="viewInfo" destination="uwN-ae-Ue6" id="CfC-Gb-9Ln"/>
                 <outlet property="viewPhoto" destination="tQM-bw-6TL" id="Tbs-OD-L3z"/>
             </connections>
         </placeholder>
@@ -157,7 +159,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h44-eu-I8s">
-                    <rect key="frame" x="87" y="486" width="200" height="35"/>
+                    <rect key="frame" x="87" y="456" width="200" height="35"/>
                     <color key="backgroundColor" red="0.17254901960784313" green="0.73333333333333328" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="0xv-hN-gK4"/>
@@ -174,7 +176,7 @@
                 <constraint firstItem="x7D-Ol-xLr" firstAttribute="top" secondItem="ZU3-bO-pa4" secondAttribute="bottom" constant="16" id="IPt-Lk-TSh"/>
                 <constraint firstItem="h44-eu-I8s" firstAttribute="centerX" secondItem="x7D-Ol-xLr" secondAttribute="centerX" id="O2y-XA-gUa"/>
                 <constraint firstItem="ZU3-bO-pa4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QXi-pr-doF"/>
-                <constraint firstItem="h44-eu-I8s" firstAttribute="top" secondItem="x7D-Ol-xLr" secondAttribute="bottom" constant="100" id="bQd-mg-LHD"/>
+                <constraint firstItem="h44-eu-I8s" firstAttribute="top" secondItem="x7D-Ol-xLr" secondAttribute="bottom" constant="70" id="bQd-mg-LHD"/>
                 <constraint firstItem="ZU3-bO-pa4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iDc-eU-roX"/>
                 <constraint firstItem="x7D-Ol-xLr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="oli-c3-fO2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x7D-Ol-xLr" secondAttribute="trailing" constant="10" id="sIF-g0-Aq2"/>

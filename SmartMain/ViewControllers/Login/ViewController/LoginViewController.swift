@@ -1,51 +1,46 @@
 //
-//  MeViewController.swift
+//  LoginViewController.swift
 //  SmartMain
 //
-//  Created by 陈旭 on 2018/9/4.
+//  Created by 陈旭 on 2018/9/5.
 //  Copyright © 2018年 上海际浩智能科技有限公司（InfiniSmart）. All rights reserved.
 //
 
 import UIKit
 
-class MeViewController: XBBaseViewController {
-    @IBOutlet weak var viewInfo: UIView!
+class LoginViewController: XBBaseViewController {
+    @IBOutlet weak var viewPassword: UIView!
     
-    @IBOutlet weak var viewAbout: UIView!
-    @IBOutlet weak var btnLoginOut: UIButton!
-    @IBOutlet weak var viewCenter: UIView!
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var viewPhone: UIView!
     @IBOutlet weak var viewPhoto: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "登录"
+        self.currentNavigationNone = true
         // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.isTranslucent = true
     }
     override func setUI() {
         super.setUI()
-        self.title = "宝宝"
-        viewCenter.setCornerRadius(radius: 5)
-        btnLoginOut.setCornerRadius(radius: 15)
-        self.currentNavigationNone = true
+        view.backgroundColor = UIColor.white
         viewPhoto.roundView()
-        viewInfo.addTapGesture { [weak self](sender) in
-            let vc = MeInfoVC()
-            self?.pushVC(vc)
-        }
-        viewAbout.addTapGesture {[weak self] (sender) in
-            let vc = AboutMeVC()
-            self?.pushVC(vc)
-        }
+        viewPhone.setCornerRadius(radius: 10)
+        viewPassword.setCornerRadius(radius: 10)
+        viewPhone.addBorder(width: 0.5, color: UIColor.darkGray)
+        viewPassword.addBorder(width: 0.5, color: UIColor.darkGray)
+        btnLogin.setCornerRadius(radius: 10)
+        btnLogin.addBorder(width: 0.5, color: UIColor.darkGray)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func clickRegisterAction(_ sender: Any) {
+        let vc = RegisterViewController()
+        self.pushVC(vc)
+    }
+    
     /*
     // MARK: - Navigation
 

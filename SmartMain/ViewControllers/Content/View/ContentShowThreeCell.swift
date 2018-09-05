@@ -42,6 +42,9 @@ class ContentShowThreeCell: BaseTableViewCell {
     var itemCount: Int = 0
     var lineNumber: Int = 0
 
+    @IBAction func clickMoreAction(_ sender: Any) {
+                VCRouter.toContentSubVC(clientId: "3020040000000028", modouleId: dataModel?.id, navTitle: dataModel?.name)
+    }
     func configCollectionView()  {
         
         collectionView.delegate     = self

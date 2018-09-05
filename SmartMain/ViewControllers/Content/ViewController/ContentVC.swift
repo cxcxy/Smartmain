@@ -56,7 +56,7 @@ extension ContentVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return dataArr.count > 6 ? 6 : dataArr.count
+        return dataArr.count > 7 ? 7 : dataArr.count
         
     }
 
@@ -69,7 +69,8 @@ extension ContentVC {
         if indexPath.row == 1 || indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentShowCell", for: indexPath) as! ContentShowCell
 //            cell.collectionDataArr = ["1","2","3","4"]
-            cell.dataModel = dataArr[indexPath.row]
+            cell.dataModel = dataArr[indexPath.row - 1]
+         
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentShowThreeCell", for: indexPath) as! ContentShowThreeCell

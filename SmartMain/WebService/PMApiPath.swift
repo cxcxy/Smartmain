@@ -17,6 +17,7 @@ extension RequestApi {
         case .getLikeList: return "/favorite/getlist.do"
         case .contentsub: return "/roobo/appInterface.do?inter=/cms/categories"
         case .contentsings: return "/roobo/appInterface.do?inter=/resources/list"
+        case .getHistoryList: return "/demand/getlist.do"
         default:
             return ""
         }

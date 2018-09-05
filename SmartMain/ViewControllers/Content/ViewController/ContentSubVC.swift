@@ -10,7 +10,8 @@ import UIKit
 
 class ContentSubVC: XBBaseTableViewController {
     var clientId: String!
-    var albumId: String!
+    var albumId: String?
+    var modouleId: String?
     var dataArr: [ModulesConetentModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class ContentSubVC: XBBaseTableViewController {
         super.request()
         var params_task = [String: Any]()
         params_task["clientId"] = clientId
-        params_task["moduleId"] = ""
+        params_task["moduleId"] = modouleId
         params_task["albumId"] = albumId
         params_task["page"] = self.pageIndex
         params_task["count"] = XBPageSize

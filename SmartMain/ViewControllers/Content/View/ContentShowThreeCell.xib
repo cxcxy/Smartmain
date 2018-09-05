@@ -23,17 +23,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="智伴专区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYI-FD-Kvz">
-                                <rect key="frame" x="30" y="18.5" width="78" height="23"/>
+                                <rect key="frame" x="30" y="18.5" width="215" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwe-NQ-Cn7">
+                                <rect key="frame" x="255" y="17" width="50" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="GkE-UE-A4h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="更多">
+                                    <color key="titleColor" white="0.0" alpha="0.4960669949" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickMoreAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="k7u-q2-4Ly"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Nwe-NQ-Cn7" secondAttribute="trailing" constant="15" id="1qq-F1-SNi"/>
                             <constraint firstAttribute="height" constant="60" id="78i-Y7-lmf"/>
                             <constraint firstItem="RYI-FD-Kvz" firstAttribute="centerY" secondItem="ngF-C0-Vz6" secondAttribute="centerY" id="N04-t7-xzI"/>
+                            <constraint firstItem="Nwe-NQ-Cn7" firstAttribute="centerY" secondItem="RYI-FD-Kvz" secondAttribute="centerY" id="T6D-AZ-4W8"/>
                             <constraint firstItem="RYI-FD-Kvz" firstAttribute="leading" secondItem="ngF-C0-Vz6" secondAttribute="leading" constant="30" id="aYN-kh-Xhx"/>
+                            <constraint firstItem="Nwe-NQ-Cn7" firstAttribute="leading" secondItem="RYI-FD-Kvz" secondAttribute="trailing" constant="10" id="jHl-xf-6zs"/>
                         </constraints>
                     </view>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eqC-lD-KFa">

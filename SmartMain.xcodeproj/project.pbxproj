@@ -115,6 +115,17 @@
 		2DC95592213EB36B004D6F65 /* MemberManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */; };
 		2DC95598213EBCC7004D6F65 /* ContentReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */; };
 		2DC9559A213ECD62004D6F65 /* ContentSubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95599213ECD62004D6F65 /* ContentSubVC.swift */; };
+		2DC9559F213FF3BE004D6F65 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9559D213FF3BE004D6F65 /* LoginViewController.swift */; };
+		2DC955A0213FF3BE004D6F65 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9559E213FF3BE004D6F65 /* LoginViewController.xib */; };
+		2DC955A3213FFA98004D6F65 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC955A1213FFA98004D6F65 /* RegisterViewController.swift */; };
+		2DC955A4213FFA98004D6F65 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC955A2213FFA98004D6F65 /* RegisterViewController.xib */; };
+		2DC955A7213FFC8C004D6F65 /* AboutMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC955A5213FFC8C004D6F65 /* AboutMeVC.swift */; };
+		2DC955A8213FFC8C004D6F65 /* AboutMeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC955A6213FFC8C004D6F65 /* AboutMeVC.xib */; };
+		2DC955AB213FFDE4004D6F65 /* MeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC955A9213FFDE4004D6F65 /* MeInfoVC.swift */; };
+		2DC955B0213FFE17004D6F65 /* MeInfoHaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC955AE213FFE17004D6F65 /* MeInfoHaderCell.swift */; };
+		2DC955B1213FFE17004D6F65 /* MeInfoHaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC955AF213FFE17004D6F65 /* MeInfoHaderCell.xib */; };
+		2DC955B4213FFED4004D6F65 /* MeInfoNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC955B2213FFED4004D6F65 /* MeInfoNameCell.swift */; };
+		2DC955B5213FFED4004D6F65 /* MeInfoNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC955B3213FFED4004D6F65 /* MeInfoNameCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -233,6 +244,17 @@
 		2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManagerVC.swift; sourceTree = "<group>"; };
 		2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentReqModel.swift; sourceTree = "<group>"; };
 		2DC95599213ECD62004D6F65 /* ContentSubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSubVC.swift; sourceTree = "<group>"; };
+		2DC9559D213FF3BE004D6F65 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2DC9559E213FF3BE004D6F65 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		2DC955A1213FFA98004D6F65 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2DC955A2213FFA98004D6F65 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		2DC955A5213FFC8C004D6F65 /* AboutMeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeVC.swift; sourceTree = "<group>"; };
+		2DC955A6213FFC8C004D6F65 /* AboutMeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutMeVC.xib; sourceTree = "<group>"; };
+		2DC955A9213FFDE4004D6F65 /* MeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInfoVC.swift; sourceTree = "<group>"; };
+		2DC955AE213FFE17004D6F65 /* MeInfoHaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInfoHaderCell.swift; sourceTree = "<group>"; };
+		2DC955AF213FFE17004D6F65 /* MeInfoHaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeInfoHaderCell.xib; sourceTree = "<group>"; };
+		2DC955B2213FFED4004D6F65 /* MeInfoNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeInfoNameCell.swift; sourceTree = "<group>"; };
+		2DC955B3213FFED4004D6F65 /* MeInfoNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeInfoNameCell.xib; sourceTree = "<group>"; };
 		91EAC16658F9A180871B0B3F /* Pods-SmartMain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMain.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMain/Pods-SmartMain.release.xcconfig"; sourceTree = "<group>"; };
 		CD6A84A3D73AD65D2EE9B86B /* Pods_SmartMain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartMain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABD6F9026177145A29A261A /* Pods-SmartMain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartMain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartMain/Pods-SmartMain.debug.xcconfig"; sourceTree = "<group>"; };
@@ -407,6 +429,7 @@
 		04C38749213E0B590063A799 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DC9559B213FF39D004D6F65 /* Login */,
 				2DC95583213E9E91004D6F65 /* Me */,
 				04C389E2213E228E0063A799 /* Equipment */,
 				04C389E4213E22CA0063A799 /* Chat */,
@@ -616,6 +639,7 @@
 		2DC95583213E9E91004D6F65 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				2DC955AD213FFDFC004D6F65 /* View */,
 				2DC95584213E9E97004D6F65 /* ViewController */,
 			);
 			path = Me;
@@ -626,6 +650,9 @@
 			children = (
 				2DC95585213E9EBB004D6F65 /* MeViewController.swift */,
 				2DC95586213E9EBB004D6F65 /* MeViewController.xib */,
+				2DC955A9213FFDE4004D6F65 /* MeInfoVC.swift */,
+				2DC955A5213FFC8C004D6F65 /* AboutMeVC.swift */,
+				2DC955A6213FFC8C004D6F65 /* AboutMeVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -643,6 +670,36 @@
 				2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2DC9559B213FF39D004D6F65 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2DC9559C213FF3AB004D6F65 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2DC9559C213FF3AB004D6F65 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2DC9559D213FF3BE004D6F65 /* LoginViewController.swift */,
+				2DC9559E213FF3BE004D6F65 /* LoginViewController.xib */,
+				2DC955A1213FFA98004D6F65 /* RegisterViewController.swift */,
+				2DC955A2213FFA98004D6F65 /* RegisterViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2DC955AD213FFDFC004D6F65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DC955AE213FFE17004D6F65 /* MeInfoHaderCell.swift */,
+				2DC955AF213FFE17004D6F65 /* MeInfoHaderCell.xib */,
+				2DC955B2213FFED4004D6F65 /* MeInfoNameCell.swift */,
+				2DC955B3213FFED4004D6F65 /* MeInfoNameCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8DA45C6C51D8EE67A8A81939 /* Pods */ = {
@@ -726,15 +783,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C38A0D213E6D850063A799 /* ContentLikeCell.xib in Resources */,
+				2DC955A8213FFC8C004D6F65 /* AboutMeVC.xib in Resources */,
 				2D312AA5213D560100FCC499 /* LaunchScreen.storyboard in Resources */,
 				04C3871E213E093F0063A799 /* city.json in Resources */,
 				043E118D213FB3120067ADF3 /* ContentSubShowCell.xib in Resources */,
 				043E119B213FCCAC0067ADF3 /* ContentSingCell.xib in Resources */,
+				2DC955B1213FFE17004D6F65 /* MeInfoHaderCell.xib in Resources */,
+				2DC955A0213FF3BE004D6F65 /* LoginViewController.xib in Resources */,
 				043E1197213FC1090067ADF3 /* ContentSingHaderView.xib in Resources */,
 				04C389F3213E27CA0063A799 /* EquipmentListCell.xib in Resources */,
 				04C389EF213E25800063A799 /* EquipmentTopView.xib in Resources */,
+				2DC955B5213FFED4004D6F65 /* MeInfoNameCell.xib in Resources */,
 				04C38A05213E671F0063A799 /* ContentShowCell.xib in Resources */,
 				04C38A19213E79240063A799 /* SearchViewController.xib in Resources */,
+				2DC955A4213FFA98004D6F65 /* RegisterViewController.xib in Resources */,
 				04C38A15213E6FE70063A799 /* ContentShowThreeCell.xib in Resources */,
 				2DC9558E213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib in Resources */,
 				04C38A09213E6CD70063A799 /* ContentShowCVCell.xib in Resources */,
@@ -887,9 +949,11 @@
 				04C389D7213E164B0063A799 /* ThreeViewController.swift in Sources */,
 				04C3873A213E093F0063A799 /* PhotoToolBar.swift in Sources */,
 				043E118C213FB3120067ADF3 /* ContentSubShowCell.swift in Sources */,
+				2DC955A7213FFC8C004D6F65 /* AboutMeVC.swift in Sources */,
 				04C38A26213E7FF40063A799 /* FSPageViewLayout.swift in Sources */,
 				04C38716213E093F0063A799 /* PMNetManager.swift in Sources */,
 				04C389E0213E21BA0063A799 /* OneViewController.swift in Sources */,
+				2DC955B0213FFE17004D6F65 /* MeInfoHaderCell.swift in Sources */,
 				04C38A11213E6EEA0063A799 /* HistoryViewController.swift in Sources */,
 				043E119A213FCCAC0067ADF3 /* ContentSingCell.swift in Sources */,
 				04C3873F213E093F0063A799 /* NSObject+HUD.m in Sources */,
@@ -913,18 +977,22 @@
 				04C38A22213E7FF40063A799 /* FSPagerView.swift in Sources */,
 				04C3872E213E093F0063A799 /* XBExtensionAdd.swift in Sources */,
 				04C3873B213E093F0063A799 /* PhotoViewCell.swift in Sources */,
+				2DC955AB213FFDE4004D6F65 /* MeInfoVC.swift in Sources */,
 				04C38745213E09400063A799 /* XBButton.swift in Sources */,
+				2DC955A3213FFA98004D6F65 /* RegisterViewController.swift in Sources */,
 				04C38A25213E7FF40063A799 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				04C3871B213E093F0063A799 /* XBNotificationManager.swift in Sources */,
 				2DC95590213EB210004D6F65 /* EquimentInfoVC.swift in Sources */,
 				04C389F2213E27CA0063A799 /* EquipmentListCell.swift in Sources */,
 				04C389EB213E231D0063A799 /* EquipmentVC.swift in Sources */,
+				2DC955B4213FFED4004D6F65 /* MeInfoNameCell.swift in Sources */,
 				2D312A9B213D560100FCC499 /* AppDelegate.swift in Sources */,
 				04C38987213E0B5A0063A799 /* XBBaseViewController.swift in Sources */,
 				04C38746213E09400063A799 /* XBCustomUtil.swift in Sources */,
 				04C38A08213E6CD70063A799 /* ContentShowCVCell.swift in Sources */,
 				04C38739213E093F0063A799 /* UIViewExtension.swift in Sources */,
 				2DC9558A213EAC18004D6F65 /* EquipmentSettingVC.swift in Sources */,
+				2DC9559F213FF3BE004D6F65 /* LoginViewController.swift in Sources */,
 				04C38715213E093F0063A799 /* PMRequestApi.swift in Sources */,
 				04C38725213E093F0063A799 /* XBAddressManager.swift in Sources */,
 				04C38727213E093F0063A799 /* XBUserManager.swift in Sources */,

@@ -50,7 +50,8 @@ extension EquipmentVC {
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        VCRouter.toEquipmentSettingVC()
+     
+    VCRouter.toEquipmentSettingVC()
     }
     
 }

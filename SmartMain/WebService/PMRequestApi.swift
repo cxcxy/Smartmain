@@ -17,6 +17,7 @@ enum RequestApi{
     case contentModules(req: [String: Any])
     case contentsub(req: [String: Any])
     case getLikeList(openId: String)
+    case getHistoryList(openId: String)
     case contentsings(req: [String: Any])
 }
 extension RequestApi {
@@ -62,13 +63,6 @@ extension RequestApi:TargetType{
         var params_task = [String: Any]()
         switch self {
         case .contentModules(let req):
-//            params_task = formatDic(dic: req)
-//            var params: [String: Any] = [:]
-//            params_task["appId"] = "EvXLUN3xtyON74KY"
-//            params_task["token"] = "786203ce01256d1d590e2d0a1c1f11b62076"
-//            params_task["clientId"] = "10110000002003C7"
-//            params_task["userId"] = ""
-//            params_task["tags"] = []
             params_task = req
             break
         case .contentsub(let req):
@@ -78,7 +72,10 @@ extension RequestApi:TargetType{
             params_task["openId"] = openId
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
-            break
+        case .getHistoryList(let openId):
+            params_task["openId"] = openId
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
         case .contentsings(let req):
             params_task = req
             break
@@ -97,7 +94,7 @@ extension RequestApi:TargetType{
     // 接口请求类型
     public var method:Moya.Method{
         switch self {
-        case .getLikeList:
+        case .getLikeList,.getHistoryList:
             return .get
         default:
             return .post

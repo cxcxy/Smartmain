@@ -110,10 +110,13 @@ class XBNetManager {
                 guard let jsonString = try? response.mapString() else {
                     return
                 }
-                let info = Mapper<XBBaseResModel>().map(JSONString:jsonString)
+                guard let info = Mapper<XBBaseResModel>().map(JSONString:jsonString) else {
+                    successClosure(jsonString as AnyObject, 200,"success")
+                    return
+                }
                 self.log_print(jsonString, info)
         
-                guard let data = info?.resdata else {
+                guard let data = info.resdata else {
                     XBHud.showWarnMsg("服务器内部错误")
                     if let failClosure = failClosure{
                         failClosure("服务器内部错误")
@@ -121,9 +124,7 @@ class XBNetManager {
                     return
                 }
 
-//                let res = info?.resdata ?? [] as AnyObject
-                
-                successClosure(data, info?.code,info?.message)
+                successClosure(data, info.code,info.message)
                 
             case .failure(_):
                 XBHud.showWarnMsg("网络错误")
