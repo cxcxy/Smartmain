@@ -71,7 +71,13 @@ class XBBaseTableViewController: XBBaseViewController{
    public func cofigMjFooter() {
         self.tableView.mj_footer            = mj_footer
     }
-
+    /**
+     *   为tableView 配置 MJHeader MJFooter
+     */
+    public func cofigMJRefresh() {
+        self.tableView.mj_header            = mj_header
+        self.tableView.mj_footer            = mj_footer
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

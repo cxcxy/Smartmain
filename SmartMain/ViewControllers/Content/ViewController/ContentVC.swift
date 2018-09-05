@@ -30,20 +30,21 @@ class ContentVC: XBBaseTableViewController {
 //        req_model.clientId = "10110000002003C7"
 //        req_model.userId = ""
         var params_task = [String: Any]()
-        params_task["appId"] = "EvXLUN3xtyON74KY"
-        params_task["token"] = "786203ce01256d1d590e2d0a1c1f11b62076"
-        params_task["clientId"] = "10110000002003C7"
-        params_task["userId"] = ""
-        params_task["tags"] = []
+        params_task["clientId"] = "3020040000000028"
+        params_task["tags"] = ["six"]
 
-        Net.requestWithTarget(.test(req: params_task), successClosure: { (result, code, message) in
-            let arr = Mapper<ModulesResModel>().mapArray(JSONObject:JSON(result)["modules"].arrayObject)
-            print(arr)
-            if let ar = arr {
-                self.dataArr = ar
+        Net.requestWithTarget(.contentModules(req: params_task), successClosure: { (result, code, message) in
+            if let arr = Mapper<ModulesResModel>().mapArray(JSONObject:JSON(result)["modules"].arrayObject) {
+                self.endRefresh()
+               let filterArr = arr.filter({ (item) -> Bool in
+                    if let contents = item.contents {
+                        return contents.count > 0
+                    }
+                    return false
+                })
+                self.dataArr = filterArr
                 self.tableView.reloadData()
             }
-            
         })
     }
     override func didReceiveMemoryWarning() {
@@ -78,7 +79,7 @@ extension ContentVC {
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        VCRouter.toContentSubVC()
+//        VCRouter.toContentSubVC()
     }
     
 }

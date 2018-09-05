@@ -71,6 +71,11 @@ extension ContentShowCell:UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     //item 对应的点击事件
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        let model = contentArr[indexPath.row]
+        if model.albumType == 2 {
+            VCRouter.toContentSubVC(clientId: "3020040000000028", albumId: model.id ?? "", navTitle: model.name)
+        }else {
+            VCRouter.toContentSingsVC(clientId: "3020040000000028", albumId: model.id ?? "")
+        }
     }
 }

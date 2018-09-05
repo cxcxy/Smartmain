@@ -14,9 +14,10 @@ enum RequestApi{
     
     //MARK: 登录注册相关接口
    
-    case test(req: [String: Any])
+    case contentModules(req: [String: Any])
     case contentsub(req: [String: Any])
     case getLikeList(openId: String)
+    case contentsings(req: [String: Any])
 }
 extension RequestApi {
     /**
@@ -60,7 +61,7 @@ extension RequestApi:TargetType{
     public var task: Task {
         var params_task = [String: Any]()
         switch self {
-        case .test(let req):
+        case .contentModules(let req):
 //            params_task = formatDic(dic: req)
 //            var params: [String: Any] = [:]
 //            params_task["appId"] = "EvXLUN3xtyON74KY"
@@ -74,7 +75,11 @@ extension RequestApi:TargetType{
             params_task = req
             break
         case .getLikeList(let openId):
-            params_task["openId"] = "15981870363"
+            params_task["openId"] = openId
+            break
+        case .contentsings(let req):
+            params_task = req
+            break
         default:
             return .requestPlain
         }

@@ -51,3 +51,47 @@ class ModulesConetentModel: XBDataModel {
         albumType            <-    map["albumType"]
     }
 }
+class ConetentSingModel: XBDataModel {
+    var length:Int?
+    var content: String?
+    var artist: String?
+    var favoriteId: String?
+    var resId: String?
+    var playUrls: ConetentSingPlayModel?
+    var type: Int?
+    var name: String?
+    override func mapping(map: Map) {
+        length             <-    map["length"]
+        content             <-    map["content"]
+        artist          <-    map["artist"]
+        favoriteId            <-    map["favoriteId"]
+        resId            <-    map["resId"]
+        playUrls            <-    map["playUrls"]
+        type            <-    map["type"]
+        name            <-    map["name"]
+    }
+}
+class ConetentSingAlbumModel: XBDataModel {
+    var imgLarge:String?
+    var imgSmall: String?
+    var albumId: String?
+    var name: String?
+    var description: String?
+    var total: Int?
+    override func mapping(map: Map) {
+        imgLarge             <-    map["imgLarge"]
+        imgSmall             <-    map["imgSmall"]
+        albumId             <-    map["albumId"]
+        name             <-    map["name"]
+        description             <-    map["description"]
+        total             <-    map["total"]
+    }
+}
+class ConetentSingPlayModel: XBDataModel {
+    var size:Int?
+    var url: String?
+    override func mapping(map: Map) {
+        size             <-    map["size"]
+        url             <-    map["url"]
+    }
+}

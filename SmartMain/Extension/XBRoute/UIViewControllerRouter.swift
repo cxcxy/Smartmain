@@ -44,14 +44,25 @@ class VCRouter {
         topVC?.pushVC(vc)
         
     }
-    // MARK: - 跳转设备信息
-    class func toContentSubVC() {
+    // MARK: - 跳转第二级页面
+    class func toContentSubVC(clientId: String!, albumId:String!,navTitle: String?) {
         
         let vc = ContentSubVC()
+        vc.clientId = clientId
+        vc.albumId = albumId
+        vc.title = navTitle
         topVC?.pushVC(vc)
         
     }
-
+    // MARK: - 跳转第三级歌单页面
+    class func toContentSingsVC(clientId: String!, albumId:String!) {
+        
+        let vc = ContentSingsVC()
+        vc.clientId = clientId
+        vc.albumId = albumId
+        topVC?.pushVC(vc)
+        
+    }
     //
     // MARK: - 弹出选择器视图
     class func prentShareView(imgCode: UIImage,shareUrl: String) {

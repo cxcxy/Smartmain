@@ -9,7 +9,9 @@
 import UIKit
 
 class ContentSubVC: XBBaseTableViewController {
-
+    var clientId: String!
+    var albumId: String!
+    var dataArr: [ModulesConetentModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,42 +19,61 @@ class ContentSubVC: XBBaseTableViewController {
     }
     override func setUI() {
         super.setUI()
+        self.currentNavigationColor = UIColor.white
+        self.currentNavigationTitleColor = UIColor.black
+        tableView.cellId_register("ContentSubShowCell")
+        self.cofigMJRefresh()
         request()
     }
     override func request() {
         super.request()
         var params_task = [String: Any]()
-        params_task["clientId"] = "10110000002003C7"
+        params_task["clientId"] = clientId
         params_task["moduleId"] = ""
-        params_task["albumId"] = "8"
-        params_task["page"] = "1"
-        params_task["count"] = "20"
+        params_task["albumId"] = albumId
+        params_task["page"] = self.pageIndex
+        params_task["count"] = XBPageSize
         Net.requestWithTarget(.contentsub(req: params_task), successClosure: { (result, code, message) in
-//            let arr = Mapper<ModulesResModel>().mapArray(JSONObject:JSON(result)["modules"].arrayObject)
-//            print(arr)
-//            if let ar = arr {
-//                self.dataArr = ar
-//                self.tableView.reloadData()
-//            }
-            
+            if let arr = Mapper<ModulesConetentModel>().mapArray(JSONObject:JSON(result)["categories"].arrayObject) {
+                if self.pageIndex == 1 {
+                    self.dataArr.removeAll()
+                }
+                self.dataArr += arr
+                self.refreshStatus(status: arr.checkRefreshStatus(self.pageIndex))
+                self.tableView.reloadData()
+            }
         })
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+}
+extension ContentSubVC {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return dataArr.count
+        
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentSubShowCell", for: indexPath) as! ContentSubShowCell
+        cell.lbTitle.set_text = dataArr[indexPath.row].name
+        cell.imgIcon.set_Img_Url(dataArr[indexPath.row].imgSmall)
+        return cell
+        
     }
-    */
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        VCRouter.toContentSubVC()
+        let model = dataArr[indexPath.row]
+        if model.albumType == 2 {
+            VCRouter.toContentSubVC(clientId: "3020040000000028", albumId: model.id ?? "", navTitle: model.name)
+        }else {
+            VCRouter.toContentSingsVC(clientId: "3020040000000028", albumId: model.id ?? "")
+        }
+    }
+    
 }

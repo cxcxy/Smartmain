@@ -10,7 +10,17 @@ import UIKit
 
 extension String {
     
-
+    //将原始的url编码为合法的url  处理URL中的中文问题
+    func urlEncoded() -> String {
+        let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
+            .urlQueryAllowed)
+        return encodeUrlString ?? ""
+    }
+    
+    //将编码后的url转换回原始的url
+    func urlDecoded() -> String {
+        return self.removingPercentEncoding ?? ""
+    }
     /**
      替换手机号中间四位为“****”
      */
@@ -63,6 +73,13 @@ extension String {
             }else {
                 return true
             }
+        }
+    }
+    func AddZero() -> String{
+        if self.length == 1 {
+            return "0" + self
+        }else{
+            return self
         }
     }
     /**

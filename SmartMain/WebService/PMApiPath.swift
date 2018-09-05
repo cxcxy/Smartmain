@@ -12,10 +12,11 @@ extension RequestApi {
     public var path:String{
         switch self {
        
-        case .test:   return "/roobo/appInterface.do?inter=/cms/modules"
+        case .contentModules:   return "/roobo/appInterface.do?inter=/cms/modules"
         // 根据用户ID获取收藏列表
         case .getLikeList: return "/favorite/getlist.do"
         case .contentsub: return "/roobo/appInterface.do?inter=/cms/categories"
+        case .contentsings: return "/roobo/appInterface.do?inter=/resources/list"
         default:
             return ""
         }

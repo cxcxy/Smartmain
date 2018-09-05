@@ -109,6 +109,7 @@ extension Array {
     func getParityCellNumber(_ number:Int) -> Int {
         return  ((self.count % number) == 0 ? (self.count / number) : ((self.count / number) + 1))
     }
+    
     /**
      *   删除数组内所有元素，当数组内有值时
      */

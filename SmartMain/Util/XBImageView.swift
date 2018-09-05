@@ -21,24 +21,14 @@ extension UIImageView {
     func set_Img_Url(_ url:String?,
                      _ placeHolder:XBImgPlaceholder = .none)  {
         let img = UIImage.init(named: placeHolder.rawValue)
-        guard let url = url else {
+        guard let urlNew = url else {
             self.image = img
             return
         }
-//        var url_new = url
-//        let arr = url.components(separatedBy: "&attname")
-//        if arr.count > 1 {
-//            url_new = arr[0]
-//        }
-        if let url_request = URL(string: url) {
+        if let url_request = URL(string: urlNew.urlEncoded()) {
             
             self.kf.setImage(with: url_request,
                          placeholder: img)
-            
-//            self.kf.setImage(with: url_request, placeholder: img, options: nil, progressBlock: nil) { (img, error, cacheType, url) in
-//                print(cacheType)
-//            }
-//            self.kf.setImage(with: url_request, placeholder: img, options: [.cacheMemoryOnly], progressBlock: nil, completionHandler: nil)
 
         }else {
              self.image = img

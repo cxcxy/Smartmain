@@ -23,7 +23,7 @@ public enum RefreshStatus: Int {
     /// 当前导航栏的颜色,默认为nil
     var currentNavigationColor:UIColor?
     /// 当前导航栏标题的颜色,默认为nil
-    var currentNavigationTitleColor:UIColor = UIColor.white
+    var currentNavigationTitleColor:UIColor = UIColor.black
     /// 当前导航条是否透明,默认为false
     var currentNavigationNone:Bool = false
     
@@ -74,14 +74,13 @@ public enum RefreshStatus: Int {
         }else if let img = currentNavigationBackgroudImg {
             self.configNavBackgroundImage(defaultImg: img)
         }else if let current_color = self.currentNavigationColor {
-            self.navigationController?.navigationBar.isTranslucent  = false
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.barTintColor = current_color
         }
-      
-//         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+        //         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.navigationController?.navigationBar.titleTextAttributes  = [NSAttributedStringKey.foregroundColor : currentNavigationTitleColor,
-                                                                         NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)];
+                                                                         NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.0)];
         
     }
     
@@ -90,21 +89,16 @@ public enum RefreshStatus: Int {
         UIApplication.shared.keyWindow?.endEditing(true)
         if currentNavigationNone {
             reductionTopNav()
-//            return
         }
-//        if currentNavigationHidden {
-//            showTopNav()
-////            return
-//        }
         if let img = currentNavigationBackgroudImg {
             self.configNavBackgroundImage()
-//            return
+            //            return
         }
         if currentEnabledPopGesture {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         }
         if self.currentNavigationColor != nil {
-
+            
             self.configNavBackgroundImage()
             self.navigationController?.navigationBar.barTintColor = XBNavColor
             

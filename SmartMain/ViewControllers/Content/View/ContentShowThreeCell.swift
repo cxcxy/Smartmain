@@ -16,7 +16,7 @@ class ContentShowThreeCell: BaseTableViewCell {
         configCollectionView()
     }
     let itemSpacing:CGFloat = 20 // item 间隔
-    let itemWidth:CGFloat = ( MGScreenWidth - 20 - 20 ) / 3 // item 宽度
+    let itemWidth:CGFloat = CGFloat( Int( MGScreenWidth - 20 - 20 ) / 3 )// item 宽度
     @IBOutlet weak var heightCollectionViewLayout: NSLayoutConstraint!
     @IBOutlet weak var lbTitle: UILabel!
     var dataModel: ModulesResModel? {
@@ -33,11 +33,14 @@ class ContentShowThreeCell: BaseTableViewCell {
     var contentArr: [ModulesConetentModel] = [] {
         didSet {
             collectionView.reloadData()
-            let heightLine:CGFloat  = contentArr.count > 2 ? 20 : 0
-            self.heightCollectionViewLayout.constant      = CGFloat((contentArr.count > 2 ? 2 : 1) * itemWidth) + heightLine
+            itemCount = contentArr.count > 9 ? 9 : contentArr.count
+            lineNumber = itemCount / 3
+            let heightLine:CGFloat  = CGFloat((lineNumber - 1) * 20)
+            self.heightCollectionViewLayout.constant      = CGFloat(lineNumber * Int(itemWidth)) + heightLine
         }
     }
-
+    var itemCount: Int = 0
+    var lineNumber: Int = 0
 
     func configCollectionView()  {
         
@@ -54,7 +57,7 @@ class ContentShowThreeCell: BaseTableViewCell {
 }
 extension ContentShowThreeCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentArr.count > 9 ? 9 : contentArr.count
+        return contentArr.count > (lineNumber * 3) ? lineNumber * 3 : contentArr.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentShowCVCell", for: indexPath)as! ContentShowCVCell
@@ -72,6 +75,11 @@ extension ContentShowThreeCell:UICollectionViewDelegate,UICollectionViewDataSour
     }
     //item 对应的点击事件
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let model = contentArr[indexPath.row]
+        if model.albumType == 2 {
+            VCRouter.toContentSubVC(clientId: "3020040000000028", albumId: model.id ?? "", navTitle: model.name)
+        }else {
+            VCRouter.toContentSingsVC(clientId: "3020040000000028", albumId: model.id ?? "")
+        }
     }
 }

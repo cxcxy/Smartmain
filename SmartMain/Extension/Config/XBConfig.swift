@@ -101,7 +101,7 @@ let tableColor                      =   UIColor.init(hexString: "F3F3F3")!
 
 //MARK: 导航栏背景色
 
-let XBNavColor                      = UIColor.blue
+let XBNavColor                      = UIColor.white
 
 //MARK: 描边背景色  红色
 

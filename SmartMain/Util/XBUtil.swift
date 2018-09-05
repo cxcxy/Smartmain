@@ -217,12 +217,40 @@ public class XBUtil {
 //            }
 //        }
     }
-//    static func getNoti() -> Observable<Notification> {
-//        
-//        return NotificationCenter.default.rx.notification(Notification.Name(rawValue: "111"))
-//
-//    }
-
+    // MARK: - 把秒数转换成时分秒（00小时00分00秒）格式
+    ///
+    /// - Parameter time: time(Int格式)
+    /// - Returns: String格式(00:00:00)
+    static func getDetailTimeWithTimestamp(timeStamp: Int?) -> String  {
+        guard let time = timeStamp else {
+            return ""
+        }
+        let ms = time
+        let ss = 1
+        let mi = ss * 60
+        let hh = mi * 60
+        let dd = hh * 24
+        let day = ms / dd
+        
+        let hour = (ms - day * dd) / hh
+        let minute = (ms - day * dd - hour * hh) / mi
+        let second = (ms - day * dd - hour * hh - minute * mi) / ss
+        
+        var timerStr = String(hour).AddZero() + "小时" + String(minute).AddZero() + "分"
+        
+        if hour == 0 {
+            if minute == 0 {
+                timerStr = String(second).AddZero() + "秒"
+            }else {
+                timerStr = String(minute).AddZero() + "分" + String(second).AddZero() + "秒"
+            }
+           
+        } else {
+            timerStr = String(hour).AddZero() + "小时" + String(minute).AddZero() + "分" + String(second).AddZero() + "秒"
+        }
+        return timerStr
+        
+    }
 }
 extension XBUtil {
     /**
