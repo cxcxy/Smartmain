@@ -15,6 +15,7 @@ class EquipmentVC: XBBaseTableViewController {
         self.title = "我的设备"
         makeItemNavRight()
         self.currentNavigationColor = MGRgb(0, g: 145, b: 222)
+        self.currentNavigationTitleColor = UIColor.white
         tableView.cellId_register("EquipmentListCell")
     }
     func makeItemNavRight()  {
@@ -25,7 +26,7 @@ class EquipmentVC: XBBaseTableViewController {
     }
     override func setUI() {
         super.setUI()
-          self.cofigMjHeader()
+        self.cofigMjHeader()
         request()
         
     }
@@ -74,6 +75,15 @@ extension EquipmentVC {
 //    VCRouter.toEquipmentSettingVC()
 //        let vc = LoginViewController()
 //        self.pushVC(vc)
+        if indexPath.row == 0 {
+            VCRouter.toEquipmentSettingVC()
+            return
+        }
+        if indexPath.row == 1 {
+            let vc = LoginViewController()
+            self.pushVC(vc)
+            return
+        }
         VCRouter.toEquipmentSubListVC(trackListId: dataArr[indexPath.row].id ?? 0,navTitle: dataArr[indexPath.row].name)
     }
     

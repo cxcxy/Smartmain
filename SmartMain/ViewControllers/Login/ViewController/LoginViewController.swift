@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: XBBaseViewController {
     @IBOutlet weak var viewPassword: UIView!
     
+    @IBOutlet weak var tfPhone: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var viewPhone: UIView!
     @IBOutlet weak var viewPhoto: UIView!
@@ -34,10 +35,28 @@ class LoginViewController: XBBaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    @IBAction func clickForgetAction(_ sender: Any) {
+        XBHud.showMsg("忘记密码")
+    }
     
     @IBAction func clickRegisterAction(_ sender: Any) {
-        let vc = RegisterViewController()
-        self.pushVC(vc)
+        
+        var params_task = [String: Any]()
+        params_task["username"] = tfPhone.text
+        params_task["password"] = "123456"
+        params_task["nikename"] = "老一"
+        Net.requestWithTarget(.register(req: params_task), successClosure: { (result, code, message) in
+            if let str = result as? String {
+                if str == "ok" {
+                    print("注册成功")
+                    XBHud.showMsg("注册成功")
+                }else {
+                    XBHud.showMsg("注册失败")
+                }
+            }
+            print(result)
+        })
     }
     
     @IBAction func clickLoginAction(_ sender: Any) {

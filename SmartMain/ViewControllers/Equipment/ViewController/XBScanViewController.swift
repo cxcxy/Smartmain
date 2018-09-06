@@ -34,9 +34,7 @@ class XBScanViewController: XBBaseViewController,UIImagePickerControllerDelegate
         self.currentNavigationTitleColor = UIColor.white
         sessionManager = AVCaptureSessionManager(captureType: .AVCaptureTypeBoth, scanRect: CGRect.null, success: { (result) in
             if let r = result {
-                print(r)
-//                self .showResult(result: r)
-                XBHud.showMsg(r)
+                self.showResult(result: r)
             }
         })
         sessionManager?.showPreViewLayerIn(view: view)
@@ -108,8 +106,9 @@ class XBScanViewController: XBBaseViewController,UIImagePickerControllerDelegate
             self.sessionManager?.scanPhoto(image: info["UIImagePickerControllerOriginalImage"] as! UIImage, success: { (str) in
                 print(str)
                 if let result = str {
-//                    print(result)
-//                    self.showResult(result: result)
+
+                    self.showResult(result: result)
+
                 }else {
                     self.showResult(result: "未识别到二维码")
                 }
@@ -122,20 +121,18 @@ class XBScanViewController: XBBaseViewController,UIImagePickerControllerDelegate
 extension XBScanViewController {
     
     func showResult(result: String) {
-        if result.isFirstInclude("http") {
-            VCRouter.toWebView(webUrl: result)
-            return
+        let arr = result.components(separatedBy: "#")
+
+        var params_task = [String: Any]()
+        params_task["openId"] = "15900000001"
+        if arr.count > 1 {
+            params_task["deviceId"] = arr[1]
         }
-        if let data = result.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) {
-            let json_str = JSON(data)
-            if let biztype = json_str["biztype"].int, let bizdata = json_str["bizdata"].string{
-                self.requestData(biztype: biztype, param: bizdata)
-            }else {
-//                let vc = XBSacnResultViewController()
-//                vc.resultStr = result
-//                self.pushVC(vc)
-            }
-        }
+        
+        Net.requestWithTarget(.joinEquiment(req: params_task), successClosure: { (result, code, message) in
+            print(result)
+
+        })
 
     }
     

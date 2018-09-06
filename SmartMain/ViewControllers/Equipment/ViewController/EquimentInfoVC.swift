@@ -10,6 +10,16 @@ import UIKit
 
 class EquimentInfoVC: XBBaseTableViewController {
     var sourceArr:[String] = ["设备号","存储空间","固件版本"]
+    var valueArr: [String] = []
+    var equimentModel: EquipmentInfoModel! {
+        didSet {
+            let cardAvailable = (equimentModel.cardAvailable ?? 0).toString
+            let cardTotal = (equimentModel.cardTotal ?? 0).toString
+            let cardStr = cardAvailable + "/" + cardTotal
+            self.valueArr = [equimentModel.id ?? "", cardStr, equimentModel.firmwareVersion ?? ""]
+            self.tableView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,16 +40,20 @@ extension EquimentInfoVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return sourceArr.count
+        return valueArr.count
         
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipmentListCell", for: indexPath) as! EquipmentListCell
         cell.lbTitle.set_text = sourceArr[indexPath.row]
+        cell.lbNumber.set_text = valueArr[indexPath.row]
         return cell
 
         
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

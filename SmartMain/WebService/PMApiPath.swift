@@ -26,8 +26,13 @@ extension RequestApi {
         case .getTrackSubList: return "/track/getpage.do"
             // 登录接口
         case .login: return ""
-        case .register: return ""
+        case .register: return "/suportAPP/registUser.do"
+        case .familyRegister: return "/familymember/register.do"
+        case .getEquimentInfo: return "/boxinfo/get.do"
+        case .joinEquiment: return "/familymember/join.do"
+        case .joinEquimentGroup: return "/suportAPP/joinEaseGroup.do"
         default:
+            
             return ""
         }
     }

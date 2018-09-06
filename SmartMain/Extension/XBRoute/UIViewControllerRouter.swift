@@ -38,9 +38,10 @@ class VCRouter {
         
     }
     // MARK: - 跳转设备信息
-    class func toEquipmentInfoVC() {
+    class func toEquipmentInfoVC(equimentModel: EquipmentInfoModel!) {
         
         let vc = EquimentInfoVC()
+        vc.equimentModel = equimentModel
         topVC?.pushVC(vc)
         
     }

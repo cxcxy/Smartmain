@@ -29,6 +29,30 @@ class EquipmentModel: XBDataModel {
         play            <-    map["play"]
     }
 }
+//MARK: 设备信息
+class EquipmentInfoModel: XBDataModel {
+    var id:String?
+    var name: String?
+    var net: String?
+    var cardAvailable: Int?
+    var cardTotal: Int?
+    var electricity: Int?
+    var firmwareVersion: String?
+    var volume: Int?
+    var online: Int?
+    
+    override func mapping(map: Map) {
+        id             <-    map["id"]
+        name          <-    map["name"]
+        net            <-    map["net"]
+        cardAvailable            <-    map["cardAvailable"]
+        cardTotal            <-    map["cardTotal"]
+        electricity            <-    map["electricity"]
+        firmwareVersion            <-    map["firmwareVersion"]
+        volume            <-    map["volume"]
+        online            <-    map["online"]
+    }
+}
 class EquipmentSingModel: XBDataModel {
     var id:Int?
     var title: String?
