@@ -117,10 +117,7 @@ class XBNetManager {
                 self.log_print(jsonString, info)
         
                 guard let data = info.resdata else {
-                    XBHud.showWarnMsg("服务器内部错误")
-                    if let failClosure = failClosure{
-                        failClosure("服务器内部错误")
-                    }
+                    successClosure(jsonString as AnyObject, 200,"success")
                     return
                 }
 

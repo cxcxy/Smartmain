@@ -10,6 +10,7 @@ import UIKit
 
 class EquipmentListCell: BaseTableViewCell {
 
+    @IBOutlet weak var lbNumber: UILabel!
     @IBOutlet weak var lbTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

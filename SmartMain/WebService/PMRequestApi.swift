@@ -18,7 +18,12 @@ enum RequestApi{
     case contentsub(req: [String: Any])
     case getLikeList(openId: String)
     case getHistoryList(openId: String)
+    case getTrackList(deviceId: String)
+    case getTrackSubList(req: [String: Any])
     case contentsings(req: [String: Any])
+    case login(req: [String: Any])
+    case register(req: [String: Any])
+    case changePassword(req: [String: Any])
 }
 extension RequestApi {
     /**
@@ -62,7 +67,10 @@ extension RequestApi:TargetType{
     public var task: Task {
         var params_task = [String: Any]()
         switch self {
-        case .contentModules(let req):
+        case .contentModules(let req),
+             .login(let req),
+             .register(let req),
+             .changePassword(let req):
             params_task = req
             break
         case .contentsub(let req):
@@ -70,6 +78,14 @@ extension RequestApi:TargetType{
             break
         case .getLikeList(let openId):
             params_task["openId"] = openId
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
+        case .getTrackList(let deviceId):
+            params_task["deviceId"] = deviceId
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
+        case .getTrackSubList(let req):
+            params_task = req
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
         case .getHistoryList(let openId):
@@ -94,7 +110,7 @@ extension RequestApi:TargetType{
     // 接口请求类型
     public var method:Moya.Method{
         switch self {
-        case .getLikeList,.getHistoryList:
+        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList:
             return .get
         default:
             return .post

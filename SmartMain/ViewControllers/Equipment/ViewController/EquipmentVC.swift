@@ -9,18 +9,36 @@
 import UIKit
 
 class EquipmentVC: XBBaseTableViewController {
-
+    var dataArr: [EquipmentModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "我的设备"
         makeItemNavRight()
+        self.currentNavigationColor = MGRgb(0, g: 145, b: 222)
         tableView.cellId_register("EquipmentListCell")
     }
     func makeItemNavRight()  {
         //MARK: 点击添加商家
         makeCustomerImageNavigationItem("icon_tianjia", left: false) {
-            
+            VCRouter.qrCodeScanVC()
         }
+    }
+    override func setUI() {
+        super.setUI()
+          self.cofigMjHeader()
+        request()
+        
+    }
+    override func request() {
+        super.request()
+        Net.requestWithTarget(.getTrackList(deviceId: "3010290000045007_1275"), successClosure: { (result, code, message) in
+            print(result)
+            if let arr = Mapper<EquipmentModel>().mapArray(JSONString: result as! String) {
+                self.endRefresh()
+                self.dataArr = arr
+                self.tableView.reloadData()
+            }
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -34,7 +52,7 @@ extension EquipmentVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 4
+        return dataArr.count
         
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -45,13 +63,19 @@ extension EquipmentVC {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipmentListCell", for: indexPath) as! EquipmentListCell
-        
+        cell.lbTitle.set_text = dataArr[indexPath.row].name
+        let trackCount = dataArr[indexPath.row].trackCount ?? 0
+        cell.lbNumber.set_text = "共" + trackCount.toString + "首"
         return cell
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
-    VCRouter.toEquipmentSettingVC()
+//    VCRouter.toEquipmentSettingVC()
+//        let vc = LoginViewController()
+//        self.pushVC(vc)
+        VCRouter.toEquipmentSubListVC(trackListId: dataArr[indexPath.row].id ?? 0,navTitle: dataArr[indexPath.row].name)
     }
+    
     
 }

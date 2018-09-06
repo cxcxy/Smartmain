@@ -41,9 +41,15 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAG-x5-zds">
-                                <rect key="frame" x="75" y="30" width="37.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="75" y="30.5" width="208" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6C-Mg-qeG">
+                                <rect key="frame" x="293" y="32" width="31" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -52,6 +58,9 @@
                             <constraint firstItem="fAG-x5-zds" firstAttribute="leading" secondItem="MTD-id-dxz" secondAttribute="trailing" constant="15" id="GEM-8f-qtf"/>
                             <constraint firstItem="MTD-id-dxz" firstAttribute="leading" secondItem="zmW-5a-HFb" secondAttribute="leading" constant="15" id="GiL-3y-ZMM"/>
                             <constraint firstAttribute="height" constant="80" id="KO9-ne-20Y"/>
+                            <constraint firstAttribute="trailing" secondItem="R6C-Mg-qeG" secondAttribute="trailing" constant="15" id="QEV-q8-Fby"/>
+                            <constraint firstItem="R6C-Mg-qeG" firstAttribute="leading" secondItem="fAG-x5-zds" secondAttribute="trailing" constant="10" id="Rsz-ck-LSa"/>
+                            <constraint firstItem="R6C-Mg-qeG" firstAttribute="centerY" secondItem="fAG-x5-zds" secondAttribute="centerY" id="gYY-Og-Gbn"/>
                             <constraint firstItem="MTD-id-dxz" firstAttribute="centerY" secondItem="zmW-5a-HFb" secondAttribute="centerY" id="hyC-UK-YLa"/>
                             <constraint firstItem="fAG-x5-zds" firstAttribute="centerY" secondItem="MTD-id-dxz" secondAttribute="centerY" id="jXU-hM-m22"/>
                         </constraints>
@@ -59,17 +68,18 @@
                 </subviews>
                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="zmW-5a-HFb" secondAttribute="bottom" id="4dW-4x-kbL"/>
                     <constraint firstItem="zmW-5a-HFb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Qrx-lg-2vy"/>
                     <constraint firstAttribute="bottom" secondItem="ZPV-UP-Mam" secondAttribute="bottom" id="YqE-wr-1SB"/>
                     <constraint firstAttribute="trailing" secondItem="zmW-5a-HFb" secondAttribute="trailing" constant="15" id="aTQ-Mf-uMR"/>
                     <constraint firstItem="ZPV-UP-Mam" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="bBE-5b-HKp"/>
                     <constraint firstAttribute="trailing" secondItem="ZPV-UP-Mam" secondAttribute="trailing" constant="15" id="dbd-BG-FDf"/>
                     <constraint firstItem="zmW-5a-HFb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jyb-4l-e3l"/>
+                    <constraint firstItem="ZPV-UP-Mam" firstAttribute="top" secondItem="zmW-5a-HFb" secondAttribute="bottom" priority="750" id="xi8-aA-aEe"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lbNumber" destination="R6C-Mg-qeG" id="R8e-kG-Fa6"/>
                 <outlet property="lbTitle" destination="fAG-x5-zds" id="tfq-Vo-5jS"/>
             </connections>
             <point key="canvasLocation" x="0.5" y="52"/>

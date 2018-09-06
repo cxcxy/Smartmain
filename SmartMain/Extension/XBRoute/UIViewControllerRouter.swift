@@ -64,6 +64,16 @@ class VCRouter {
         topVC?.pushVC(vc)
         
     }
+    // MARK: - 跳转预制歌单列表界面
+    class func toEquipmentSubListVC(trackListId: Int!, navTitle: String?) {
+        
+        let vc = EquipmentSubListVC()
+        vc.trackListId = trackListId
+        vc.title = navTitle
+        topVC?.pushVC(vc)
+        
+    }
+    
     //
     // MARK: - 弹出选择器视图
     class func prentShareView(imgCode: UIImage,shareUrl: String) {
@@ -79,52 +89,53 @@ class VCRouter {
     }
 //
 }
-//extension VCRouter {
-//    
-//
-//    class func qrCodeScanVC(entarnceType: XBScanEntrance = .main,scanResultBlock: XBScanResultBlock? = nil) {
-//        
-//        let scanVC = XBScanViewController()
-//        scanVC.entarnceType = entarnceType
+import AVFoundation
+extension VCRouter {
+    
+
+    class func qrCodeScanVC(entarnceType: XBScanEntrance = .main) {
+        
+        let scanVC = XBScanViewController()
+        scanVC.entarnceType = entarnceType
 //        scanVC.block = scanResultBlock
-//        let device = AVCaptureDevice.default(for: .video)
-//        if device != nil {
-//            let status: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
-//            switch status {
-//            case .notDetermined:
-//                AVCaptureDevice.requestAccess(for: .video, completionHandler: {(_ granted: Bool) -> Void in
-//                    if granted {
-//                        DispatchQueue.main.sync(execute: {() -> Void in
-//                            topVC?.pushVC(scanVC)
-//                        })
-//                        print("用户第一次同意了访问相机权限 - - \(Thread.current)")
-//                    } else {
-//                        print("用户第一次拒绝了访问相机权限 - - \(Thread.current)")
-//                    }
-//                })
-//            case .authorized:
-//                    topVC?.pushVC(scanVC)
-//            case .denied:
-//                
-//                let alertC = UIAlertController(title: "温馨提示", message: "请去-> [设置 - 隐私 - 相机] 打开访问开关", preferredStyle: .alert)
-//                let alertA = UIAlertAction(title: "确定", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-//                })
-//                alertC.addAction(alertA)
-//                topVC?.presentVC(alertC)
-//                
-//            case .restricted:
-//                print("因为系统原因, 无法访问相册")
-//
-//            }
-//            return
-//        }
-//        let alertC = UIAlertController(title: "温馨提示", message: "未检测到您的摄像头", preferredStyle: .alert)
-//        let alertA = UIAlertAction(title: "确定", style: .default, handler: {(_ action: UIAlertAction) -> Void in
-//        })
-//        alertC.addAction(alertA)
-//        topVC?.presentVC(alertC)
-//    }
-//}
+        let device = AVCaptureDevice.default(for: .video)
+        if device != nil {
+            let status: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+            switch status {
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: {(_ granted: Bool) -> Void in
+                    if granted {
+                        DispatchQueue.main.sync(execute: {() -> Void in
+                            topVC?.pushVC(scanVC)
+                        })
+                        print("用户第一次同意了访问相机权限 - - \(Thread.current)")
+                    } else {
+                        print("用户第一次拒绝了访问相机权限 - - \(Thread.current)")
+                    }
+                })
+            case .authorized:
+                    topVC?.pushVC(scanVC)
+            case .denied:
+                
+                let alertC = UIAlertController(title: "温馨提示", message: "请去-> [设置 - 隐私 - 相机] 打开访问开关", preferredStyle: .alert)
+                let alertA = UIAlertAction(title: "确定", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+                })
+                alertC.addAction(alertA)
+                topVC?.presentVC(alertC)
+                
+            case .restricted:
+                print("因为系统原因, 无法访问相册")
+
+            }
+            return
+        }
+        let alertC = UIAlertController(title: "温馨提示", message: "未检测到您的摄像头", preferredStyle: .alert)
+        let alertA = UIAlertAction(title: "确定", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+        })
+        alertC.addAction(alertA)
+        topVC?.presentVC(alertC)
+    }
+}
 extension UINavigationController {
     /**
      *   push --- 淡入淡出动画

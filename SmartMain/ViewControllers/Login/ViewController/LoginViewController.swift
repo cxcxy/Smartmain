@@ -18,7 +18,6 @@ class LoginViewController: XBBaseViewController {
         super.viewDidLoad()
         title = "登录"
         self.currentNavigationNone = true
-        // Do any additional setup after loading the view.
     }
     override func setUI() {
         super.setUI()
@@ -31,9 +30,9 @@ class LoginViewController: XBBaseViewController {
         btnLogin.setCornerRadius(radius: 10)
         btnLogin.addBorder(width: 0.5, color: UIColor.darkGray)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func clickRegisterAction(_ sender: Any) {
@@ -41,14 +40,7 @@ class LoginViewController: XBBaseViewController {
         self.pushVC(vc)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func clickLoginAction(_ sender: Any) {
+        
     }
-    */
-
 }

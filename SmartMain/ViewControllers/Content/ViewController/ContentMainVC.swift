@@ -33,8 +33,8 @@ class ContentMainVC: XBBaseViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.currentNavigationColor = UIColor.white
-        self.currentNavigationTitleColor = UIColor.black
+//        self.currentNavigationColor = UIColor.white
+//        self.currentNavigationTitleColor = UIColor.black
         self.title = "内容"
         configMagicView()
         view.backgroundColor = UIColor.white

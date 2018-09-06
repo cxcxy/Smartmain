@@ -18,19 +18,22 @@ class ContentHeaderCell: BaseTableViewCell {
             self.pagerView.transformer = FSPagerViewTransformer(type: FSPagerViewTransformerType.linear)
         }
     }
-    
-//    @IBOutlet weak var pageControl: FSPageControl! {
-//        didSet {
-//            self.pageControl.numberOfPages = 3
-//            self.pageControl.contentHorizontalAlignment = .center
-//            self.pageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-//        }
-//    }
+    let itemWidth:CGFloat = ( MGScreenWidth - 20 - 30 ) / 4 // item 宽度
+    @IBOutlet weak var collectionView: UICollectionView!
+    var dataArr: [EquipmentModel] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        configCollectionView()
     }
-
+    func configCollectionView()  {
+        collectionView.cellId_register("ContentTitleCVCell")
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -58,13 +61,32 @@ extension ContentHeaderCell: FSPagerViewDataSource,FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
-//        self.pageControl.currentPage = index
     }
     
     func pagerViewDidScroll(_ pagerView: FSPagerView) {
-//        guard self.pageControl.currentPage != pagerView.currentIndex else {
-//            return
-//        }
-//        self.pageControl.currentPage = pagerView.currentIndex // Or Use KVO with property "currentIndex"
+
+    }
+}
+extension ContentHeaderCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataArr.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentTitleCVCell", for: indexPath)as! ContentTitleCVCell
+//        cell.imgIcon.set_Img_Url(contentArr[indexPath.row].imgSmall)
+        cell.lbTitle.set_text = dataArr[indexPath.row].name
+        return cell
+    }
+    //最小item间距
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    //item 的尺寸
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width:itemWidth,height:40)
+    }
+    //item 对应的点击事件
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        VCRouter.toEquipmentSubListVC(trackListId: dataArr[indexPath.row].id ?? 0,navTitle: dataArr[indexPath.row].name)
     }
 }
