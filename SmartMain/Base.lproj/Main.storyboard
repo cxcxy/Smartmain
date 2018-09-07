@@ -39,11 +39,19 @@
                                     <constraint firstAttribute="height" constant="50" id="Eor-7I-Eji"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="智能陪伴，快乐成长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T0-Xh-hEs">
+                                <rect key="frame" x="109.5" y="260" width="156" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MfR-nh-1we" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="287-lo-QIr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MfR-nh-1we" secondAttribute="bottom" constant="50" id="8hr-Yc-gZE"/>
+                            <constraint firstItem="8T0-Xh-hEs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="196" id="SML-dk-zWB"/>
+                            <constraint firstItem="8T0-Xh-hEs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="g0B-Rx-sR1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MfR-nh-1we" secondAttribute="trailing" constant="30" id="qFy-qf-fGM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

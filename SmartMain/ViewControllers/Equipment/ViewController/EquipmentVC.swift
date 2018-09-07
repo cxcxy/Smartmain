@@ -60,7 +60,11 @@ extension EquipmentVC {
         return 310
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return EquipmentTopView.loadFromNib()
+        let v = EquipmentTopView.loadFromNib()
+        v.addTapGesture { (sender) in
+            VCRouter.toEquipmentSettingVC()
+        }
+        return v
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipmentListCell", for: indexPath) as! EquipmentListCell
@@ -75,15 +79,15 @@ extension EquipmentVC {
 //    VCRouter.toEquipmentSettingVC()
 //        let vc = LoginViewController()
 //        self.pushVC(vc)
-        if indexPath.row == 0 {
-            VCRouter.toEquipmentSettingVC()
-            return
-        }
-        if indexPath.row == 1 {
-            let vc = LoginViewController()
-            self.pushVC(vc)
-            return
-        }
+//        if indexPath.row == 0 {
+//            VCRouter.toEquipmentSettingVC()
+//            return
+//        }
+//        if indexPath.row == 1 {
+//            let vc = LoginViewController()
+//            self.pushVC(vc)
+//            return
+//        }
         VCRouter.toEquipmentSubListVC(trackListId: dataArr[indexPath.row].id ?? 0,navTitle: dataArr[indexPath.row].name)
     }
     

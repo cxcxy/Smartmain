@@ -11,6 +11,7 @@ import UIKit
 class MeViewController: XBBaseViewController {
     @IBOutlet weak var viewInfo: UIView!
     
+    @IBOutlet weak var lbNickName: UILabel!
     @IBOutlet weak var viewAbout: UIView!
     @IBOutlet weak var btnLoginOut: UIButton!
     @IBOutlet weak var viewCenter: UIView!
@@ -31,6 +32,7 @@ class MeViewController: XBBaseViewController {
         btnLoginOut.setCornerRadius(radius: 15)
         self.currentNavigationNone = true
         viewPhoto.roundView()
+        lbNickName.set_text = user_defaults.get(for: .userName)
         viewInfo.addTapGesture { [weak self](sender) in
             let vc = MeInfoVC()
             self?.pushVC(vc)
@@ -49,6 +51,7 @@ class MeViewController: XBBaseViewController {
     }()
 
     @IBAction func clickLoginOutAction(_ sender: Any) {
+        user_defaults.clear(.userName)
         let sv = UIStoryboard.getVC("Main", identifier:"LoginNav") as! XBBaseNavigation
         popWindow.rootViewController = sv
     }

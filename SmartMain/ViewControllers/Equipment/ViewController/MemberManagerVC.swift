@@ -61,7 +61,7 @@ extension MemberManagerVC:UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     //item 的尺寸
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:200 ,height:200)
+        return CGSize(width:150 ,height:150)
     }
     //item 对应的点击事件
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

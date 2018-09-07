@@ -78,6 +78,9 @@
                                         <constraint firstAttribute="height" constant="20" id="tw8-Lw-Oyi"/>
                                     </constraints>
                                     <state key="normal" title="Button" image="icon_cexiao"/>
+                                    <connections>
+                                        <action selector="clickResetAction:" destination="-1" eventType="touchUpInside" id="FbN-yy-BPc"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,6 +114,9 @@
                                         <constraint firstAttribute="width" constant="20" id="TI6-Bz-WXc"/>
                                     </constraints>
                                     <state key="normal" title="Button" image="login_buxian"/>
+                                    <connections>
+                                        <action selector="clicResetPassAction:" destination="-1" eventType="touchUpInside" id="xsB-qE-1RI"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

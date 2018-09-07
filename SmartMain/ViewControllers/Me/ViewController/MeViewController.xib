@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController" customModule="SmartMain" customModuleProvider="target">
             <connections>
                 <outlet property="btnLoginOut" destination="h44-eu-I8s" id="ENg-mB-5to"/>
+                <outlet property="lbNickName" destination="Mbx-L0-eQt" id="ojZ-Zn-FOb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewAbout" destination="f0f-YV-92w" id="UrI-Xv-0Ry"/>
                 <outlet property="viewCenter" destination="x7D-Ol-xLr" id="dev-iZ-oex"/>

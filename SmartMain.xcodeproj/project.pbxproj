@@ -10,6 +10,7 @@
 		0413BECC21422542006E3A44 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413BECB21422541006E3A44 /* Defaults.swift */; };
 		0413BECF21424BC9006E3A44 /* MemberManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413BECD21424BC9006E3A44 /* MemberManagerVC.swift */; };
 		0413BED021424BC9006E3A44 /* MemberManagerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413BECE21424BC9006E3A44 /* MemberManagerVC.xib */; };
+		0413BED321426EB8006E3A44 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413BED221426EB8006E3A44 /* ChatViewController.swift */; };
 		0422ECD52140BE9E00A42D7A /* XBScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0422ECD32140BE9E00A42D7A /* XBScanViewController.xib */; };
 		0422ECD62140BE9E00A42D7A /* XBScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422ECD42140BE9E00A42D7A /* XBScanViewController.swift */; };
 		0422ECD82140BECC00A42D7A /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422ECD72140BECC00A42D7A /* AVCaptureSessionManager.swift */; };
@@ -136,6 +137,7 @@
 		0413BECB21422541006E3A44 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		0413BECD21424BC9006E3A44 /* MemberManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManagerVC.swift; sourceTree = "<group>"; };
 		0413BECE21424BC9006E3A44 /* MemberManagerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberManagerVC.xib; sourceTree = "<group>"; };
+		0413BED221426EB8006E3A44 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0422ECD32140BE9E00A42D7A /* XBScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBScanViewController.xib; sourceTree = "<group>"; };
 		0422ECD42140BE9E00A42D7A /* XBScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBScanViewController.swift; sourceTree = "<group>"; };
 		0422ECD72140BECC00A42D7A /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
@@ -280,6 +282,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0413BED121426EA2006E3A44 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0413BED221426EB8006E3A44 /* ChatViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		04C386C8213E093F0063A799 /* WebService */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +519,7 @@
 		04C389E4213E22CA0063A799 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				0413BED121426EA2006E3A44 /* ViewController */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1007,6 +1018,7 @@
 				04C38A08213E6CD70063A799 /* ContentShowCVCell.swift in Sources */,
 				04C38739213E093F0063A799 /* UIViewExtension.swift in Sources */,
 				2DC9558A213EAC18004D6F65 /* EquipmentSettingVC.swift in Sources */,
+				0413BED321426EB8006E3A44 /* ChatViewController.swift in Sources */,
 				0422ECDF214110E000A42D7A /* ContentTitleCVCell.swift in Sources */,
 				2DC9559F213FF3BE004D6F65 /* LoginViewController.swift in Sources */,
 				04C38715213E093F0063A799 /* PMRequestApi.swift in Sources */,
@@ -1164,7 +1176,7 @@
 				INFOPLIST_FILE = SmartMain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.SmartMain;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiben.pmdebug.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartMain/SmartMain-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1185,7 +1197,7 @@
 				INFOPLIST_FILE = SmartMain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.SmartMain;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiben.pmdebug.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartMain/SmartMain-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

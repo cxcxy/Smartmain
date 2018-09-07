@@ -18,6 +18,9 @@ class ContentHeaderCell: BaseTableViewCell {
             self.pagerView.transformer = FSPagerViewTransformer(type: FSPagerViewTransformerType.linear)
         }
     }
+    
+    var sourceArr: [String] = ["WechatIMG1275","WechatIMG1276","WechatIMG1277"]
+    
     let itemWidth:CGFloat = ( MGScreenWidth - 20 - 30 ) / 4 // item 宽度
     @IBOutlet weak var collectionView: UICollectionView!
     var dataArr: [EquipmentModel] = [] {
@@ -43,7 +46,7 @@ class ContentHeaderCell: BaseTableViewCell {
 }
 extension ContentHeaderCell: FSPagerViewDataSource,FSPagerViewDelegate {
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return 3
+        return sourceArr.count
     }
     
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
@@ -53,6 +56,7 @@ extension ContentHeaderCell: FSPagerViewDataSource,FSPagerViewDelegate {
         cell.imageView?.clipsToBounds = true
         cell.imageView?.backgroundColor = UIColor.orange
         cell.imageView?.setCornerRadius(radius: 5)
+        cell.imageView?.set_img = sourceArr[index]
         return cell
     }
     

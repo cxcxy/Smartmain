@@ -79,11 +79,22 @@ class LoginViewController: XBBaseViewController {
             print(result)
         })
     }
+    @IBAction func clickResetAction(_ sender: Any) {
+        self.tfPhone.text = ""
+    }
+    
+    @IBAction func clicResetPassAction(_ sender: Any) {
+        tfPassword.text = ""
+    }
     lazy var popWindow:UIWindow = {
         let w = UIApplication.shared.delegate as! AppDelegate
         return w.window!
     }()
     @IBAction func clickLoginAction(_ sender: Any) {
+        if tfPhone.text! == "" {
+            XBHud.showMsg("请输入手机号")
+            return
+        }
         XBUserManager.saveUserInfo(self.tfPhone.text!)
         let vc = XBTabBarController()
         popWindow.rootViewController = vc

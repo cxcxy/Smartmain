@@ -308,26 +308,26 @@ extension XBBaseViewController:UITableViewDelegate,UITableViewDataSource {
 
 // 空白展位图
 extension XBBaseViewController:DZNEmptyDataSetDelegate,DZNEmptyDataSetSource{
-//    @objc(titleForEmptyDataSet:) func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-//
-//        return XBNoDataTitle
-//    }
+    @objc(titleForEmptyDataSet:) func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+
+        return XBNoDataTitle
+    }
     @objc(backgroundColorForEmptyDataSet:) func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
         return tableColor
     }
-    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-        guard self.loading else {
-            return UIView()
-        }
-//        if WOWNetWorkType.getNetWorkType() {
-//            let viewNoneTask =  ArchivesNoDataView.loadFromNib()
-//            viewNoneTask.lbContent.text = XBEmptyManager.emptyArr[self.identifier()]
-//            viewNoneTask.lbContent.setXBLine_Style()
-//            return viewNoneTask
-//        }else {
-            return UIView()
+//    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+//        guard self.loading else {
+//            return UIView()
 //        }
-    }
+////        if WOWNetWorkType.getNetWorkType() {
+////            let viewNoneTask =  ArchivesNoDataView.loadFromNib()
+////            viewNoneTask.lbContent.text = XBEmptyManager.emptyArr[self.identifier()]
+////            viewNoneTask.lbContent.setXBLine_Style()
+////            return viewNoneTask
+////        }else {
+//            return UIView()
+////        }
+//    }
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return true
     }

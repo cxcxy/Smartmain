@@ -67,7 +67,7 @@ extension EquipmentSettingVC {
             if let equimentModel = self.equimentModel {
                 VCRouter.toEquipmentInfoVC(equimentModel: equimentModel)
             }
-        case 2:
+        case 4:
             let vc = MemberManagerVC()
             self.pushVC(vc)
         default:

@@ -86,7 +86,6 @@ extension ContentSingsVC {
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        XBHud.showMsg("点击了")
         self.requestOnlineSing(trackId: dataArr[indexPath.row].resId ?? "")
     }
     func requestOnlineSing(trackId: String)  {

@@ -22,7 +22,11 @@ class LikeViewController: XBBaseTableViewController {
     }
     override func request() {
         super.request()
-        Net.requestWithTarget(.getLikeList(openId: "17621969367"), successClosure: { (result, code, message) in
+        guard let phone = user_defaults.get(for: .userName) else {
+            XBHud.showMsg("请登录")
+            return
+        }
+        Net.requestWithTarget(.getLikeList(openId: phone), successClosure: { (result, code, message) in
             print(result)
             if let arr = Mapper<ConetentLikeModel>().mapArray(JSONString: result as! String) {
                 if self.pageIndex == 1 {
