@@ -28,6 +28,8 @@ enum RequestApi{
     case getEquimentInfo(deviceId: String)
     case joinEquiment(req: [String: Any])
     case joinEquimentGroup(req: [String: Any])
+    case getFamilyMemberList(deviceId: String)
+    case onlineSing(openId:String, trackId: String)
 }
 extension RequestApi {
     /**
@@ -80,15 +82,15 @@ extension RequestApi:TargetType{
              .joinEquimentGroup(let req):
             params_task = req
             break
+        case .onlineSing(let openId,let trackId):
+            params_task["openId"] = openId
+            params_task["trackId"] = trackId
+            break
         case .contentsub(let req):
             params_task = req
             break
         case .getLikeList(let openId):
             params_task["openId"] = openId
-            return .requestParameters(parameters: params_task,
-                                      encoding: URLEncoding.default)
-        case .getTrackList(let deviceId):
-            params_task["deviceId"] = deviceId
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
         case .getTrackSubList(let req):
@@ -99,10 +101,13 @@ extension RequestApi:TargetType{
             params_task["openId"] = openId
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
-        case .getEquimentInfo(let deviceId):
+        case .getEquimentInfo(let deviceId),
+             .getFamilyMemberList(let deviceId),
+             .getTrackList(let deviceId):
             params_task["deviceId"] = deviceId
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
+
         case .contentsings(let req):
             params_task = req
             break
@@ -121,7 +126,7 @@ extension RequestApi:TargetType{
     // 接口请求类型
     public var method:Moya.Method{
         switch self {
-        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,.getEquimentInfo:
+        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,.getEquimentInfo,.getFamilyMemberList:
             return .get
         default:
             return .post

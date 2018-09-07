@@ -81,3 +81,24 @@ class EquipmentSingModel: XBDataModel {
         status            <-    map["status"]
     }
 }
+
+class FamilyMemberModel: XBDataModel {
+
+    var openId: String?
+    var nickname: String?
+    var deviceId: String?
+    var headImgUrl: String?
+    var type: Int?
+    var admin: Int?
+    
+    
+    override func mapping(map: Map) {
+        openId             <-    map["openId"]
+        nickname             <-    map["nickname"]
+        deviceId          <-    map["deviceId"]
+        headImgUrl            <-    map["headImgUrl"]
+        type            <-    map["type"]
+        admin            <-    map["admin"]
+
+    }
+}

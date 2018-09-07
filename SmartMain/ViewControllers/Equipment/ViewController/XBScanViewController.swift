@@ -124,19 +124,42 @@ extension XBScanViewController {
         let arr = result.components(separatedBy: "#")
 
         var params_task = [String: Any]()
-        params_task["openId"] = "15900000005"
+        params_task["openId"] = user_defaults.get(for: .userName)
         if arr.count > 1 {
-            params_task["deviceId"] = arr[1]
+            params_task["deviceId"] = testDeviceId
         }
         
         Net.requestWithTarget(.joinEquiment(req: params_task), successClosure: { (result, code, message) in
             print(result)
-
+            if let str = result as? String {
+                if str == "ok" {
+                    print("加入成功")
+                    self.requestJoinEaseGroup(username: user_defaults.get(for: .userName), deviceId: arr[1])
+                }else {
+                    XBHud.showMsg("第一步加入失败")
+                }
+            }
         })
 
     }
     
-    func requestVolumeData(verificationCode : String)  {
+    func requestJoinEaseGroup(username: String?,deviceId:String?)  {
+        var params_task = [String: Any]()
+        
+        params_task["username"] = username
+        params_task["deviceId"] = testDeviceId
+
+        Net.requestWithTarget(.joinEquimentGroup(req: params_task), successClosure: { (result, code, message) in
+            print(result)
+            if let str = result as? String {
+                if str == "ok" {
+                    print("加入成功")
+                    XBHud.showMsg("加入成功")
+                }else {
+                    XBHud.showMsg("第二步加入失败")
+                }
+            }
+        })
         //发放优惠卷接口
 //        XBNetManager.shared.requestWithTarget(.api_accountPutin(req: ["verificationCode": verificationCode]), successClosure: { (result, code, message) in
 //

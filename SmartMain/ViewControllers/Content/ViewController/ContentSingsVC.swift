@@ -87,6 +87,19 @@ extension ContentSingsVC {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         XBHud.showMsg("点击了")
+        self.requestOnlineSing(trackId: dataArr[indexPath.row].resId ?? "")
     }
-    
+    func requestOnlineSing(trackId: String)  {
+        Net.requestWithTarget(.onlineSing(openId: user_defaults.get(for: .userName)!, trackId: trackId), successClosure: { (result, code, message) in
+            if let str = result as? String {
+                if str == "ok" {
+                    XBHud.showMsg("点播成功")
+   
+                    
+                }else {
+                    XBHud.showMsg("点播失败")
+                }
+            }
+        })
+    }
 }

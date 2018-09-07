@@ -24,7 +24,7 @@ class EquipmentSettingVC: XBBaseTableViewController {
     override func request() {
         super.request()
 //
-        Net.requestWithTarget(.getEquimentInfo(deviceId: "3010290000045007_1275"), successClosure: { (result, code, message) in
+        Net.requestWithTarget(.getEquimentInfo(deviceId: testDeviceId), successClosure: { (result, code, message) in
             if let model = Mapper<EquipmentInfoModel>().map(JSONString: result as! String) {
                 self.endRefresh()
                 self.equimentModel = model
@@ -67,7 +67,9 @@ extension EquipmentSettingVC {
             if let equimentModel = self.equimentModel {
                 VCRouter.toEquipmentInfoVC(equimentModel: equimentModel)
             }
-            
+        case 2:
+            let vc = MemberManagerVC()
+            self.pushVC(vc)
         default:
             break
         }

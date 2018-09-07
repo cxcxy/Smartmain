@@ -70,9 +70,8 @@ class LoginViewController: XBBaseViewController {
                 if str == "ok" {
                     print("注册成功")
                     XBHud.showMsg("注册成功")
+                    XBUserManager.saveUserInfo(self.tfPhone.text!)
 
-//
-//                    self.pushVC(vc)
                 }else {
                     XBHud.showMsg("注册失败")
                 }

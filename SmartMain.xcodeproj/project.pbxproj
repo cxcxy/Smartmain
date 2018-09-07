@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0413BECC21422542006E3A44 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413BECB21422541006E3A44 /* Defaults.swift */; };
+		0413BECF21424BC9006E3A44 /* MemberManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413BECD21424BC9006E3A44 /* MemberManagerVC.swift */; };
+		0413BED021424BC9006E3A44 /* MemberManagerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0413BECE21424BC9006E3A44 /* MemberManagerVC.xib */; };
 		0422ECD52140BE9E00A42D7A /* XBScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0422ECD32140BE9E00A42D7A /* XBScanViewController.xib */; };
 		0422ECD62140BE9E00A42D7A /* XBScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422ECD42140BE9E00A42D7A /* XBScanViewController.swift */; };
 		0422ECD82140BECC00A42D7A /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0422ECD72140BECC00A42D7A /* AVCaptureSessionManager.swift */; };
@@ -74,11 +77,6 @@
 		04C38987213E0B5A0063A799 /* XBBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C38843213E0B590063A799 /* XBBaseViewController.swift */; };
 		04C38988213E0B5A0063A799 /* XBBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C38845213E0B590063A799 /* XBBaseModel.swift */; };
 		04C389D3213E160E0063A799 /* XBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389D2213E160E0063A799 /* XBTabBarController.swift */; };
-		04C389D5213E163F0063A799 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389D4213E163F0063A799 /* TwoViewController.swift */; };
-		04C389D7213E164B0063A799 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389D6213E164B0063A799 /* ThreeViewController.swift */; };
-		04C389DB213E183A0063A799 /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389DA213E183A0063A799 /* FourViewController.swift */; };
-		04C389E0213E21BA0063A799 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389DE213E21BA0063A799 /* OneViewController.swift */; };
-		04C389E1213E21BA0063A799 /* OneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C389DF213E21BA0063A799 /* OneViewController.xib */; };
 		04C389EB213E231D0063A799 /* EquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389EA213E231D0063A799 /* EquipmentVC.swift */; };
 		04C389ED213E25500063A799 /* EquipmentTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C389EC213E25500063A799 /* EquipmentTopView.swift */; };
 		04C389EF213E25800063A799 /* EquipmentTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C389EE213E25800063A799 /* EquipmentTopView.xib */; };
@@ -119,7 +117,6 @@
 		2DC9558D213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9558B213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift */; };
 		2DC9558E213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9558C213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib */; };
 		2DC95590213EB210004D6F65 /* EquimentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9558F213EB210004D6F65 /* EquimentInfoVC.swift */; };
-		2DC95592213EB36B004D6F65 /* MemberManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */; };
 		2DC95598213EBCC7004D6F65 /* ContentReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */; };
 		2DC9559A213ECD62004D6F65 /* ContentSubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC95599213ECD62004D6F65 /* ContentSubVC.swift */; };
 		2DC9559F213FF3BE004D6F65 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9559D213FF3BE004D6F65 /* LoginViewController.swift */; };
@@ -136,6 +133,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0413BECB21422541006E3A44 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		0413BECD21424BC9006E3A44 /* MemberManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManagerVC.swift; sourceTree = "<group>"; };
+		0413BECE21424BC9006E3A44 /* MemberManagerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberManagerVC.xib; sourceTree = "<group>"; };
 		0422ECD32140BE9E00A42D7A /* XBScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBScanViewController.xib; sourceTree = "<group>"; };
 		0422ECD42140BE9E00A42D7A /* XBScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBScanViewController.swift; sourceTree = "<group>"; };
 		0422ECD72140BECC00A42D7A /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
@@ -208,11 +208,6 @@
 		04C38843213E0B590063A799 /* XBBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBBaseViewController.swift; sourceTree = "<group>"; };
 		04C38845213E0B590063A799 /* XBBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBBaseModel.swift; sourceTree = "<group>"; };
 		04C389D2213E160E0063A799 /* XBTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBTabBarController.swift; sourceTree = "<group>"; };
-		04C389D4213E163F0063A799 /* TwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
-		04C389D6213E164B0063A799 /* ThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
-		04C389DA213E183A0063A799 /* FourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
-		04C389DE213E21BA0063A799 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
-		04C389DF213E21BA0063A799 /* OneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OneViewController.xib; sourceTree = "<group>"; };
 		04C389EA213E231D0063A799 /* EquipmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVC.swift; sourceTree = "<group>"; };
 		04C389EC213E25500063A799 /* EquipmentTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentTopView.swift; sourceTree = "<group>"; };
 		04C389EE213E25800063A799 /* EquipmentTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentTopView.xib; sourceTree = "<group>"; };
@@ -255,7 +250,6 @@
 		2DC9558B213EAC4C004D6F65 /* EquipmentSetHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentSetHeaderCell.swift; sourceTree = "<group>"; };
 		2DC9558C213EAC4C004D6F65 /* EquipmentSetHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentSetHeaderCell.xib; sourceTree = "<group>"; };
 		2DC9558F213EB210004D6F65 /* EquimentInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquimentInfoVC.swift; sourceTree = "<group>"; };
-		2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManagerVC.swift; sourceTree = "<group>"; };
 		2DC95597213EBCC7004D6F65 /* ContentReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentReqModel.swift; sourceTree = "<group>"; };
 		2DC95599213ECD62004D6F65 /* ContentSubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSubVC.swift; sourceTree = "<group>"; };
 		2DC9559D213FF3BE004D6F65 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +364,7 @@
 		04C386EE213E093F0063A799 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0413BECB21422541006E3A44 /* Defaults.swift */,
 				04C38A1A213E7FF40063A799 /* FSPagerView */,
 				04C386F3213E093F0063A799 /* ETPopView */,
 				04C386F6213E093F0063A799 /* BYFoundationLog.m */,
@@ -525,7 +520,8 @@
 				0422ECDB2140D08B00A42D7A /* EquipmentSubListVC.swift */,
 				2DC95589213EAC18004D6F65 /* EquipmentSettingVC.swift */,
 				2DC9558F213EB210004D6F65 /* EquimentInfoVC.swift */,
-				2DC95591213EB36B004D6F65 /* MemberManagerVC.swift */,
+				0413BECD21424BC9006E3A44 /* MemberManagerVC.swift */,
+				0413BECE21424BC9006E3A44 /* MemberManagerVC.xib */,
 				0422ECD72140BECC00A42D7A /* AVCaptureSessionManager.swift */,
 				0422ECD42140BE9E00A42D7A /* XBScanViewController.swift */,
 				0422ECD32140BE9E00A42D7A /* XBScanViewController.xib */,
@@ -643,11 +639,6 @@
 				04C38749213E0B590063A799 /* ViewControllers */,
 				2D312A9A213D560100FCC499 /* AppDelegate.swift */,
 				2D312A9C213D560100FCC499 /* ViewController.swift */,
-				04C389D6213E164B0063A799 /* ThreeViewController.swift */,
-				04C389D4213E163F0063A799 /* TwoViewController.swift */,
-				04C389DE213E21BA0063A799 /* OneViewController.swift */,
-				04C389DF213E21BA0063A799 /* OneViewController.xib */,
-				04C389DA213E183A0063A799 /* FourViewController.swift */,
 				2D312A9E213D560100FCC499 /* Main.storyboard */,
 				2D312AA1213D560100FCC499 /* Assets.xcassets */,
 				2D312AA3213D560100FCC499 /* LaunchScreen.storyboard */,
@@ -826,10 +817,10 @@
 				04C38712213E093F0063A799 /* Configuration.plist in Resources */,
 				2D312AA2213D560100FCC499 /* Assets.xcassets in Resources */,
 				2D312AA0213D560100FCC499 /* Main.storyboard in Resources */,
+				0413BED021424BC9006E3A44 /* MemberManagerVC.xib in Resources */,
 				2DC95588213E9EBB004D6F65 /* MeViewController.xib in Resources */,
 				0422ECD52140BE9E00A42D7A /* XBScanViewController.xib in Resources */,
 				04C38A01213E64170063A799 /* ContentHeaderCell.xib in Resources */,
-				04C389E1213E21BA0063A799 /* OneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,7 +943,7 @@
 				04C3872C213E093F0063A799 /* UIViewController+.swift in Sources */,
 				04C38988213E0B5A0063A799 /* XBBaseModel.swift in Sources */,
 				04C38713213E093F0063A799 /* PMConfigManager.swift in Sources */,
-				04C389D5213E163F0063A799 /* TwoViewController.swift in Sources */,
+				0413BECF21424BC9006E3A44 /* MemberManagerVC.swift in Sources */,
 				2DC9559A213ECD62004D6F65 /* ContentSubVC.swift in Sources */,
 				2D312A9D213D560100FCC499 /* ViewController.swift in Sources */,
 				04C38721213E093F0063A799 /* AddImagePickerFragment.swift in Sources */,
@@ -970,14 +961,12 @@
 				04C38985213E0B5A0063A799 /* XBBaseTableViewController.swift in Sources */,
 				04C3872B213E093F0063A799 /* String+.swift in Sources */,
 				04C389ED213E25500063A799 /* EquipmentTopView.swift in Sources */,
-				04C389D7213E164B0063A799 /* ThreeViewController.swift in Sources */,
 				04C3873A213E093F0063A799 /* PhotoToolBar.swift in Sources */,
 				0422ECD62140BE9E00A42D7A /* XBScanViewController.swift in Sources */,
 				043E118C213FB3120067ADF3 /* ContentSubShowCell.swift in Sources */,
 				2DC955A7213FFC8C004D6F65 /* AboutMeVC.swift in Sources */,
 				04C38A26213E7FF40063A799 /* FSPageViewLayout.swift in Sources */,
 				04C38716213E093F0063A799 /* PMNetManager.swift in Sources */,
-				04C389E0213E21BA0063A799 /* OneViewController.swift in Sources */,
 				2DC955B0213FFE17004D6F65 /* MeInfoHaderCell.swift in Sources */,
 				04C38A11213E6EEA0063A799 /* HistoryViewController.swift in Sources */,
 				043E119A213FCCAC0067ADF3 /* ContentSingCell.swift in Sources */,
@@ -989,7 +978,6 @@
 				04C3871F213E093F0063A799 /* XBJpushManager.swift in Sources */,
 				04C38736213E093F0063A799 /* BYFoundationLog.m in Sources */,
 				04C38734213E093F0063A799 /* ETPopupViewExtension.swift in Sources */,
-				04C389DB213E183A0063A799 /* FourViewController.swift in Sources */,
 				04C38718213E093F0063A799 /* XBThirdID.swift in Sources */,
 				043E1193213FC0E70067ADF3 /* ContentSingHaderView.swift in Sources */,
 				043E1190213FB8FE0067ADF3 /* ContentSingsVC.swift in Sources */,
@@ -997,7 +985,6 @@
 				04C3872D213E093F0063A799 /* UILabel+.swift in Sources */,
 				04C3897E213E0B5A0063A799 /* XBBaseNavigation.swift in Sources */,
 				04C389F9213E33330063A799 /* ContentMainVC.swift in Sources */,
-				2DC95592213EB36B004D6F65 /* MemberManagerVC.swift in Sources */,
 				0422ECD82140BECC00A42D7A /* AVCaptureSessionManager.swift in Sources */,
 				04C38742213E09400063A799 /* PPAddressBookHandle.swift in Sources */,
 				04C38A22213E7FF40063A799 /* FSPagerView.swift in Sources */,
@@ -1005,6 +992,7 @@
 				04C3872E213E093F0063A799 /* XBExtensionAdd.swift in Sources */,
 				04C3873B213E093F0063A799 /* PhotoViewCell.swift in Sources */,
 				2DC955AB213FFDE4004D6F65 /* MeInfoVC.swift in Sources */,
+				0413BECC21422542006E3A44 /* Defaults.swift in Sources */,
 				04C38745213E09400063A799 /* XBButton.swift in Sources */,
 				2DC955A3213FFA98004D6F65 /* RegisterViewController.swift in Sources */,
 				04C38A25213E7FF40063A799 /* FSPagerViewLayoutAttributes.swift in Sources */,

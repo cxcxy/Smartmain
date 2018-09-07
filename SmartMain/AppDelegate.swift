@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        if user_defaults.has(.userName) {
+            print("登录过")
+            let vc = XBTabBarController()
+            window?.rootViewController = vc
+        }else {
+            print("未登录过")
+            let sv = UIStoryboard.getVC("Main", identifier:"LoginNav") as! XBBaseNavigation
+            window?.rootViewController = sv
+        }
         IQKeyboardManager.sharedManager().enable = true
         return true
     }

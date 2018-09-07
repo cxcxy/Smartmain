@@ -28,9 +28,16 @@ extension RequestApi {
         case .login: return ""
         case .register: return "/suportAPP/registUser.do"
         case .familyRegister: return "/familymember/register.do"
+        // 获取设备信息
         case .getEquimentInfo: return "/boxinfo/get.do"
+            // 加入设备第一步
         case .joinEquiment: return "/familymember/join.do"
+            // 加入设备第二步
         case .joinEquimentGroup: return "/suportAPP/joinEaseGroup.do"
+        //根据设备号获取群组成员列表
+        case .getFamilyMemberList: return "/familymember/getlist.do"
+        //在线点播
+        case .onlineSing: return "/demand/online/save.do"
         default:
             
             return ""

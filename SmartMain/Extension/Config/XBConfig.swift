@@ -23,6 +23,9 @@ public func XBApiLog<T> (_ value: T , fileName : String = #file, function:String
         print("\(value)")
     }
 }
+let testDeviceId = "3010290000045007_1275"
+
+
 //MARK:   延迟多少秒 回掉
 struct XBDelay {
     static func start(delay:Double, closure:@escaping ()->()) {
