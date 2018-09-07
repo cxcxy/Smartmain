@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="SmartMain" customModuleProvider="target">
             <connections>
                 <outlet property="btnLogin" destination="4FL-nD-5uk" id="WZ1-qI-kUi"/>
+                <outlet property="tfPassword" destination="YtK-wV-zdF" id="Zhd-in-SZT"/>
                 <outlet property="tfPhone" destination="VdR-XB-7l0" id="2Fi-37-J4O"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewPassword" destination="Ujf-wf-KMB" id="V5h-iq-Kmr"/>
@@ -155,6 +156,9 @@
                     <state key="normal" title="登录">
                         <color key="titleColor" white="0.0" alpha="0.89667166095890416" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="clickLoginAction:" destination="-1" eventType="touchUpInside" id="j1R-EO-zf6"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnq-aR-qyA">
                     <rect key="frame" x="137.33333333333334" y="638" width="100" height="30"/>

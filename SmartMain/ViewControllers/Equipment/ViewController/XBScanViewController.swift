@@ -124,7 +124,7 @@ extension XBScanViewController {
         let arr = result.components(separatedBy: "#")
 
         var params_task = [String: Any]()
-        params_task["openId"] = "15900000001"
+        params_task["openId"] = "15900000005"
         if arr.count > 1 {
             params_task["deviceId"] = arr[1]
         }

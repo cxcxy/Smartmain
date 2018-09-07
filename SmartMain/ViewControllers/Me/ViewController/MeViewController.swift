@@ -42,18 +42,15 @@ class MeViewController: XBBaseViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
+    lazy var popWindow:UIWindow = {
+        let w = UIApplication.shared.delegate as! AppDelegate
+        return w.window!
+    }()
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func clickLoginOutAction(_ sender: Any) {
+        let sv = UIStoryboard.getVC("Main", identifier:"LoginNav") as! XBBaseNavigation
+        popWindow.rootViewController = sv
     }
-    */
 
 }

@@ -8,14 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: XBBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.currentNavigationHidden = true
    
     }
-
+    @IBAction func clickLoginAction(_ sender: Any) {
+//        let vc = XBTabBarController()
+//        self.pushVC(vc)
+        let vc = LoginViewController()
+        self.pushVC(vc)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

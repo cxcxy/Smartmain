@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: XBBaseViewController {
     @IBOutlet weak var viewPassword: UIView!
     
+    @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfPhone: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var viewPhone: UIView!
@@ -44,13 +45,14 @@ class LoginViewController: XBBaseViewController {
         
         var params_task = [String: Any]()
         params_task["username"] = tfPhone.text
-        params_task["password"] = "123456"
-        params_task["nikename"] = "老一"
+        params_task["password"] = tfPassword.text
+        params_task["nikename"] = "智伴小达人"
         Net.requestWithTarget(.register(req: params_task), successClosure: { (result, code, message) in
             if let str = result as? String {
                 if str == "ok" {
                     print("注册成功")
-                    XBHud.showMsg("注册成功")
+//                    XBHud.showMsg("注册成功")
+                    self.requestFamilyRegister()
                 }else {
                     XBHud.showMsg("注册失败")
                 }
@@ -58,8 +60,32 @@ class LoginViewController: XBBaseViewController {
             print(result)
         })
     }
-    
+    func requestFamilyRegister()  {
+        var params_task = [String: Any]()
+        params_task["openId"] = tfPhone.text
+        params_task["type"] = 2
+        params_task["nickname"] = "智伴小达人"
+        Net.requestWithTarget(.familyRegister(req: params_task), successClosure: { (result, code, message) in
+            if let str = result as? String {
+                if str == "ok" {
+                    print("注册成功")
+                    XBHud.showMsg("注册成功")
+
+//
+//                    self.pushVC(vc)
+                }else {
+                    XBHud.showMsg("注册失败")
+                }
+            }
+            print(result)
+        })
+    }
+    lazy var popWindow:UIWindow = {
+        let w = UIApplication.shared.delegate as! AppDelegate
+        return w.window!
+    }()
     @IBAction func clickLoginAction(_ sender: Any) {
-        
+        let vc = XBTabBarController()
+        popWindow.rootViewController = vc
     }
 }
