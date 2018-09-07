@@ -11,14 +11,13 @@ import Moya
  *   定义一个接口的 Api 格式
  */
 enum RequestApi{
-    
-    //MARK: 登录注册相关接口
-   
+
     case contentModules(req: [String: Any])
     case contentsub(req: [String: Any])
     case getLikeList(openId: String)
     case getHistoryList(openId: String)
     case getTrackList(deviceId: String)
+    case getSingleTrack(id: Int)
     case getTrackSubList(req: [String: Any])
     case contentsings(req: [String: Any])
     case login(req: [String: Any])
@@ -26,10 +25,25 @@ enum RequestApi{
     case familyRegister(req: [String: Any])
     case changePassword(req: [String: Any])
     case getEquimentInfo(deviceId: String)
+    case modifyDeviceName(req: [String: Any])
+    case modifyDeviceVolume(req: [String: Any])
     case joinEquiment(req: [String: Any])
     case joinEquimentGroup(req: [String: Any])
     case getFamilyMemberList(deviceId: String)
     case onlineSing(openId:String, trackId: String)
+    case deleteDemand(req: [String: Any])
+    case saveLikeSing(req: [String: Any])
+    case addSingsToTrack(req: [String: Any])
+    case copyToNewTrackList(req: [String: Any])
+    case moveToNewTrackList(req: [String: Any])
+    case removeSingsList(req:[String: Any])
+    case addTrackList(req: [String: Any])
+    case deleteTrackList(req: [String: Any])
+    case deleteLikeSing(req: [String: Any])
+    case sendVoiceDevice(req: [String: Any])
+    case uploadAvatar(req: [String: Any])
+    case resetAvatar(req: [String: Any])
+    case modifyNickname(req: [String: Any])
 }
 extension RequestApi {
     /**
@@ -79,9 +93,26 @@ extension RequestApi:TargetType{
              .changePassword(let req),
              .familyRegister(let req),
              .joinEquiment(let req),
-             .joinEquimentGroup(let req):
+             .joinEquimentGroup(let req),
+             .sendVoiceDevice(let req),
+             .resetAvatar(let req),
+             .modifyDeviceName(let req),
+             .modifyDeviceVolume(let req),
+             .deleteDemand(let req),
+             .saveLikeSing(let req),
+             .deleteLikeSing(let req),
+             .addSingsToTrack(let req),
+             .copyToNewTrackList(let req),
+             .moveToNewTrackList(let req),
+             .removeSingsList(let req),
+             .addTrackList(let req),
+             .deleteTrackList(let req):
             params_task = req
             break
+        case .getSingleTrack(let id):
+            params_task["id"] = id
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
         case .onlineSing(let openId,let trackId):
             params_task["openId"] = openId
             params_task["trackId"] = trackId
@@ -126,7 +157,7 @@ extension RequestApi:TargetType{
     // 接口请求类型
     public var method:Moya.Method{
         switch self {
-        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,.getEquimentInfo,.getFamilyMemberList:
+        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,.getEquimentInfo,.getFamilyMemberList,.getSingleTrack:
             return .get
         default:
             return .post

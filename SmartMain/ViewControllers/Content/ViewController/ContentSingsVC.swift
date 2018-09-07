@@ -90,14 +90,18 @@ extension ContentSingsVC {
         self.requestOnlineSing(trackId: dataArr[indexPath.row].resId ?? "")
     }
     func requestOnlineSing(trackId: String)  {
-        Net.requestWithTarget(.onlineSing(openId: user_defaults.get(for: .userName)!, trackId: trackId), successClosure: { (result, code, message) in
+        let arr = trackId.components(separatedBy: ":")
+        guard arr.count > 1 else {
+            return
+        }
+        Net.requestWithTarget(.onlineSing(openId: user_defaults.get(for: .userName)!, trackId: arr[1]), successClosure: { (result, code, message) in
             if let str = result as? String {
-                if str == "ok" {
+                if str == "0" {
                     XBHud.showMsg("点播成功")
-   
-                    
-                }else {
-                    XBHud.showMsg("点播失败")
+                }else if str == "1"{
+                    XBHud.showMsg("设备不在线")
+                }else if str == "2"{
+                    XBHud.showMsg("你没有绑定设备")
                 }
             }
         })

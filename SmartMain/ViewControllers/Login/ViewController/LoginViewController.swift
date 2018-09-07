@@ -70,7 +70,7 @@ class LoginViewController: XBBaseViewController {
                 if str == "ok" {
                     print("注册成功")
                     XBHud.showMsg("注册成功")
-                    XBUserManager.saveUserInfo(self.tfPhone.text!)
+  
 
                 }else {
                     XBHud.showMsg("注册失败")
@@ -84,6 +84,7 @@ class LoginViewController: XBBaseViewController {
         return w.window!
     }()
     @IBAction func clickLoginAction(_ sender: Any) {
+        XBUserManager.saveUserInfo(self.tfPhone.text!)
         let vc = XBTabBarController()
         popWindow.rootViewController = vc
     }
