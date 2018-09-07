@@ -147,13 +147,14 @@ extension XBScanViewController {
         var params_task = [String: Any]()
         
         params_task["username"] = username
-        params_task["deviceId"] = testDeviceId
+        params_task["deviceId"] = deviceId
 
         Net.requestWithTarget(.joinEquimentGroup(req: params_task), successClosure: { (result, code, message) in
             print(result)
             if let str = result as? String {
                 if str == "ok" {
                     print("加入成功")
+                    user_defaults.set(deviceId, for: .deviceId)
                     XBHud.showMsg("加入成功")
                 }else {
                     XBHud.showMsg("第二步加入失败")

@@ -64,6 +64,7 @@ public func XBLoginStatus() -> Bool{
 let user_defaults = Defaults()
 public extension DefaultsKey {
     static let userName = Key<String>("userName")
+    static let deviceId = Key<String>("deviceId")
 }
 //TODO
 struct XBUserManager {
@@ -73,14 +74,26 @@ struct XBUserManager {
 //        XBJpushManager.setUserAlias(userId: model?.userid?.toString)
 //        default.set
         user_defaults.set(phone, for: .userName)
+        
         // 保存当前登录的用户信息， 用户退出登录时， 显示登录界面
 //        Noti_post(.refreshUserData,object: model)
 //        MGDefault.synchronize()
 
     }
+    static func saveDeviceId(_ saveDeviceId: String){
+        //        XBJpushManager.setUserAlias(userId: model?.userid?.toString)
+        //        default.set
+        user_defaults.set(phone, for: .userName)
+        
+        // 保存当前登录的用户信息， 用户退出登录时， 显示登录界面
+        //        Noti_post(.refreshUserData,object: model)
+        //        MGDefault.synchronize()
+        
+    }
     // 清空用户信息
     static func cleanUserInfo(){
         user_defaults.clear(.userName)
+        user_defaults.clear(.deviceId)
 //        XBJpushManager.deleteUserAlias()
        
 //        Noti_post(.refreshUserData)
