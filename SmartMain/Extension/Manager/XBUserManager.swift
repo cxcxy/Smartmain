@@ -83,7 +83,7 @@ struct XBUserManager {
     static func saveDeviceId(_ saveDeviceId: String){
         //        XBJpushManager.setUserAlias(userId: model?.userid?.toString)
         //        default.set
-        user_defaults.set(phone, for: .userName)
+        user_defaults.set(saveDeviceId, for: .deviceId)
         
         // 保存当前登录的用户信息， 用户退出登录时， 显示登录界面
         //        Noti_post(.refreshUserData,object: model)

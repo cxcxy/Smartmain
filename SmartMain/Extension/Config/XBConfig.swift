@@ -23,8 +23,9 @@ public func XBApiLog<T> (_ value: T , fileName : String = #file, function:String
         print("\(value)")
     }
 }
-let testDeviceId = "3010290000045007_1275"
+//let testDeviceId = "3010290000045007_1275"
 
+let testDeviceId = user_defaults.get(for: .deviceId) ?? ""
 
 //MARK:   延迟多少秒 回掉
 struct XBDelay {

@@ -125,30 +125,35 @@ extension XBScanViewController {
 
         var params_task = [String: Any]()
         params_task["openId"] = user_defaults.get(for: .userName)
+        var current_deviceId:String = ""
         if arr.count > 1 {
-            params_task["deviceId"] = testDeviceId
+           current_deviceId  = arr[1]
         }
-        
+        guard current_deviceId != "" else {
+            XBHud.showMsg("未获取设备ID")
+            return
+        }
+        params_task["deviceId"] = current_deviceId
         Net.requestWithTarget(.joinEquiment(req: params_task), successClosure: { (result, code, message) in
             print(result)
             if let str = result as? String {
                 if str == "ok" {
                     print("加入成功")
-                    self.requestJoinEaseGroup(username: user_defaults.get(for: .userName), deviceId: arr[1])
+                    self.requestJoinEaseGroup(username: user_defaults.get(for: .userName), deviceId: current_deviceId)
                 }else {
                     XBHud.showMsg("第一步加入失败")
                 }
             }
         })
-
+        user_defaults.get(for: .deviceId)
     }
     
-    func requestJoinEaseGroup(username: String?,deviceId:String?)  {
+    func requestJoinEaseGroup(username: String?,deviceId:String)  {
         var params_task = [String: Any]()
         
         params_task["username"] = username
         params_task["deviceId"] = deviceId
-
+        
         Net.requestWithTarget(.joinEquimentGroup(req: params_task), successClosure: { (result, code, message) in
             print(result)
             if let str = result as? String {
@@ -161,79 +166,5 @@ extension XBScanViewController {
                 }
             }
         })
-        //发放优惠卷接口
-//        XBNetManager.shared.requestWithTarget(.api_accountPutin(req: ["verificationCode": verificationCode]), successClosure: { (result, code, message) in
-//
-//        })
-        
     }
-  
-    //MARK:  拿到二维码扫描出来的结果，获取相应的数据
-    func requestData(biztype : Int,
-                     param : String)  {
-//        let req_model = QrcodeScanReqModel()
-//        req_model.biztype   = biztype
-//        req_model.param     = param
-//
-//
-//        viewModel.requestQrcodeScan(m: req_model, closure: { [weak self]  (userModel, companyModel,voucherTicketModel) in
-//            guard let `self` = self else { return }
-//
-//            if let userModel = userModel {
-//                self.getUserModelData(userModel: userModel)
-//            }
-//            if let companyModel = companyModel {
-//                self.getCompanyModelData(companyModel: companyModel)
-//
-//            }
-//            if let voucherTicketModel = voucherTicketModel {
-//                self.getVoucherTicketModelData(bizdata: param,voucherModel: voucherTicketModel)
-//            }
-//        }) { [weak self](errorMessage) in
-//            guard let `self` = self else { return }
-//            XBDelay.start(delay: 2.0, closure: {
-//                 self.sessionManager?.start()
-//            })
-//
-//        }
-    }
-    
-    //MARK: 获取用户数据
-    func getUserModelData(userModel: XBUserModel) {
-//        if entarnceType == .main {
-//            VCRouter.toPersonHomeVC(xbUserModel: userModel, entranceType: .qrscan)
-//            return
-//        }
-//        let frendsmodel         = FriendResModel.init()
-//        frendsmodel.userid      = userModel.userid
-//        frendsmodel.accountId   = userModel.accountId
-//        frendsmodel.dispname    = userModel.dispname
-//
-//        if let blcok = self.block {
-//             blcok([frendsmodel],nil,nil)
-//            self.popVC()
-//        }
-    }
-//    //MARK: 获取公司详情
-//    func getCompanyModelData(companyModel: XBCompDetResModel) {
-//        if entarnceType == .main {
-//            VCRouter.toMerchantDetailQRCodeVC(companyDetail: companyModel)
-//            return
-//        }
-//        if let blcok = self.block {
-//           blcok(nil, companyModel,nil)
-//            self.popVC()
-//        }
-//    }
-//    //MARK: 获取体验劵详情
-//    func getVoucherTicketModelData(bizdata: String,voucherModel: VoucherListResModel) {
-//        if entarnceType == .main {
-//            VCRouter.toExperTicketVCWithQRCode(param: bizdata,voucherModel: voucherModel)
-//            return
-//        }
-//        if let blcok = self.block {
-//            blcok(nil,nil,voucherModel)
-//            self.popVC()
-//        }
-//    }
 }
