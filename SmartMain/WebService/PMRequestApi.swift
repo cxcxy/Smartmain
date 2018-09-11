@@ -40,7 +40,7 @@ enum RequestApi{
     case addSingsToTrack(req: [String: Any])
     case copyToNewTrackList(req: [String: Any])
     case moveToNewTrackList(req: [String: Any])
-    case removeSingsList(req:[String: Any])
+    case removeSingsList(deviceId: String, listId:Int, trackIds:[String])
     case addTrackList(req: [String: Any])
     case deleteTrackList(req: [String: Any])
     case deleteLikeSing(req: [String: Any])
@@ -107,7 +107,6 @@ extension RequestApi:TargetType{
              .addSingsToTrack(let req),
              .copyToNewTrackList(let req),
              .moveToNewTrackList(let req),
-             .removeSingsList(let req),
              .addTrackList(let req),
              .deleteTrackList(let req):
             params_task = req
@@ -116,6 +115,10 @@ extension RequestApi:TargetType{
             params_task["id"] = id
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
+        case .removeSingsList(_,_,let trakcIds):
+//            params_task[""] = trakcIds
+            return .requestParameters(parameters: trakcIds.asParameters(),
+                                      encoding: JSONEncoding.default)
         case .getAuthCode,.login:
             break
         case .onlineSing(let openId,let trackId):

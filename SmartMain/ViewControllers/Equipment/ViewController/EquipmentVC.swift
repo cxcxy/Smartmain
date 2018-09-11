@@ -22,7 +22,36 @@ class EquipmentVC: XBBaseTableViewController {
     func makeItemNavRight()  {
         //MARK: 点击添加商家
         makeCustomerImageNavigationItem("icon_tianjia", left: false) {
-            VCRouter.qrCodeScanVC()
+//            VCRouter.qrCodeScanVC()
+            self.testRequst()
+        }
+    }
+    func testRequst()  {
+        var request = URLRequest(url: URL.init(string: "https://zbtest.wechat.athenamuses.cn/zbtest/resource/appInterface.do?inter=/cms/categories")!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let values = ["albumId": "7680",
+                      "page":1,
+                      "clientId":15] as [String : Any]
+//        {"albumId": "7680","page": 1,"clientId": "","count": 15}
+        
+        let data = try! JSONSerialization.data(withJSONObject: values, options: [])
+//        JSONSerialization.data(withJSONObject: <#T##Any#>, options: <#T##JSONSerialization.WritingOptions#>)
+        print(data)
+        request.httpBody = data
+        
+        //        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        
+        
+        //        JSONSerialization.data(withJSONObject: values, options: .prettyPrinted)
+        Alamofire.request(request).responseJSON { (response) in
+            switch response.result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     override func setUI() {
@@ -34,7 +63,7 @@ class EquipmentVC: XBBaseTableViewController {
             guard let `self` = self else { return }
             self.request()
         })
-        self.establishConnection()
+//        self.establishConnection()
     }
    
     override func request() {
@@ -87,19 +116,7 @@ extension EquipmentVC {
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
-//    VCRouter.toEquipmentSettingVC()
-//        let vc = LoginViewController()
-//        self.pushVC(vc)
-//        if indexPath.row == 0 {
-//            VCRouter.toEquipmentSettingVC()
-//            return
-//        }
-//        if indexPath.row == 1 {
-//            let vc = LoginViewController()
-//            self.pushVC(vc)
-//            return
-//        }
+        
         VCRouter.toEquipmentSubListVC(trackListId: dataArr[indexPath.row].id ?? 0,navTitle: dataArr[indexPath.row].name)
     }
     override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
