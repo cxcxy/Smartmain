@@ -344,12 +344,24 @@ let socket_clientID         = "123"
 
 
 
-extension XBBaseViewController {
+extension XBBaseViewController: MQTTSessionDelegate {
+    func mqttDidReceive(message data: Data, in topic: String, from session: MQTTSession) {
+        print("mqttDidReceivedata\(data)--topic\(topic)")
+    }
+    
+    func mqttDidDisconnect(session: MQTTSession) {
+        print("mqttDidDisconnect")
+    }
+    
+    func mqttSocketErrorOccurred(session: MQTTSession) {
+        print("mqttSocketErrorOccurred")
+    }
+    
     
     func establishConnection() {
 
         mqttSession = MQTTSession(host: socket_host, port: socket_port, clientID: socket_clientID, cleanSession: true, keepAlive: 15, useSSL: false)
-        
+        mqttSession.delegate = self
         mqttSession.connect { (succeeded,error) in
             if succeeded {
                 print("Connected.")

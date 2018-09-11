@@ -46,7 +46,7 @@ class ContentVC: XBBaseTableViewController {
         })
     }
     func requestTrackList()  {
-        Net.requestWithTarget(.getTrackList(deviceId: testDeviceId), successClosure: { (result, code, message) in
+        Net.requestWithTarget(.getTrackList(deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
             print(result)
             if let arr = Mapper<EquipmentModel>().mapArray(JSONString: result as! String) {
                 self.endRefresh()

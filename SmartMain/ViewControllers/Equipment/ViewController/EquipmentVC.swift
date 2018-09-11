@@ -29,10 +29,12 @@ class EquipmentVC: XBBaseTableViewController {
         super.setUI()
         self.cofigMjHeader()
         request()
+//
         _ = Noti(.refreshEquipmentInfo).takeUntil(self.rx.deallocated).subscribe(onNext: {[weak self] (value) in
             guard let `self` = self else { return }
             self.request()
         })
+        self.establishConnection()
     }
    
     override func request() {

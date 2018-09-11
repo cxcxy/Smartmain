@@ -87,7 +87,7 @@ class LoginViewController: XBBaseViewController {
             XBHud.showMsg("请输入手机号")
             return
         }
-        self.btnSendCode.isSelected ? requestAuthCodeLogin() : requestPasswordLogin()
+        self.btnCode.isSelected ? requestAuthCodeLogin() : requestPasswordLogin()
 
     }
     func requestPasswordLogin()  {
@@ -96,34 +96,39 @@ class LoginViewController: XBBaseViewController {
             return
         }
         Net.requestWithTarget(.loginWithPass(mobile: tfPhone.text!, password: tfPassword.text!), successClosure: { (result, code, message) in
-            
-            XBUserManager.userName = self.tfPhone.text!
-            if let arr = JSON.init(parseJSON: result as! String)["result"]["deviceId"].arrayObject {
-                if arr.count > 0 {
-                    XBUserManager.device_Id = arr[0] as! String
-                }
+            if let jsonStr = result as? String {
+                self.loginUserInfo(jsonResult: jsonStr)
             }
-            print(XBUserManager.device_Id)
-            
-            let vc = XBTabBarController()
-            self.popWindow.rootViewController = vc
-            print(result)
         })
     }
     func requestAuthCodeLogin()  {
         Net.requestWithTarget(.login(mobile: tfPhone.text!, code: "1111"), successClosure: { (result, code, message) in
-            
-            XBUserManager.userName = self.tfPhone.text!
-            if let arr = JSON.init(parseJSON: result as! String)["result"]["deviceId"].arrayObject {
-                if arr.count > 0 {
-                    XBUserManager.device_Id = arr[0] as! String
-                }
+            if let jsonStr = result as? String {
+                self.loginUserInfo(jsonResult: jsonStr)
             }
-            print(XBUserManager.device_Id)
-            
-            let vc = XBTabBarController()
-            self.popWindow.rootViewController = vc
-            print(result)
         })
+    }
+    func loginUserInfo(jsonResult: String)  {
+        guard let status = jsonResult.json_Str()["status"].int else {
+            return
+        }
+        guard status == 200 else {
+            let message = jsonResult.json_Str()["message"].stringValue
+            XBHud.showMsg(message)
+            return
+        }
+        if let arr = jsonResult.json_Str()["result"]["deviceId"].arrayObject {
+            if arr.count > 0 {
+                XBUserManager.device_Id = arr[0] as! String
+            }
+        }
+        XBUserManager.userName = self.tfPhone.text!
+        let vc = XBTabBarController()
+        self.popWindow.rootViewController = vc
+    }
+}
+extension String {
+    func json_Str() -> JSON{
+        return JSON.init(parseJSON: self)
     }
 }

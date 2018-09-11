@@ -22,7 +22,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8Q-eT-jeg">
                             <rect key="frame" x="0.0" y="0.0" width="94" height="90"/>
                             <color key="backgroundColor" red="0.95103305578231812" green="0.88363194465637207" blue="0.1016235426068306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="加入歌单"/>
+                            <state key="normal" title="歌单删除"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-Tx-9en">
                             <rect key="frame" x="94" y="0.0" width="93.5" height="90"/>

@@ -19,6 +19,7 @@ enum RequestApi{
     case getTrackList(deviceId: String)
     case getSingleTrack(id: Int)
     case getTrackSubList(req: [String: Any])
+    case setTrackListDefult(trackId: Int,deviceId: String)
     case contentsings(req: [String: Any])
     case login(mobile: String, code: String)
     case loginWithPass(mobile: String, password: String)
@@ -120,6 +121,8 @@ extension RequestApi:TargetType{
         case .onlineSing(let openId,let trackId):
             params_task["openId"] = openId
             params_task["trackId"] = trackId
+            break
+        case .setTrackListDefult(_, _):
             break
         case .quitEquiment(let openId, _):
             params_task["openId"] = openId

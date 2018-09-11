@@ -16,6 +16,7 @@ class ContentSingCell: BaseTableViewCell {
     var trackId: String?
     var duration: String?
     var title: String?
+    var listId: Int? // 预制列表二级列表 列表ID
     var singModelData: EquipmentSingModel? { // 预制列表菜单Model
         didSet {
             guard let m = singModelData else {
@@ -74,7 +75,27 @@ class ContentSingCell: BaseTableViewCell {
             guard let `self` = self else { return }
             self.requestDeleteDemand()
         }
+        v.btnAddSingList.addAction {[weak self] in
+            guard let `self` = self else { return }
+            self.requestDeleteSingWithList()
+        }
         v.show()
+    }
+    func requestDeleteSingWithList()  {
+        var params_task = [String: Any]()
+        params_task["deviceId"] = XBUserManager.device_Id
+        params_task["id"]  = listId
+        params_task["trackId"] = [trackId]
+        Net.requestWithTarget(.removeSingsList(req: params_task), successClosure: { (result, code, message) in
+            print(result)
+            if let str = result as? String {
+                if str == "ok" {
+                    XBHud.showMsg("收藏成功")
+                }else {
+                    XBHud.showMsg("收藏失败")
+                }
+            }
+        })
     }
     func requestLikeSing()  {
         

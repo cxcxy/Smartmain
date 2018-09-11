@@ -50,7 +50,14 @@ class EquipmentSubListVC: XBBaseTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+    func requestSetDefault()  {
+        Net.requestWithTarget(.setTrackListDefult(trackId: trackListId, deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
+            
+
+            print(result)
+        })
+        
+    }
 }
 extension EquipmentSubListVC {
     
@@ -62,6 +69,11 @@ extension EquipmentSubListVC {
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let v = ContentSingHaderView.loadFromNib()
+        v.btnAddAll.set_Title("恢复默认列表")
+        v.btnAddAll.addAction {[weak self] in
+            guard let `self` = self else { return }
+            self.requestSetDefault()
+        }
         if let total = self.total {
             v.lbTotal.set_text = "共" + total.toString + "首"
         }else {
@@ -73,6 +85,7 @@ extension EquipmentSubListVC {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentSingCell", for: indexPath) as! ContentSingCell
         cell.singModelData = dataArr[indexPath.row]
+        cell.listId = self.trackListId
         cell.lbLineNumber.set_text = (indexPath.row + 1).toString
         return cell
         
