@@ -72,14 +72,13 @@ extension EquipmentSubListVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentSingCell", for: indexPath) as! ContentSingCell
-        cell.lbTitle.set_text = dataArr[indexPath.row].title
-        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].duration)
+        cell.singModelData = dataArr[indexPath.row]
         cell.lbLineNumber.set_text = (indexPath.row + 1).toString
         return cell
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        XBHud.showMsg("点击了")
+
          self.requestOnlineSing(trackId: (dataArr[indexPath.row].id ?? 0).toString)
         
     }

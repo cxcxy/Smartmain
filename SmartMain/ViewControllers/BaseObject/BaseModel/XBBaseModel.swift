@@ -26,6 +26,16 @@ class XBDataModel: Mappable {
     func mapping(map: Map) {
     }
 }
+
+class XBSocketModel: Mappable {
+    var cmd        :   String?
+    required init?(map: Map) {
+        
+    }
+    func mapping(map: Map) {
+        cmd                         <- map["cmd"]
+    }
+}
 /**
  *   前后端约定的请求服务端报文格式 ， 主要参数为 resdata -> XBDataModel
  */

@@ -16,7 +16,7 @@ public enum RefreshStatus: Int {
 }
 @objcMembers class XBBaseViewController: UIViewController {
     var pageIndex = 1 //翻页
-    
+     var mqttSession: MQTTSession!
     /// 记录当前页面是否网络请求过，区别是第一次进网络请求，还是下拉刷新进入网络请求
     var isCurrentRequest : Bool = false
     
@@ -332,5 +332,57 @@ extension XBBaseViewController:DZNEmptyDataSetDelegate,DZNEmptyDataSetSource{
         return true
     }
 }
+//wss://zb.mqtt.athenamuses.cn:1893/storybox/3010290000045007_1275/client
+
+let socket_host             = "zb.mqtt.athenamuses.cn:1893"
+let socket_port: UInt16     = 1893
+let socket_clientID         = "123"
+
+//enum SocketTopic: String {
+//    case
+//}
 
 
+
+extension XBBaseViewController {
+    
+    func establishConnection() {
+
+        mqttSession = MQTTSession(host: socket_host, port: socket_port, clientID: socket_clientID, cleanSession: true, keepAlive: 15, useSSL: false)
+        
+        mqttSession.connect { (succeeded,error) in
+            if succeeded {
+                print("Connected.")
+                self.subscribeToChannel()
+            } else {
+                
+            }
+        }
+    }
+    
+    func subscribeToChannel() {
+        let channel = "storybox/\(testDeviceId)/client"
+        mqttSession.subscribe(to: channel, delivering: .atLeastOnce) { (succeeded,error) in
+            if succeeded {
+                print("Subscribed to \(channel)")
+            } else {
+                
+            }
+        }
+    }
+    func sendPressed(socketModel: XBSocketModel)  {
+        let channel = "storybox/\(testDeviceId)/server/page"
+        
+        guard let message = socketModel.toJSONString() else {
+            return
+        }
+        guard  let data = message.data(using: .utf8) else {
+            return
+        }
+        mqttSession.publish(data, in: channel, delivering: .atMostOnce, retain: false) { (succeeded,error) in
+            if succeeded {
+                print("Published \(message) on channel \(channel)")
+            }
+        }
+    }
+}

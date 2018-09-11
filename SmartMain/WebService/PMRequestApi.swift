@@ -20,8 +20,10 @@ enum RequestApi{
     case getSingleTrack(id: Int)
     case getTrackSubList(req: [String: Any])
     case contentsings(req: [String: Any])
-    case login(req: [String: Any])
+    case login(mobile: String, code: String)
+    case loginWithPass(mobile: String, password: String)
     case register(req: [String: Any])
+    case getAuthCode(mobile: String)
     case familyRegister(req: [String: Any])
     case changePassword(req: [String: Any])
     case getEquimentInfo(deviceId: String)
@@ -29,6 +31,7 @@ enum RequestApi{
     case modifyDeviceVolume(req: [String: Any])
     case joinEquiment(req: [String: Any])
     case joinEquimentGroup(req: [String: Any])
+    case quitEquiment(openId:String,isAdmin: Bool)
     case getFamilyMemberList(deviceId: String)
     case onlineSing(openId:String, trackId: String)
     case deleteDemand(req: [String: Any])
@@ -88,7 +91,6 @@ extension RequestApi:TargetType{
         var params_task = [String: Any]()
         switch self {
         case .contentModules(let req),
-             .login(let req),
              .register(let req),
              .changePassword(let req),
              .familyRegister(let req),
@@ -113,9 +115,14 @@ extension RequestApi:TargetType{
             params_task["id"] = id
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
+        case .getAuthCode,.login:
+            break
         case .onlineSing(let openId,let trackId):
             params_task["openId"] = openId
             params_task["trackId"] = trackId
+            break
+        case .quitEquiment(let openId, _):
+            params_task["openId"] = openId
             break
         case .contentsub(let req):
             params_task = req

@@ -63,6 +63,13 @@
                             <constraint firstAttribute="trailing" secondItem="zQZ-a7-MLG" secondAttribute="trailing" id="yIY-Sd-oHh"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-40-YnD">
+                        <rect key="frame" x="274" y="0.0" width="46" height="43"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="clickMnumAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gOs-eQ-1wm"/>
+                        </connections>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwg-9a-7zg">
                         <rect key="frame" x="15" y="43" width="305" height="0.5"/>
                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,6 +90,9 @@
                     <constraint firstAttribute="trailing" secondItem="j4q-o1-oyE" secondAttribute="trailing" constant="40" id="MQN-1X-HbJ"/>
                     <constraint firstAttribute="bottom" secondItem="Zwg-9a-7zg" secondAttribute="bottom" id="Pf5-9G-Fig"/>
                     <constraint firstItem="1gf-pJ-RjU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="X02-9A-N1x"/>
+                    <constraint firstAttribute="trailing" secondItem="BTh-40-YnD" secondAttribute="trailing" id="YY2-16-ju5"/>
+                    <constraint firstItem="Zwg-9a-7zg" firstAttribute="top" secondItem="BTh-40-YnD" secondAttribute="bottom" id="iFq-Pc-3Qi"/>
+                    <constraint firstItem="BTh-40-YnD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kXp-Ca-n1n"/>
                     <constraint firstItem="1gf-pJ-RjU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="len-IZ-Xjw"/>
                 </constraints>
             </tableViewCellContentView>

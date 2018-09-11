@@ -10,7 +10,11 @@ import UIKit
 
 class LoginViewController: XBBaseViewController {
     @IBOutlet weak var viewPassword: UIView!
+    @IBOutlet weak var btnSendCode: UIButton!
     
+    @IBOutlet weak var btnCode: UIButton!
+    @IBOutlet weak var tfCode: UITextField!
+    @IBOutlet weak var viewCode: IQPreviousNextView!
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfPhone: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
@@ -23,6 +27,8 @@ class LoginViewController: XBBaseViewController {
     }
     override func setUI() {
         super.setUI()
+        viewPassword.isHidden = false
+        viewCode.isHidden = true
         view.backgroundColor = UIColor.white
         viewPhoto.roundView()
         viewPhone.setCornerRadius(radius: 10)
@@ -39,46 +45,32 @@ class LoginViewController: XBBaseViewController {
 
     @IBAction func clickForgetAction(_ sender: Any) {
         XBHud.showMsg("忘记密码")
+
     }
     
+    @IBAction func clickSendCodeAction(_ sender: Any) {
+        guard tfPhone.text != "" else {
+            XBHud.showMsg("请输入手机号")
+            return
+        }
+        Net.requestWithTarget(.getAuthCode(mobile: tfPhone.text!), successClosure: { (result, code, message) in
+            XBHud.showMsg("发送验证码成功")
+            self.sendCodeWithBtnTimer()
+            print(result)
+        })
+    }
+    func sendCodeWithBtnTimer()  {
+        self.btnSendCode.startTimer(60, title: "获取验证码", mainBGColor: UIColor.white, mainTitleColor: UIColor.init(hexString: "707784")!, countBGColor: UIColor.white, countTitleColor: MGRgb(128, g: 128, b: 128), handle: nil)
+    }
     @IBAction func clickRegisterAction(_ sender: Any) {
+//        let vc = RegisterViewController()
+//        self.pushVC(vc)
+        btnCode.isSelected = !btnCode.isSelected
+        viewPassword.isHidden = btnCode.isSelected
+        viewCode.isHidden = !btnCode.isSelected
         
-        var params_task = [String: Any]()
-        params_task["username"] = tfPhone.text
-        params_task["password"] = tfPassword.text
-        params_task["nikename"] = "智伴小达人"
-        Net.requestWithTarget(.register(req: params_task), successClosure: { (result, code, message) in
-            if let str = result as? String {
-                if str == "ok" {
-                    print("注册成功")
-//                    XBHud.showMsg("注册成功")
-                    self.requestFamilyRegister()
-                }else {
-                    XBHud.showMsg("注册失败")
-                }
-            }
-            print(result)
-        })
     }
-    func requestFamilyRegister()  {
-        var params_task = [String: Any]()
-        params_task["openId"] = tfPhone.text
-        params_task["type"] = 2
-        params_task["nickname"] = "智伴小达人"
-        Net.requestWithTarget(.familyRegister(req: params_task), successClosure: { (result, code, message) in
-            if let str = result as? String {
-                if str == "ok" {
-                    print("注册成功")
-                    XBHud.showMsg("注册成功")
-  
 
-                }else {
-                    XBHud.showMsg("注册失败")
-                }
-            }
-            print(result)
-        })
-    }
     @IBAction func clickResetAction(_ sender: Any) {
         self.tfPhone.text = ""
     }
@@ -95,8 +87,43 @@ class LoginViewController: XBBaseViewController {
             XBHud.showMsg("请输入手机号")
             return
         }
-        XBUserManager.saveUserInfo(self.tfPhone.text!)
-        let vc = XBTabBarController()
-        popWindow.rootViewController = vc
+        self.btnSendCode.isSelected ? requestAuthCodeLogin() : requestPasswordLogin()
+
+    }
+    func requestPasswordLogin()  {
+        if tfPassword.text! == "" {
+            XBHud.showMsg("请输入手机号")
+            return
+        }
+        Net.requestWithTarget(.loginWithPass(mobile: tfPhone.text!, password: tfPassword.text!), successClosure: { (result, code, message) in
+            
+            XBUserManager.userName = self.tfPhone.text!
+            if let arr = JSON.init(parseJSON: result as! String)["result"]["deviceId"].arrayObject {
+                if arr.count > 0 {
+                    XBUserManager.device_Id = arr[0] as! String
+                }
+            }
+            print(XBUserManager.device_Id)
+            
+            let vc = XBTabBarController()
+            self.popWindow.rootViewController = vc
+            print(result)
+        })
+    }
+    func requestAuthCodeLogin()  {
+        Net.requestWithTarget(.login(mobile: tfPhone.text!, code: "1111"), successClosure: { (result, code, message) in
+            
+            XBUserManager.userName = self.tfPhone.text!
+            if let arr = JSON.init(parseJSON: result as! String)["result"]["deviceId"].arrayObject {
+                if arr.count > 0 {
+                    XBUserManager.device_Id = arr[0] as! String
+                }
+            }
+            print(XBUserManager.device_Id)
+            
+            let vc = XBTabBarController()
+            self.popWindow.rootViewController = vc
+            print(result)
+        })
     }
 }

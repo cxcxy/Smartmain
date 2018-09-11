@@ -71,9 +71,9 @@ extension ContentSubVC {
         //        VCRouter.toContentSubVC()
         let model = dataArr[indexPath.row]
         if model.albumType == 2 {
-            VCRouter.toContentSubVC(clientId: "3020040000000028", albumId: model.id ?? "", navTitle: model.name)
+            VCRouter.toContentSubVC(clientId: XBUserManager.device_Id, albumId: model.id ?? "", navTitle: model.name)
         }else {
-            VCRouter.toContentSingsVC(clientId: "3020040000000028", albumId: model.id ?? "")
+            VCRouter.toContentSingsVC(clientId: XBUserManager.device_Id, albumId: model.id ?? "")
         }
     }
     

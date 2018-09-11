@@ -36,6 +36,11 @@ class EquipmentSettingVC: XBBaseTableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func requestQuitEquiment()  {
+        Net.requestWithTarget(.quitEquiment(openId: XBUserManager.userName, isAdmin: false), successClosure: { (result, code, message) in
+            print(result)
+        })
+    }
 }
 extension EquipmentSettingVC {
     
@@ -67,6 +72,9 @@ extension EquipmentSettingVC {
             if let equimentModel = self.equimentModel {
                 VCRouter.toEquipmentInfoVC(equimentModel: equimentModel)
             }
+        case 3:
+            print("解除绑定设备")
+            requestQuitEquiment()
         case 4:
             let vc = MemberManagerVC()
             self.pushVC(vc)

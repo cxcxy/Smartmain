@@ -13,6 +13,12 @@ class RegisterViewController: XBBaseViewController {
     
 //    @IBOutlet weak var btnLogin: UIButton!
 //    @IBOutlet weak var viewPhone: UIView!
+    
+    @IBOutlet weak var tfPhone: UITextField!
+    @IBOutlet weak var thPassword: UITextField!
+    @IBOutlet weak var tfCode: UITextField!
+    @IBOutlet weak var btnCode: UIButton!
+    
     @IBOutlet weak var viewPhoto: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +30,84 @@ class RegisterViewController: XBBaseViewController {
         super.setUI()
         view.backgroundColor = UIColor.white
         viewPhoto.roundView()
-//        viewPhone.setCornerRadius(radius: 10)
-//        viewPassword.setCornerRadius(radius: 10)
-//        viewPhone.addBorder(width: 0.5, color: UIColor.darkGray)
-//        viewPassword.addBorder(width: 0.5, color: UIColor.darkGray)
-//        btnLogin.setCornerRadius(radius: 10)
-//        btnLogin.addBorder(width: 0.5, color: UIColor.darkGray)
+
+
+    }
+    @IBAction func clickClearPhoneAction(_ sender: Any) {
+        tfPhone.text = ""
+    }
+    @IBAction func clickClearPassAction(_ sender: Any) {
+        thPassword.text = ""
+    }
+    func sendCodeWithBtnTimer()  {
+        self.btnCode.startTimer(60, title: "获取验证码", mainBGColor: UIColor.white, mainTitleColor: UIColor.init(hexString: "707784")!, countBGColor: UIColor.white, countTitleColor: MGRgb(128, g: 128, b: 128), handle: nil)
+    }
+    @IBAction func clickSendCodeAction(_ sender: Any) {
+       
+        guard tfPhone.text != "" else {
+             XBHud.showMsg("请输入手机号")
+            return
+        }
+        Net.requestWithTarget(.getAuthCode(mobile: tfPhone.text!), successClosure: { (result, code, message) in
+            XBHud.showMsg("发送验证码成功")
+            self.sendCodeWithBtnTimer()
+            print(result)
+        })
+    }
+    @IBAction func clickRegisterAction(_ sender: Any) {
+//        XBHud.showMsg("点击注册按钮")
+        guard tfPhone.text != "" else {
+            XBHud.showMsg("请输入手机号")
+            return
+        }
+        guard thPassword.text != "" else {
+            XBHud.showMsg("请输入密码")
+            return
+        }
+        guard tfCode.text != "" else {
+            XBHud.showMsg("请输入验证码")
+            return
+        }
+        var params_task = [String: Any]()
+        params_task["username"] = tfPhone.text
+        params_task["password"] = thPassword.text
+        params_task["nickname"] = "智伴小达人"
+        params_task["authCode"] = "1111"
+        Net.requestWithTarget(.register(req: params_task), successClosure: { (result, code, message) in
+            if let str = result as? String {
+                if str == "ok" {
+                    print("注册成功")
+                    //                    XBHud.showMsg("注册成功")
+                    self.requestFamilyRegister()
+                }else {
+                    XBHud.showMsg("注册失败")
+                }
+            }
+            print(result)
+        })
+    }
+    func requestFamilyRegister()  {
+        var params_task = [String: Any]()
+        params_task["openId"] = tfPhone.text
+        params_task["type"] = 2
+        params_task["nickname"] = "智伴小达人"
+        Net.requestWithTarget(.familyRegister(req: params_task), successClosure: { (result, code, message) in
+            if let str = result as? String {
+                if str == "ok" {
+                    print("注册成功")
+                    XBHud.showMsg("注册成功")
+                    self.popVC()
+                    
+                }else {
+                    XBHud.showMsg("注册失败")
+                }
+            }
+            print(result)
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

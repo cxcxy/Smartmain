@@ -52,6 +52,7 @@ class MeViewController: XBBaseViewController {
 
     @IBAction func clickLoginOutAction(_ sender: Any) {
         user_defaults.clear(.userName)
+        user_defaults.clear(.deviceId)
         let sv = UIStoryboard.getVC("Main", identifier:"LoginNav") as! XBBaseNavigation
         popWindow.rootViewController = sv
     }

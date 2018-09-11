@@ -145,7 +145,7 @@ extension XBScanViewController {
                 }
             }
         })
-        user_defaults.get(for: .deviceId)
+//        user_defaults.get(for: .deviceId)
     }
     
     func requestJoinEaseGroup(username: String?,deviceId:String)  {
@@ -161,6 +161,9 @@ extension XBScanViewController {
                     print("加入成功")
                     user_defaults.set(deviceId, for: .deviceId)
                     XBHud.showMsg("加入成功")
+                    Noti_post(.refreshUserData)
+                    self.popVC()
+                   
                 }else {
                     XBHud.showMsg("第二步加入失败")
                 }

@@ -43,7 +43,7 @@ class ContentShowThreeCell: BaseTableViewCell {
     var lineNumber: Int = 0
 
     @IBAction func clickMoreAction(_ sender: Any) {
-                VCRouter.toContentSubVC(clientId: "3020040000000028", modouleId: dataModel?.id, navTitle: dataModel?.name)
+                VCRouter.toContentSubVC(clientId: XBUserManager.device_Id, modouleId: dataModel?.id, navTitle: dataModel?.name)
     }
     func configCollectionView()  {
         
@@ -80,9 +80,9 @@ extension ContentShowThreeCell:UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = contentArr[indexPath.row]
         if model.albumType == 2 {
-            VCRouter.toContentSubVC(clientId: "3020040000000028", albumId: model.id ?? "", navTitle: model.name)
+            VCRouter.toContentSubVC(clientId: XBUserManager.device_Id, albumId: model.id ?? "", navTitle: model.name)
         }else {
-            VCRouter.toContentSingsVC(clientId: "3020040000000028", albumId: model.id ?? "")
+            VCRouter.toContentSingsVC(clientId: XBUserManager.device_Id, albumId: model.id ?? "")
         }
     }
 }

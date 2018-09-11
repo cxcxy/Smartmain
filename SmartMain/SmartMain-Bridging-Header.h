@@ -16,7 +16,7 @@
 @import Kingfisher;
 @import IQKeyboardManagerSwift;
 @import SwiftyJSON;
-
+@import SwiftMQTT;
 //@import FSPagerView;
 //#import "UIImageView+CornerRadius.h"
 //#import "HLChatListViewController.h"

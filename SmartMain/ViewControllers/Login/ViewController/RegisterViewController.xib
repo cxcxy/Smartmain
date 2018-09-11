@@ -13,6 +13,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="SmartMain" customModuleProvider="target">
             <connections>
+                <outlet property="btnCode" destination="xpT-Rs-rbS" id="T5y-fM-rR7"/>
+                <outlet property="tfCode" destination="MoN-33-7eY" id="kfi-L9-kGP"/>
+                <outlet property="tfPhone" destination="Jif-ws-89j" id="Ze5-mT-xRH"/>
+                <outlet property="thPassword" destination="sbh-gz-ePJ" id="diA-uh-Fbn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewPhoto" destination="3h3-L5-NnS" id="Hbo-Cz-fsn"/>
             </connections>
@@ -54,28 +58,120 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="nwG-Kl-L3v">
                     <rect key="frame" x="30" y="340.5" width="315" height="120"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGA-qD-Wb0">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJq-6J-nSK" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                             <rect key="frame" x="0.0" y="0.0" width="315" height="30"/>
-                            <color key="backgroundColor" red="1" green="0.68776975110000005" blue="0.2816895318" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jif-ws-89j">
+                                    <rect key="frame" x="50" y="0.0" width="220" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="1Ol-8Q-Oi7"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Feb-SW-W3g">
+                                    <rect key="frame" x="280" y="5" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="Lmg-wu-Rw2"/>
+                                        <constraint firstAttribute="width" constant="20" id="XEX-92-Ktb"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="icon_cexiao"/>
+                                    <connections>
+                                        <action selector="clickClearPhoneAction:" destination="-1" eventType="touchUpInside" id="nur-hR-4oo"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="ECn-rj-ddw"/>
+                                <constraint firstItem="Feb-SW-W3g" firstAttribute="centerY" secondItem="Jif-ws-89j" secondAttribute="centerY" id="488-rQ-08g"/>
+                                <constraint firstAttribute="height" constant="30" id="FJB-Zv-gu6"/>
+                                <constraint firstItem="Feb-SW-W3g" firstAttribute="leading" secondItem="Jif-ws-89j" secondAttribute="trailing" constant="10" id="VKR-EO-nxt"/>
+                                <constraint firstItem="Jif-ws-89j" firstAttribute="leading" secondItem="AxE-Ij-Aae" secondAttribute="leading" constant="50" id="kGB-P4-cF4"/>
+                                <constraint firstItem="AxE-Ij-Aae" firstAttribute="trailing" secondItem="Feb-SW-W3g" secondAttribute="trailing" constant="15" id="vY4-fB-2bO"/>
+                                <constraint firstItem="Jif-ws-89j" firstAttribute="top" secondItem="wJq-6J-nSK" secondAttribute="top" id="vt5-Jc-lxx"/>
+                                <constraint firstItem="AxE-Ij-Aae" firstAttribute="bottom" secondItem="Jif-ws-89j" secondAttribute="bottom" id="xos-CZ-oW7"/>
                             </constraints>
-                            <viewLayoutGuide key="safeArea" id="ydj-bS-szf"/>
+                            <viewLayoutGuide key="safeArea" id="AxE-Ij-Aae"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWf-Mu-pyw">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fk-78-Z82" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                             <rect key="frame" x="0.0" y="45" width="315" height="30"/>
-                            <color key="backgroundColor" red="0.17254901959999999" green="0.73333333329999995" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <viewLayoutGuide key="safeArea" id="xFO-db-sOe"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbh-gz-ePJ">
+                                    <rect key="frame" x="50" y="0.0" width="220" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="DEa-xJ-u3o"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPK-ED-raW">
+                                    <rect key="frame" x="280" y="5" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="7AL-WX-hLv"/>
+                                        <constraint firstAttribute="width" constant="20" id="knp-mb-HN6"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="icon_cexiao"/>
+                                    <connections>
+                                        <action selector="clickClearPassAction:" destination="-1" eventType="touchUpInside" id="7rW-hm-UKj"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="eqg-b8-bwl" firstAttribute="trailing" secondItem="jPK-ED-raW" secondAttribute="trailing" constant="15" id="3bo-Zs-Mtj"/>
+                                <constraint firstItem="eqg-b8-bwl" firstAttribute="bottom" secondItem="sbh-gz-ePJ" secondAttribute="bottom" id="KFe-8Z-twL"/>
+                                <constraint firstItem="jPK-ED-raW" firstAttribute="centerY" secondItem="sbh-gz-ePJ" secondAttribute="centerY" id="LbN-Xj-YAl"/>
+                                <constraint firstItem="sbh-gz-ePJ" firstAttribute="leading" secondItem="eqg-b8-bwl" secondAttribute="leading" constant="50" id="Tgo-ME-nqE"/>
+                                <constraint firstItem="sbh-gz-ePJ" firstAttribute="top" secondItem="9fk-78-Z82" secondAttribute="top" id="wJw-tj-Nwp"/>
+                                <constraint firstItem="jPK-ED-raW" firstAttribute="leading" secondItem="sbh-gz-ePJ" secondAttribute="trailing" constant="10" id="wr7-8z-CPf"/>
+                                <constraint firstAttribute="height" constant="30" id="yxr-Uq-ltC"/>
+                            </constraints>
+                            <viewLayoutGuide key="safeArea" id="eqg-b8-bwl"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eay-l8-qud">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQq-br-6jf" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                             <rect key="frame" x="0.0" y="90" width="315" height="30"/>
-                            <color key="backgroundColor" red="0.0" green="0.56862745100000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MoN-33-7eY">
+                                    <rect key="frame" x="50" y="0.0" width="75.5" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="29C-S2-LMQ"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpT-Rs-rbS">
+                                    <rect key="frame" x="253" y="-0.5" width="62" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" title="获取验证码"/>
+                                    <connections>
+                                        <action selector="clickSendCodeAction:" destination="-1" eventType="touchUpInside" id="a0C-8c-pgj"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="b3r-fe-rg0" firstAttribute="bottom" secondItem="xpT-Rs-rbS" secondAttribute="bottom" id="5GN-Qq-gmu"/>
+                                <constraint firstItem="b3r-fe-rg0" firstAttribute="trailing" secondItem="xpT-Rs-rbS" secondAttribute="trailing" id="EEl-1b-8Pn"/>
+                                <constraint firstItem="MoN-33-7eY" firstAttribute="top" secondItem="hQq-br-6jf" secondAttribute="top" id="NQt-5S-MPf"/>
+                                <constraint firstItem="xpT-Rs-rbS" firstAttribute="top" secondItem="hQq-br-6jf" secondAttribute="top" id="hUd-VU-a9U"/>
+                                <constraint firstItem="MoN-33-7eY" firstAttribute="leading" secondItem="b3r-fe-rg0" secondAttribute="leading" constant="50" id="mu8-Qi-R1q"/>
+                                <constraint firstItem="b3r-fe-rg0" firstAttribute="bottom" secondItem="MoN-33-7eY" secondAttribute="bottom" id="tc8-zT-2Tm"/>
+                                <constraint firstAttribute="height" constant="30" id="zxc-oQ-fPr"/>
+                            </constraints>
+                            <viewLayoutGuide key="safeArea" id="b3r-fe-rg0"/>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLE-Lq-qd5">
                     <rect key="frame" x="30" y="480.5" width="315" height="30"/>
                     <state key="normal" title="注册"/>
+                    <connections>
+                        <action selector="clickRegisterAction:" destination="-1" eventType="touchUpInside" id="ibf-cT-Glb"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,4 +189,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_cexiao" width="19" height="19"/>
+    </resources>
 </document>

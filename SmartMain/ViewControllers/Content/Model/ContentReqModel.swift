@@ -97,7 +97,7 @@ class ConetentSingPlayModel: XBDataModel {
 }
 class ConetentLikeModel: XBDataModel {
     var openId:String?
-    var trackId: String?
+    var trackId: Int?
     var title: String?
     var coverSmallUrl: String?
     var duration: Int?

@@ -68,7 +68,22 @@ public extension DefaultsKey {
 }
 //TODO
 struct XBUserManager {
-
+    static var userName:String {
+        get{
+            return user_defaults.get(for: .userName) ?? ""
+        }
+        set{
+            user_defaults.set(newValue, for: .userName)
+        }
+    }
+    static var device_Id:String {
+        get{
+            return user_defaults.get(for: .deviceId) ?? ""
+        }
+        set{
+            user_defaults.set(newValue, for: .deviceId)
+        }
+    }
 //     保存用户信息
     static func saveUserInfo(_ phone: String){
 //        XBJpushManager.setUserAlias(userId: model?.userid?.toString)

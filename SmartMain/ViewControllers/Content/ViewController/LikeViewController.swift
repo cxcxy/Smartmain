@@ -52,8 +52,9 @@ extension LikeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentSingCell", for: indexPath) as! ContentSingCell
-        cell.lbTitle.set_text = dataArr[indexPath.row].albumTitle
-        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].duration)
+//        cell.lbTitle.set_text = dataArr[indexPath.row].title
+//        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].duration)
+        cell.likeModelData = dataArr[indexPath.row]
         cell.lbLineNumber.set_text = (indexPath.row + 1).toString
         return cell
     }

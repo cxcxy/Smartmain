@@ -33,6 +33,9 @@
                                         <rect key="frame" x="172.5" y="0.0" width="142.5" height="50"/>
                                         <color key="backgroundColor" red="0.47749751806259155" green="0.91599106788635254" blue="0.25548872351646423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="注册"/>
+                                        <connections>
+                                            <action selector="clickRegisterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gU6-0B-dha"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

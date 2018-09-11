@@ -27,7 +27,8 @@ class ContentVC: XBBaseTableViewController {
         super.request()
         
         var params_task = [String: Any]()
-        params_task["clientId"] = "3020040000000028"
+        params_task["clientId"] = XBUserManager.device_Id
+//        params_task["clientId"] = "3020040000000028"
         params_task["tags"] = ["six"]
         Net.requestWithTarget(.contentModules(req: params_task), successClosure: { (result, code, message) in
             if let arr = Mapper<ModulesResModel>().mapArray(JSONObject:JSON(result)["modules"].arrayObject) {

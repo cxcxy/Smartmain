@@ -27,8 +27,14 @@ extension RequestApi {
         //获取指定预制列表信息
         case .getSingleTrack:          return "/track/get.do"
             // 登录接口
-        case .login:                    return ""
+        case .login(let mobile,let code):                    return "/suportAPP/loginWithAuthCode.do?username=\(mobile)&authCode=\(code)"
+        case .loginWithPass(let mobile,let password):                    return "/suportAPP/loginWithPassword.do?username=\(mobile)&password=\(password)"
         case .register:                 return "/suportAPP/registUser.do"
+            
+        case .getAuthCode(let mobile):  return "/suportAPP/getAuthCode.do?mobile=" + mobile
+            
+        
+            
         case .familyRegister:           return "/familymember/register.do"
         // 获取设备信息
         case .getEquimentInfo:          return "/boxinfo/get.do"
@@ -40,6 +46,9 @@ extension RequestApi {
         case .joinEquiment:             return "/familymember/join.do"
             // 加入设备第二步
         case .joinEquimentGroup:        return "/suportAPP/joinEaseGroup.do"
+            // 接触设备绑定
+        case .quitEquiment(_ , let isAdmin):        return "/familymember/quit.do?byAdmin=\(isAdmin)"
+            
         //根据设备号获取群组成员列表
         case .getFamilyMemberList:      return "/familymember/getlist.do"
         //在线点播

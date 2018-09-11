@@ -26,6 +26,8 @@
 		043E1197213FC1090067ADF3 /* ContentSingHaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1196213FC1090067ADF3 /* ContentSingHaderView.xib */; };
 		043E119A213FCCAC0067ADF3 /* ContentSingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1198213FCCAC0067ADF3 /* ContentSingCell.swift */; };
 		043E119B213FCCAC0067ADF3 /* ContentSingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1199213FCCAC0067ADF3 /* ContentSingCell.xib */; };
+		04C1436A2147A8F600FC2000 /* ShowChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C143692147A8F500FC2000 /* ShowChooseView.swift */; };
+		04C1436C2147A8FD00FC2000 /* ShowChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C1436B2147A8FD00FC2000 /* ShowChooseView.xib */; };
 		04C38712213E093F0063A799 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C386CA213E093F0063A799 /* Configuration.plist */; };
 		04C38713213E093F0063A799 /* PMConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C386CB213E093F0063A799 /* PMConfigManager.swift */; };
 		04C38714213E093F0063A799 /* PMApiPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C386CC213E093F0063A799 /* PMApiPath.swift */; };
@@ -153,6 +155,8 @@
 		043E1196213FC1090067ADF3 /* ContentSingHaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSingHaderView.xib; sourceTree = "<group>"; };
 		043E1198213FCCAC0067ADF3 /* ContentSingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSingCell.swift; sourceTree = "<group>"; };
 		043E1199213FCCAC0067ADF3 /* ContentSingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSingCell.xib; sourceTree = "<group>"; };
+		04C143692147A8F500FC2000 /* ShowChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowChooseView.swift; sourceTree = "<group>"; };
+		04C1436B2147A8FD00FC2000 /* ShowChooseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowChooseView.xib; sourceTree = "<group>"; };
 		04C386CA213E093F0063A799 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		04C386CB213E093F0063A799 /* PMConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMConfigManager.swift; sourceTree = "<group>"; };
 		04C386CC213E093F0063A799 /* PMApiPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMApiPath.swift; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 		04C38818213E0B590063A799 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				04C143692147A8F500FC2000 /* ShowChooseView.swift */,
+				04C1436B2147A8FD00FC2000 /* ShowChooseView.xib */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -805,6 +811,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C1436C2147A8FD00FC2000 /* ShowChooseView.xib in Resources */,
 				04C38A0D213E6D850063A799 /* ContentLikeCell.xib in Resources */,
 				2DC955A8213FFC8C004D6F65 /* AboutMeVC.xib in Resources */,
 				2D312AA5213D560100FCC499 /* LaunchScreen.storyboard in Resources */,
@@ -878,6 +885,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMQTT/SwiftMQTT.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 				"${BUILT_PRODUCTS_DIR}/VTMagic/VTMagic.framework",
@@ -902,6 +910,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMQTT.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VTMagic.framework",
@@ -959,6 +968,7 @@
 				2D312A9D213D560100FCC499 /* ViewController.swift in Sources */,
 				04C38721213E093F0063A799 /* AddImagePickerFragment.swift in Sources */,
 				04C38735213E093F0063A799 /* ETPopupView.swift in Sources */,
+				04C1436A2147A8F600FC2000 /* ShowChooseView.swift in Sources */,
 				04C38A04213E671F0063A799 /* ContentShowCell.swift in Sources */,
 				0422ECDA2140CA2700A42D7A /* EquipmentModel.swift in Sources */,
 				04C38A14213E6FE70063A799 /* ContentShowThreeCell.swift in Sources */,

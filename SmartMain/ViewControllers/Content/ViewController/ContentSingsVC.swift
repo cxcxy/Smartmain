@@ -79,8 +79,9 @@ extension ContentSingsVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentSingCell", for: indexPath) as! ContentSingCell
-        cell.lbTitle.set_text = dataArr[indexPath.row].name
-        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].length)
+//        cell.lbTitle.set_text = dataArr[indexPath.row].name
+//        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].length)
+        cell.modelData = dataArr[indexPath.row]
         cell.lbLineNumber.set_text = (indexPath.row + 1).toString
         return cell
         

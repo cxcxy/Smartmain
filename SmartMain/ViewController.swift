@@ -22,7 +22,13 @@ class ViewController: XBBaseViewController {
         let vc = LoginViewController()
         self.pushVC(vc)
     }
-    
+    @IBAction func clickRegisterAction(_ sender: Any) {
+        //        let vc = XBTabBarController()
+        //        self.pushVC(vc)
+            let vc = RegisterViewController()
+            self.pushVC(vc)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

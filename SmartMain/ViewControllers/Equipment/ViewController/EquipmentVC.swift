@@ -10,6 +10,7 @@ import UIKit
 
 class EquipmentVC: XBBaseTableViewController {
     var dataArr: [EquipmentModel] = []
+//    var mqttSession: MQTTSession!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "我的设备"
@@ -28,11 +29,19 @@ class EquipmentVC: XBBaseTableViewController {
         super.setUI()
         self.cofigMjHeader()
         request()
-        
+        _ = Noti(.refreshEquipmentInfo).takeUntil(self.rx.deallocated).subscribe(onNext: {[weak self] (value) in
+            guard let `self` = self else { return }
+            self.request()
+        })
     }
+   
     override func request() {
         super.request()
-        Net.requestWithTarget(.getTrackList(deviceId: testDeviceId), successClosure: { (result, code, message) in
+        guard XBUserManager.device_Id != "" else {
+            endRefresh()
+            return
+        }
+        Net.requestWithTarget(.getTrackList(deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
             print(result)
             if let arr = Mapper<EquipmentModel>().mapArray(JSONString: result as! String) {
                 self.endRefresh()
@@ -57,14 +66,15 @@ extension EquipmentVC {
         
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 310
+        
+        return dataArr.count == 0 ? XBMin : 310
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let v = EquipmentTopView.loadFromNib()
         v.addTapGesture { (sender) in
             VCRouter.toEquipmentSettingVC()
         }
-        return v
+        return dataArr.count == 0 ? nil : v
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipmentListCell", for: indexPath) as! EquipmentListCell
@@ -90,6 +100,11 @@ extension EquipmentVC {
 //        }
         VCRouter.toEquipmentSubListVC(trackListId: dataArr[indexPath.row].id ?? 0,navTitle: dataArr[indexPath.row].name)
     }
-    
+    override func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+      return  NSAttributedString(string: "暂无绑定设备",
+                           attributes:[NSAttributedStringKey.foregroundColor:MGRgb(25, g: 28, b: 39),
+                                       NSAttributedStringKey.font:UIFont.systemFont(ofSize: 17)])
+
+    }
     
 }
