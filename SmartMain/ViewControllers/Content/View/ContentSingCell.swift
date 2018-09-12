@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ObjectMapper
 class ContentSingCell: BaseTableViewCell {
 
     @IBOutlet weak var lbTime: UILabel!
@@ -82,57 +82,16 @@ class ContentSingCell: BaseTableViewCell {
         v.show()
     }
     func requestDeleteSingWithList()  {
-//        var params_task = [String: Any]()
-//        params_task["deviceId"] = XBUserManager.device_Id
-//        params_task["id"]  = listId
-//        params_task["trackId"] = [trackId]
-//        Net.requestWithTarget(.removeSingsList(deviceId: XBUserManager.device_Id, listId: listId!, trackIds: [trackId!]), successClosure: { (result, code, message) in
-//            print(result)
-//            if let str = result as? String {
-//                if str == "ok" {
-//                    XBHud.showMsg("收藏成功")
-//                }else {
-//                    XBHud.showMsg("收藏失败")
-//                }
-//            }
-//        })
-//        Alamofire.request("https://httpbin.org/post",
-//                          method: .post,
-//                          parameters: [trackId]).responseString { response in
-//            print("Success: \(response.result.isSuccess)")
-//            print("Response String: \(response.result.value)")
-//
-//        let parameters: Parameters = ["11"]
-        let url_str = "https://zbtest.wechat.athenamuses.cn/zbtest" + "/track/remove.do?deviceId=3010290000045007_1275&id=3707"
-        var request = URLRequest(url: URL.init(string: url_str.urlEncoded())!)
-        
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        let values:[String] = ["61429415"]
-        let valusenew: NSArray = ["61429415"]
-        //        {"albumId": "7680","page": 1,"clientId": "","count": 15}
-//        print(values)
-//        JSONSerialization.data(withJSONObject: values, options: <#T##JSONSerialization.WritingOptions#>)
-        let data = try! JSONSerialization.data(withJSONObject: valusenew, options: JSONSerialization.WritingOptions(rawValue: 0))
-        print(data)
-        request.httpBody = data
-    
-
-//        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-      
-//        JSONSerialization.data(withJSONObject: values, options: .prettyPrinted)
-        Alamofire.request(request).responseJSON { (response) in
-            switch response.result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
+        Net.requestWithTarget(.removeSingsList(deviceId: XBUserManager.device_Id, listId: listId!, trackIds: [trackId!]), successClosure: { (result, code, message) in
+            print(result)
+            if let str = result as? String {
+                if str == "ok" {
+                    XBHud.showMsg("删除成功")
+                }else {
+                    XBHud.showMsg("删除失败")
+                }
             }
-        }
-        
-
+        })
     }
     func requestLikeSing()  {
         

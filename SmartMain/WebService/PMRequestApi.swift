@@ -116,9 +116,8 @@ extension RequestApi:TargetType{
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
         case .removeSingsList(_,_,let trakcIds):
-//            params_task[""] = trakcIds
-            return .requestParameters(parameters: trakcIds.asParameters(),
-                                      encoding: JSONEncoding.default)
+            let data = try! JSONSerialization.data(withJSONObject: trakcIds, options: JSONSerialization.WritingOptions(rawValue: 0))
+            return .requestData(data)
         case .getAuthCode,.login:
             break
         case .onlineSing(let openId,let trackId):
@@ -165,7 +164,7 @@ extension RequestApi:TargetType{
 
     // 请求头信息
     public var headers: [String : String]? {
-        return nil
+        return ["Content-Type": "application/json"]
     }
     // 接口请求类型
     public var method:Moya.Method{
