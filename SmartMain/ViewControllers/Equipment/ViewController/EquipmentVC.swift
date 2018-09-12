@@ -11,6 +11,7 @@ import UIKit
 class EquipmentVC: XBBaseTableViewController {
     var dataArr: [EquipmentModel] = []
 //    var mqttSession: MQTTSession!
+    let scoketModel = ScoketMQTTManager.share
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "我的设备"
@@ -22,50 +23,31 @@ class EquipmentVC: XBBaseTableViewController {
     func makeItemNavRight()  {
         //MARK: 点击添加商家
         makeCustomerImageNavigationItem("icon_tianjia", left: false) {
-//            VCRouter.qrCodeScanVC()
-            self.testRequst()
+            VCRouter.qrCodeScanVC()
+        }
+        makeCustomerNavigationItem("音乐", left: true) {
+            let vc = SmartPlayerViewController()
+            self.pushVC(vc)
         }
     }
-    func testRequst()  {
-        var request = URLRequest(url: URL.init(string: "https://zbtest.wechat.athenamuses.cn/zbtest/resource/appInterface.do?inter=/cms/categories")!)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let values = ["albumId": "7680",
-                      "page":1,
-                      "clientId":15] as [String : Any]
-//        {"albumId": "7680","page": 1,"clientId": "","count": 15}
-        
-        let data = try! JSONSerialization.data(withJSONObject: values, options: [])
-//        JSONSerialization.data(withJSONObject: <#T##Any#>, options: <#T##JSONSerialization.WritingOptions#>)
-        print(data)
-        request.httpBody = data
-        
-        //        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-        
-        //        JSONSerialization.data(withJSONObject: values, options: .prettyPrinted)
-        Alamofire.request(request).responseJSON { (response) in
-            switch response.result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+    
     override func setUI() {
         super.setUI()
         self.cofigMjHeader()
         request()
-//
         _ = Noti(.refreshEquipmentInfo).takeUntil(self.rx.deallocated).subscribe(onNext: {[weak self] (value) in
             guard let `self` = self else { return }
             self.request()
         })
-//        self.establishConnection()
+        sendTopicInfo()
     }
-   
+    
+    func sendTopicInfo() {
+        
+//        scoketModel.sendGetMode()
+
+        
+    }
     override func request() {
         super.request()
         guard XBUserManager.device_Id != "" else {

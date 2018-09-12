@@ -24,7 +24,14 @@ class EquipmentSubListVC: XBBaseTableViewController {
         self.tableView.mj_header = self.mj_header
         self.tableView.mj_footer = self.mj_footer
         request()
-        
+
+        ScoketMQTTManager.share.getSetDefaultMessage.asObservable().subscribe { [weak self] in
+            guard let `self` = self else { return }
+            print("getSetDefaultMessage ===：", $0.element ?? "")
+            if let model = Mapper<GetTrackListDefault>().map(JSONString: $0.element!) {
+                self.requestSetDefault(model: model)
+            }
+        }.disposed(by: rx_disposeBag)
     }
 
     override func request() {
@@ -50,11 +57,19 @@ class EquipmentSubListVC: XBBaseTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func requestSetDefault()  {
-        Net.requestWithTarget(.setTrackListDefult(trackId: trackListId, deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
-            
-
-            print(result)
+    func sendTopicSetDefault()  {
+        ScoketMQTTManager.share.sendSetDefault(trackListId: trackListId)
+    }
+    func requestSetDefault(model: GetTrackListDefault)  {
+        guard let trackIds = model.trackIds else {
+            return
+        }
+        Net.requestWithTarget(.setTrackListDefult(trackListId: trackListId, deviceId: XBUserManager.device_Id, trackIds: trackIds), successClosure: { (result, code, message) in
+            if let str = result as? String {
+                if str == "ok" {
+                    self.request()
+                }
+            }
         })
         
     }
@@ -72,7 +87,7 @@ extension EquipmentSubListVC {
         v.btnAddAll.set_Title("恢复默认列表")
         v.btnAddAll.addAction {[weak self] in
             guard let `self` = self else { return }
-            self.requestSetDefault()
+            self.sendTopicSetDefault()
         }
         if let total = self.total {
             v.lbTotal.set_text = "共" + total.toString + "首"
@@ -92,8 +107,22 @@ extension EquipmentSubListVC {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-         self.requestOnlineSing(trackId: (dataArr[indexPath.row].id ?? 0).toString)
+//         self.requestOnlineSing(trackId: (dataArr[indexPath.row].id ?? 0).toString)
+        self.requestSingDetail(trackId: dataArr[indexPath.row].id ?? 0)
+    }
+    func requestSingDetail(trackId: Int)   {
+        Net.requestWithTarget(.getSingDetail(trackId: trackId), successClosure: { (result, code, message) in
         
+            guard let result = result as? String else {
+                return
+            }
+            if let model = Mapper<SingDetailModel>().map(JSONString: result) {
+                self.sendTopicSingDetail(singModel: model)
+            }
+        })
+    }
+    func sendTopicSingDetail(singModel: SingDetailModel)  {
+        ScoketMQTTManager.share.sendTrackListPlay(trackListId: trackListId, singModel: singModel)
     }
     func requestOnlineSing(trackId: String)  {
 

@@ -75,12 +75,34 @@ class ContentSingCell: BaseTableViewCell {
             guard let `self` = self else { return }
             self.requestDeleteDemand()
         }
-        v.btnAddSingList.addAction {[weak self] in
+        v.btnDelTrackList.addAction {[weak self] in
+            guard let `self` = self else { return }
+            self.requestDeleteSingWithList()
+        }
+        v.btnAddTrackList.addAction {[weak self] in
             guard let `self` = self else { return }
             self.requestDeleteSingWithList()
         }
         v.show()
     }
+    /**
+     *   增加歌曲到预制列表中
+     */
+    func requestAddSingWithList()  {
+        Net.requestWithTarget(.removeSingsList(deviceId: XBUserManager.device_Id, listId: listId!, trackIds: [trackId!]), successClosure: { (result, code, message) in
+            print(result)
+            if let str = result as? String {
+                if str == "ok" {
+                    XBHud.showMsg("删除成功")
+                }else {
+                    XBHud.showMsg("删除失败")
+                }
+            }
+        })
+    }
+    /**
+     *   从预制列表中删除
+     */
     func requestDeleteSingWithList()  {
         Net.requestWithTarget(.removeSingsList(deviceId: XBUserManager.device_Id, listId: listId!, trackIds: [trackId!]), successClosure: { (result, code, message) in
             print(result)
@@ -93,6 +115,9 @@ class ContentSingCell: BaseTableViewCell {
             }
         })
     }
+    /**
+     *   收藏歌曲
+     */
     func requestLikeSing()  {
         
         var params_task = [String: Any]()
@@ -112,6 +137,9 @@ class ContentSingCell: BaseTableViewCell {
         })
 
     }
+    /**
+     *   取消收藏歌曲
+     */
     func requestCancleLikeSing()  {
         
         var params_task = [String: Any]()
@@ -129,6 +157,9 @@ class ContentSingCell: BaseTableViewCell {
         })
         
     }
+    /**
+     *   删除点播历史
+     */
     func requestDeleteDemand()  {
         
         var params_task = [String: Any]()

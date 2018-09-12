@@ -102,3 +102,48 @@ class FamilyMemberModel: XBDataModel {
 
     }
 }
+class GetTrackListDefault: XBDataModel {
+    
+    var cmd: String?
+    var trackListId: Int?
+    var name: String?
+    var trackIds: [Int]?
+
+    override func mapping(map: Map) {
+        
+        cmd             <-    map["cmd"]
+        trackListId             <-    map["trackListId"]
+        name          <-    map["name"]
+        trackIds            <-    map["trackIds"]
+        
+    }
+}
+class SingDetailModel: XBDataModel {
+    
+    var id: Int?
+    var title: String?
+    var coverSmallUrl: String?
+    var duration: Int?
+    var albumTitle: String?
+    var albumCoverSmallUrl: String?
+    var url: String?
+    var downloadUrl: String?
+    var downloadUrlHashCode: String?
+    var downloadSize: String?
+    var status: Int?
+    
+    override func mapping(map: Map) {
+        
+        id             <-    map["id"]
+        title             <-    map["title"]
+        coverSmallUrl          <-    map["coverSmallUrl"]
+        duration            <-    map["duration"]
+        albumTitle            <-    map["albumTitle"]
+        albumCoverSmallUrl            <-    map["albumCoverSmallUrl"]
+        url            <-    map["url"]
+        downloadUrl            <-    map["downloadUrl"]
+        downloadUrlHashCode            <-    map["downloadUrlHashCode"]
+        downloadSize            <-    map["downloadSize"]
+        status            <-    map["status"]
+    }
+}

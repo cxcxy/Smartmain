@@ -334,48 +334,45 @@ extension XBBaseViewController:DZNEmptyDataSetDelegate,DZNEmptyDataSetSource{
 }
 //wss://zb.mqtt.athenamuses.cn:1893/storybox/3010290000045007_1275/client
 
-let socket_host             = "zb.mqtt.athenamuses.cn:1893"
-let socket_port: UInt16     = 1893
-let socket_clientID         = "123"
-
-//enum SocketTopic: String {
-//    case
-//}
-
 
 
 extension XBBaseViewController: MQTTSessionDelegate {
-    func mqttDidReceive(message data: Data, in topic: String, from session: MQTTSession) {
-        print("mqttDidReceivedata\(data)--topic\(topic)")
+    func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
+        print("data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
     }
     
-    func mqttDidDisconnect(session: MQTTSession) {
-        print("mqttDidDisconnect")
+    func mqttDidAcknowledgePing(from session: MQTTSession) {
+        print("Keep-alive ping 链接.")
     }
     
-    func mqttSocketErrorOccurred(session: MQTTSession) {
-        print("mqttSocketErrorOccurred")
+    func mqttDidDisconnect(session: MQTTSession, error: MQTTSessionError) {
+         print("Keep-alive ping 断开.")
     }
+    
+
     
     
     func establishConnection() {
-
-        mqttSession = MQTTSession(host: socket_host, port: socket_port, clientID: socket_clientID, cleanSession: true, keepAlive: 15, useSSL: false)
+        let now = Date()
+        let timeInterval:TimeInterval = now.timeIntervalSince1970
+        let timeStamp = Int(timeInterval).toString
+        print(timeStamp)
+        mqttSession = MQTTSession(host: socket_host, port: socket_port, clientID: timeStamp, cleanSession: true, keepAlive: 15, useSSL: false)
         mqttSession.delegate = self
-        mqttSession.connect { (succeeded,error) in
-            if succeeded {
+        mqttSession.connect { (error) in
+            if  error == .none {
                 print("Connected.")
                 self.subscribeToChannel()
             } else {
-                
+                print("Connected error.")
             }
         }
     }
     
     func subscribeToChannel() {
-        let channel = "storybox/\(testDeviceId)/client"
-        mqttSession.subscribe(to: channel, delivering: .atLeastOnce) { (succeeded,error) in
-            if succeeded {
+        let channel = "storybox/\(XBUserManager.device_Id)/client"
+        mqttSession.subscribe(to: channel, delivering: .atLeastOnce) { (error) in
+            if error == .none {
                 print("Subscribed to \(channel)")
             } else {
                 
@@ -383,7 +380,7 @@ extension XBBaseViewController: MQTTSessionDelegate {
         }
     }
     func sendPressed(socketModel: XBSocketModel)  {
-        let channel = "storybox/\(testDeviceId)/server/page"
+        let channel = "storybox/\(XBUserManager.device_Id)/server/page"
         
         guard let message = socketModel.toJSONString() else {
             return
@@ -391,8 +388,8 @@ extension XBBaseViewController: MQTTSessionDelegate {
         guard  let data = message.data(using: .utf8) else {
             return
         }
-        mqttSession.publish(data, in: channel, delivering: .atMostOnce, retain: false) { (succeeded,error) in
-            if succeeded {
+        mqttSession.publish(data, in: channel, delivering: .atMostOnce, retain: false) { (error) in
+            if error == .none {
                 print("Published \(message) on channel \(channel)")
             }
         }

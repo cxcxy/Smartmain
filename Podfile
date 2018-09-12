@@ -21,7 +21,7 @@ target 'SmartMain' do
     	pod 'KMNavigationBarTransition'
         pod 'ReachabilitySwift'
         pod 'FCUUID'
-        pod 'SwiftMQTT'
+#        pod 'SwiftMQTT'
 
 end
 

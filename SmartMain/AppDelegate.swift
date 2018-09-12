@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let sv = UIStoryboard.getVC("Main", identifier:"LoginNav") as! XBBaseNavigation
             window?.rootViewController = sv
         }
+        _ = ScoketMQTTManager.share
         IQKeyboardManager.sharedManager().enable = true
         return true
     }

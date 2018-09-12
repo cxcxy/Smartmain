@@ -29,11 +29,27 @@ class XBDataModel: Mappable {
 
 class XBSocketModel: Mappable {
     var cmd        :   String?
+    var value: String?
+    var key : String?
+    var trackListId : Int?
+    var trackId : Int?
+    var url : String?
+    var downloadUrl : String?
     required init?(map: Map) {
+        
+    }
+    init() {
         
     }
     func mapping(map: Map) {
         cmd                         <- map["cmd"]
+        value                         <- map["value"]
+        
+        key                         <- map["key"]
+        trackListId <- map["trackListId"]
+        trackId <- map["trackId"]
+        url <- map["url"]
+        downloadUrl <- map["downloadUrl"]
     }
 }
 /**

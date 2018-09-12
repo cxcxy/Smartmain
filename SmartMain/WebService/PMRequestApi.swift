@@ -19,7 +19,7 @@ enum RequestApi{
     case getTrackList(deviceId: String)
     case getSingleTrack(id: Int)
     case getTrackSubList(req: [String: Any])
-    case setTrackListDefult(trackId: Int,deviceId: String)
+    case setTrackListDefult(trackListId: Int,deviceId: String,trackIds: [Int])
     case contentsings(req: [String: Any])
     case login(mobile: String, code: String)
     case loginWithPass(mobile: String, password: String)
@@ -37,10 +37,12 @@ enum RequestApi{
     case onlineSing(openId:String, trackId: String)
     case deleteDemand(req: [String: Any])
     case saveLikeSing(req: [String: Any])
+    case getSingDetail(trackId: Int)
     case addSingsToTrack(req: [String: Any])
     case copyToNewTrackList(req: [String: Any])
     case moveToNewTrackList(req: [String: Any])
     case removeSingsList(deviceId: String, listId:Int, trackIds:[String])
+    case addSongToList(deviceId: String, listId:Int, listName: String, trackIds:[String])
     case addTrackList(req: [String: Any])
     case deleteTrackList(req: [String: Any])
     case deleteLikeSing(req: [String: Any])
@@ -115,17 +117,22 @@ extension RequestApi:TargetType{
             params_task["id"] = id
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
-        case .removeSingsList(_,_,let trakcIds):
-            let data = try! JSONSerialization.data(withJSONObject: trakcIds, options: JSONSerialization.WritingOptions(rawValue: 0))
-            return .requestData(data)
+        case .getSingDetail(let trackId):
+            params_task["trackId"] = trackId
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
+        case .removeSingsList(_,_,let trackIds):
+            return .requestData(trackIds.toData())
+        case .addSongToList(_,_,_,let trackIds):
+            return .requestData(trackIds.toData())
         case .getAuthCode,.login:
             break
         case .onlineSing(let openId,let trackId):
             params_task["openId"] = openId
             params_task["trackId"] = trackId
             break
-        case .setTrackListDefult(_, _):
-            break
+        case .setTrackListDefult(_, _, let trackIds):
+            return .requestData(trackIds.toData())
         case .quitEquiment(let openId, _):
             params_task["openId"] = openId
             break
@@ -169,7 +176,8 @@ extension RequestApi:TargetType{
     // 接口请求类型
     public var method:Moya.Method{
         switch self {
-        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,.getEquimentInfo,.getFamilyMemberList,.getSingleTrack:
+        case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,
+             .getEquimentInfo,.getFamilyMemberList,.getSingleTrack,.getSingDetail:
             return .get
         default:
             return .post
@@ -181,4 +189,9 @@ extension RequestApi:TargetType{
         return "{}".data(using: String.Encoding.utf8)!
     }
     
+}
+extension Array {
+    func toData() -> Data {
+        return try! JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions(rawValue: 0))
+    }
 }

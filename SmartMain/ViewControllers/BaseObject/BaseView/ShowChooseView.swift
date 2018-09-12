@@ -9,7 +9,9 @@
 import UIKit
 
 class ShowChooseView: ETPopupView {
-    @IBOutlet weak var btnAddSingList: UIButton!
+    @IBOutlet weak var btnDelTrackList: UIButton!
+    
+    @IBOutlet weak var btnAddTrackList: UIButton!
     
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var btnCancleLike: UIButton!

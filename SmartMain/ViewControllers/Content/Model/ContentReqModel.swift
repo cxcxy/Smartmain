@@ -95,7 +95,7 @@ class ConetentSingPlayModel: XBDataModel {
         url             <-    map["url"]
     }
 }
-class ConetentLikeModel: XBDataModel {
+class ConetentLikeModel: Mappable {
     var openId:String?
     var trackId: Int?
     var title: String?
@@ -107,7 +107,15 @@ class ConetentLikeModel: XBDataModel {
     var downloadUrl: String?
     var downloadSize: String?
     var opDate: String?
-    override func mapping(map: Map) {
+    
+    init() {
+        
+    }
+    required init?(map: Map) {
+        
+    }
+
+    func mapping(map: Map) {
         openId             <-    map["openId"]
         trackId             <-    map["trackId"]
         title          <-    map["title"]

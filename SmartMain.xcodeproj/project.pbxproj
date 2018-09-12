@@ -26,6 +26,29 @@
 		043E1197213FC1090067ADF3 /* ContentSingHaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1196213FC1090067ADF3 /* ContentSingHaderView.xib */; };
 		043E119A213FCCAC0067ADF3 /* ContentSingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E1198213FCCAC0067ADF3 /* ContentSingCell.swift */; };
 		043E119B213FCCAC0067ADF3 /* ContentSingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043E1199213FCCAC0067ADF3 /* ContentSingCell.xib */; };
+		0485CCA42148A89200F54927 /* MQTTSessionStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC8F2148A89200F54927 /* MQTTSessionStream.swift */; };
+		0485CCA52148A89200F54927 /* MQTTExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC902148A89200F54927 /* MQTTExtensions.swift */; };
+		0485CCA62148A89200F54927 /* MQTTPublishPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC922148A89200F54927 /* MQTTPublishPacket.swift */; };
+		0485CCA72148A89200F54927 /* MQTTSubAckPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC932148A89200F54927 /* MQTTSubAckPacket.swift */; };
+		0485CCA82148A89200F54927 /* MQTTConnAckPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC942148A89200F54927 /* MQTTConnAckPacket.swift */; };
+		0485CCA92148A89200F54927 /* MQTTConnectPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC952148A89200F54927 /* MQTTConnectPacket.swift */; };
+		0485CCAA2148A89200F54927 /* MQTTSubPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC962148A89200F54927 /* MQTTSubPacket.swift */; };
+		0485CCAB2148A89200F54927 /* MQTTPingResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC972148A89200F54927 /* MQTTPingResp.swift */; };
+		0485CCAC2148A89200F54927 /* MQTTUnSubAckPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC982148A89200F54927 /* MQTTUnSubAckPacket.swift */; };
+		0485CCAD2148A89200F54927 /* MQTTPingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC992148A89200F54927 /* MQTTPingPacket.swift */; };
+		0485CCAE2148A89200F54927 /* MQTTPacketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC9A2148A89200F54927 /* MQTTPacketFactory.swift */; };
+		0485CCAF2148A89200F54927 /* MQTTPubAck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC9B2148A89200F54927 /* MQTTPubAck.swift */; };
+		0485CCB02148A89200F54927 /* MQTTPubMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC9C2148A89200F54927 /* MQTTPubMsg.swift */; };
+		0485CCB12148A89200F54927 /* MQTTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC9D2148A89200F54927 /* MQTTMessage.swift */; };
+		0485CCB22148A89200F54927 /* MQTTUnsubPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC9E2148A89200F54927 /* MQTTUnsubPacket.swift */; };
+		0485CCB32148A89200F54927 /* MQTTStreamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CC9F2148A89200F54927 /* MQTTStreamable.swift */; };
+		0485CCB42148A89200F54927 /* MQTTPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CCA02148A89200F54927 /* MQTTPacket.swift */; };
+		0485CCB52148A89200F54927 /* MQTTDisconnectPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CCA12148A89200F54927 /* MQTTDisconnectPacket.swift */; };
+		0485CCB62148A89200F54927 /* MQTTPacketFixedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CCA22148A89200F54927 /* MQTTPacketFixedHeader.swift */; };
+		0485CCB72148A89200F54927 /* MQTTSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CCA32148A89200F54927 /* MQTTSession.swift */; };
+		0485CCB92148BC3300F54927 /* ScoketMQTTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CCB82148BC3300F54927 /* ScoketMQTTManager.swift */; };
+		0485CCBC2148F7EC00F54927 /* SmartPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485CCBA2148F7EC00F54927 /* SmartPlayerViewController.swift */; };
+		0485CCBD2148F7EC00F54927 /* SmartPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0485CCBB2148F7EC00F54927 /* SmartPlayerViewController.xib */; };
 		04C1436A2147A8F600FC2000 /* ShowChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C143692147A8F500FC2000 /* ShowChooseView.swift */; };
 		04C1436C2147A8FD00FC2000 /* ShowChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C1436B2147A8FD00FC2000 /* ShowChooseView.xib */; };
 		04C38712213E093F0063A799 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C386CA213E093F0063A799 /* Configuration.plist */; };
@@ -155,6 +178,29 @@
 		043E1196213FC1090067ADF3 /* ContentSingHaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSingHaderView.xib; sourceTree = "<group>"; };
 		043E1198213FCCAC0067ADF3 /* ContentSingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSingCell.swift; sourceTree = "<group>"; };
 		043E1199213FCCAC0067ADF3 /* ContentSingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentSingCell.xib; sourceTree = "<group>"; };
+		0485CC8F2148A89200F54927 /* MQTTSessionStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTSessionStream.swift; sourceTree = "<group>"; };
+		0485CC902148A89200F54927 /* MQTTExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTExtensions.swift; sourceTree = "<group>"; };
+		0485CC922148A89200F54927 /* MQTTPublishPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPublishPacket.swift; sourceTree = "<group>"; };
+		0485CC932148A89200F54927 /* MQTTSubAckPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTSubAckPacket.swift; sourceTree = "<group>"; };
+		0485CC942148A89200F54927 /* MQTTConnAckPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTConnAckPacket.swift; sourceTree = "<group>"; };
+		0485CC952148A89200F54927 /* MQTTConnectPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTConnectPacket.swift; sourceTree = "<group>"; };
+		0485CC962148A89200F54927 /* MQTTSubPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTSubPacket.swift; sourceTree = "<group>"; };
+		0485CC972148A89200F54927 /* MQTTPingResp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPingResp.swift; sourceTree = "<group>"; };
+		0485CC982148A89200F54927 /* MQTTUnSubAckPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTUnSubAckPacket.swift; sourceTree = "<group>"; };
+		0485CC992148A89200F54927 /* MQTTPingPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPingPacket.swift; sourceTree = "<group>"; };
+		0485CC9A2148A89200F54927 /* MQTTPacketFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPacketFactory.swift; sourceTree = "<group>"; };
+		0485CC9B2148A89200F54927 /* MQTTPubAck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPubAck.swift; sourceTree = "<group>"; };
+		0485CC9C2148A89200F54927 /* MQTTPubMsg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPubMsg.swift; sourceTree = "<group>"; };
+		0485CC9D2148A89200F54927 /* MQTTMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTMessage.swift; sourceTree = "<group>"; };
+		0485CC9E2148A89200F54927 /* MQTTUnsubPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTUnsubPacket.swift; sourceTree = "<group>"; };
+		0485CC9F2148A89200F54927 /* MQTTStreamable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTStreamable.swift; sourceTree = "<group>"; };
+		0485CCA02148A89200F54927 /* MQTTPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPacket.swift; sourceTree = "<group>"; };
+		0485CCA12148A89200F54927 /* MQTTDisconnectPacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTDisconnectPacket.swift; sourceTree = "<group>"; };
+		0485CCA22148A89200F54927 /* MQTTPacketFixedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTPacketFixedHeader.swift; sourceTree = "<group>"; };
+		0485CCA32148A89200F54927 /* MQTTSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MQTTSession.swift; sourceTree = "<group>"; };
+		0485CCB82148BC3300F54927 /* ScoketMQTTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoketMQTTManager.swift; sourceTree = "<group>"; };
+		0485CCBA2148F7EC00F54927 /* SmartPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPlayerViewController.swift; sourceTree = "<group>"; };
+		0485CCBB2148F7EC00F54927 /* SmartPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmartPlayerViewController.xib; sourceTree = "<group>"; };
 		04C143692147A8F500FC2000 /* ShowChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowChooseView.swift; sourceTree = "<group>"; };
 		04C1436B2147A8FD00FC2000 /* ShowChooseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowChooseView.xib; sourceTree = "<group>"; };
 		04C386CA213E093F0063A799 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -294,6 +340,41 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		0485CC8E2148A89200F54927 /* SwiftMQTT */ = {
+			isa = PBXGroup;
+			children = (
+				0485CC8F2148A89200F54927 /* MQTTSessionStream.swift */,
+				0485CC902148A89200F54927 /* MQTTExtensions.swift */,
+				0485CC912148A89200F54927 /* Models */,
+				0485CCA32148A89200F54927 /* MQTTSession.swift */,
+			);
+			path = SwiftMQTT;
+			sourceTree = "<group>";
+		};
+		0485CC912148A89200F54927 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0485CC922148A89200F54927 /* MQTTPublishPacket.swift */,
+				0485CC932148A89200F54927 /* MQTTSubAckPacket.swift */,
+				0485CC942148A89200F54927 /* MQTTConnAckPacket.swift */,
+				0485CC952148A89200F54927 /* MQTTConnectPacket.swift */,
+				0485CC962148A89200F54927 /* MQTTSubPacket.swift */,
+				0485CC972148A89200F54927 /* MQTTPingResp.swift */,
+				0485CC982148A89200F54927 /* MQTTUnSubAckPacket.swift */,
+				0485CC992148A89200F54927 /* MQTTPingPacket.swift */,
+				0485CC9A2148A89200F54927 /* MQTTPacketFactory.swift */,
+				0485CC9B2148A89200F54927 /* MQTTPubAck.swift */,
+				0485CC9C2148A89200F54927 /* MQTTPubMsg.swift */,
+				0485CC9D2148A89200F54927 /* MQTTMessage.swift */,
+				0485CC9E2148A89200F54927 /* MQTTUnsubPacket.swift */,
+				0485CC9F2148A89200F54927 /* MQTTStreamable.swift */,
+				0485CCA02148A89200F54927 /* MQTTPacket.swift */,
+				0485CCA12148A89200F54927 /* MQTTDisconnectPacket.swift */,
+				0485CCA22148A89200F54927 /* MQTTPacketFixedHeader.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		04C386C8213E093F0063A799 /* WebService */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +437,7 @@
 				04C386E1213E093F0063A799 /* XBAddressManager.swift */,
 				04C386E3213E093F0063A799 /* XBUserManager.swift */,
 				04C386E4213E093F0063A799 /* XBRxSectionManager.swift */,
+				0485CCB82148BC3300F54927 /* ScoketMQTTManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -378,6 +460,7 @@
 		04C386EE213E093F0063A799 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				0485CC8E2148A89200F54927 /* SwiftMQTT */,
 				0413BECB21422541006E3A44 /* Defaults.swift */,
 				04C38A1A213E7FF40063A799 /* FSPagerView */,
 				04C386F3213E093F0063A799 /* ETPopView */,
@@ -542,6 +625,8 @@
 				0422ECD72140BECC00A42D7A /* AVCaptureSessionManager.swift */,
 				0422ECD42140BE9E00A42D7A /* XBScanViewController.swift */,
 				0422ECD32140BE9E00A42D7A /* XBScanViewController.xib */,
+				0485CCBA2148F7EC00F54927 /* SmartPlayerViewController.swift */,
+				0485CCBB2148F7EC00F54927 /* SmartPlayerViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -823,6 +908,7 @@
 				2DC955A0213FF3BE004D6F65 /* LoginViewController.xib in Resources */,
 				043E1197213FC1090067ADF3 /* ContentSingHaderView.xib in Resources */,
 				04C389F3213E27CA0063A799 /* EquipmentListCell.xib in Resources */,
+				0485CCBD2148F7EC00F54927 /* SmartPlayerViewController.xib in Resources */,
 				04C389EF213E25800063A799 /* EquipmentTopView.xib in Resources */,
 				2DC955B5213FFED4004D6F65 /* MeInfoNameCell.xib in Resources */,
 				04C38A05213E671F0063A799 /* ContentShowCell.xib in Resources */,
@@ -885,7 +971,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMQTT/SwiftMQTT.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
 				"${BUILT_PRODUCTS_DIR}/VTMagic/VTMagic.framework",
@@ -910,7 +995,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMQTT.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VTMagic.framework",
@@ -960,8 +1044,11 @@
 				2DC95598213EBCC7004D6F65 /* ContentReqModel.swift in Sources */,
 				04C38A0C213E6D850063A799 /* ContentLikeCell.swift in Sources */,
 				04C38730213E093F0063A799 /* UITableView+.swift in Sources */,
+				0485CCA92148A89200F54927 /* MQTTConnectPacket.swift in Sources */,
 				04C3872C213E093F0063A799 /* UIViewController+.swift in Sources */,
 				04C38988213E0B5A0063A799 /* XBBaseModel.swift in Sources */,
+				0485CCA82148A89200F54927 /* MQTTConnAckPacket.swift in Sources */,
+				0485CCB12148A89200F54927 /* MQTTMessage.swift in Sources */,
 				04C38713213E093F0063A799 /* PMConfigManager.swift in Sources */,
 				0413BECF21424BC9006E3A44 /* MemberManagerVC.swift in Sources */,
 				2DC9559A213ECD62004D6F65 /* ContentSubVC.swift in Sources */,
@@ -971,8 +1058,11 @@
 				04C1436A2147A8F600FC2000 /* ShowChooseView.swift in Sources */,
 				04C38A04213E671F0063A799 /* ContentShowCell.swift in Sources */,
 				0422ECDA2140CA2700A42D7A /* EquipmentModel.swift in Sources */,
+				0485CCB62148A89200F54927 /* MQTTPacketFixedHeader.swift in Sources */,
 				04C38A14213E6FE70063A799 /* ContentShowThreeCell.swift in Sources */,
 				04C38744213E09400063A799 /* XBHud.swift in Sources */,
+				0485CCAD2148A89200F54927 /* MQTTPingPacket.swift in Sources */,
+				0485CCAA2148A89200F54927 /* MQTTSubPacket.swift in Sources */,
 				04C38747213E09400063A799 /* XBImageView.swift in Sources */,
 				04C38719213E093F0063A799 /* UIViewControllerRouter.swift in Sources */,
 				04C3873D213E093F0063A799 /* MBProgressHUD.m in Sources */,
@@ -984,21 +1074,28 @@
 				04C389ED213E25500063A799 /* EquipmentTopView.swift in Sources */,
 				04C3873A213E093F0063A799 /* PhotoToolBar.swift in Sources */,
 				0422ECD62140BE9E00A42D7A /* XBScanViewController.swift in Sources */,
+				0485CCA62148A89200F54927 /* MQTTPublishPacket.swift in Sources */,
 				043E118C213FB3120067ADF3 /* ContentSubShowCell.swift in Sources */,
 				2DC955A7213FFC8C004D6F65 /* AboutMeVC.swift in Sources */,
 				04C38A26213E7FF40063A799 /* FSPageViewLayout.swift in Sources */,
 				04C38716213E093F0063A799 /* PMNetManager.swift in Sources */,
+				0485CCA52148A89200F54927 /* MQTTExtensions.swift in Sources */,
 				2DC955B0213FFE17004D6F65 /* MeInfoHaderCell.swift in Sources */,
 				04C38A11213E6EEA0063A799 /* HistoryViewController.swift in Sources */,
 				043E119A213FCCAC0067ADF3 /* ContentSingCell.swift in Sources */,
 				04C3873F213E093F0063A799 /* NSObject+HUD.m in Sources */,
 				04C389FB213E5FC80063A799 /* ContentVC.swift in Sources */,
 				04C38714213E093F0063A799 /* PMApiPath.swift in Sources */,
+				0485CCBC2148F7EC00F54927 /* SmartPlayerViewController.swift in Sources */,
 				04C3873E213E093F0063A799 /* MBProgressHUD+Add.m in Sources */,
 				04C38737213E093F0063A799 /* SimpleHUD.swift in Sources */,
+				0485CCB02148A89200F54927 /* MQTTPubMsg.swift in Sources */,
+				0485CCB42148A89200F54927 /* MQTTPacket.swift in Sources */,
+				0485CCB32148A89200F54927 /* MQTTStreamable.swift in Sources */,
 				04C3871F213E093F0063A799 /* XBJpushManager.swift in Sources */,
 				04C38736213E093F0063A799 /* BYFoundationLog.m in Sources */,
 				04C38734213E093F0063A799 /* ETPopupViewExtension.swift in Sources */,
+				0485CCAB2148A89200F54927 /* MQTTPingResp.swift in Sources */,
 				04C38718213E093F0063A799 /* XBThirdID.swift in Sources */,
 				043E1193213FC0E70067ADF3 /* ContentSingHaderView.swift in Sources */,
 				043E1190213FB8FE0067ADF3 /* ContentSingsVC.swift in Sources */,
@@ -1006,6 +1103,7 @@
 				04C3872D213E093F0063A799 /* UILabel+.swift in Sources */,
 				04C3897E213E0B5A0063A799 /* XBBaseNavigation.swift in Sources */,
 				04C389F9213E33330063A799 /* ContentMainVC.swift in Sources */,
+				0485CCAE2148A89200F54927 /* MQTTPacketFactory.swift in Sources */,
 				0422ECD82140BECC00A42D7A /* AVCaptureSessionManager.swift in Sources */,
 				04C38742213E09400063A799 /* PPAddressBookHandle.swift in Sources */,
 				04C38A22213E7FF40063A799 /* FSPagerView.swift in Sources */,
@@ -1013,11 +1111,14 @@
 				04C3872E213E093F0063A799 /* XBExtensionAdd.swift in Sources */,
 				04C3873B213E093F0063A799 /* PhotoViewCell.swift in Sources */,
 				2DC955AB213FFDE4004D6F65 /* MeInfoVC.swift in Sources */,
+				0485CCA42148A89200F54927 /* MQTTSessionStream.swift in Sources */,
 				0413BECC21422542006E3A44 /* Defaults.swift in Sources */,
 				04C38745213E09400063A799 /* XBButton.swift in Sources */,
 				2DC955A3213FFA98004D6F65 /* RegisterViewController.swift in Sources */,
+				0485CCA72148A89200F54927 /* MQTTSubAckPacket.swift in Sources */,
 				04C38A25213E7FF40063A799 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				04C3871B213E093F0063A799 /* XBNotificationManager.swift in Sources */,
+				0485CCB92148BC3300F54927 /* ScoketMQTTManager.swift in Sources */,
 				2DC95590213EB210004D6F65 /* EquimentInfoVC.swift in Sources */,
 				04C389F2213E27CA0063A799 /* EquipmentListCell.swift in Sources */,
 				04C389EB213E231D0063A799 /* EquipmentVC.swift in Sources */,
@@ -1026,21 +1127,26 @@
 				04C38987213E0B5A0063A799 /* XBBaseViewController.swift in Sources */,
 				04C38746213E09400063A799 /* XBCustomUtil.swift in Sources */,
 				04C38A08213E6CD70063A799 /* ContentShowCVCell.swift in Sources */,
+				0485CCAC2148A89200F54927 /* MQTTUnSubAckPacket.swift in Sources */,
 				04C38739213E093F0063A799 /* UIViewExtension.swift in Sources */,
 				2DC9558A213EAC18004D6F65 /* EquipmentSettingVC.swift in Sources */,
 				0413BED321426EB8006E3A44 /* ChatViewController.swift in Sources */,
 				0422ECDF214110E000A42D7A /* ContentTitleCVCell.swift in Sources */,
 				2DC9559F213FF3BE004D6F65 /* LoginViewController.swift in Sources */,
 				04C38715213E093F0063A799 /* PMRequestApi.swift in Sources */,
+				0485CCAF2148A89200F54927 /* MQTTPubAck.swift in Sources */,
 				04C38725213E093F0063A799 /* XBAddressManager.swift in Sources */,
+				0485CCB52148A89200F54927 /* MQTTDisconnectPacket.swift in Sources */,
 				04C38727213E093F0063A799 /* XBUserManager.swift in Sources */,
 				04C38724213E093F0063A799 /* XBUploadManager.swift in Sources */,
 				04C38720213E093F0063A799 /* XBShareManager.swift in Sources */,
 				04C38A18213E79240063A799 /* SearchViewController.swift in Sources */,
 				04C38738213E093F0063A799 /* PhotoBrowser.swift in Sources */,
+				0485CCB22148A89200F54927 /* MQTTUnsubPacket.swift in Sources */,
 				04C3872F213E093F0063A799 /* UIImage+.swift in Sources */,
 				04C389D3213E160E0063A799 /* XBTabBarController.swift in Sources */,
 				04C38717213E093F0063A799 /* XBConfig.swift in Sources */,
+				0485CCB72148A89200F54927 /* MQTTSession.swift in Sources */,
 				04C3872A213E093F0063A799 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

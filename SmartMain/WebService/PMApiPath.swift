@@ -24,7 +24,7 @@ extension RequestApi {
         case .getTrackList:             return "/tracklist/getlistview.do"
         //获取预制列表信息
         case .getTrackSubList:          return "/track/getpage.do"
-        case .setTrackListDefult(let trackId, let deviceId): return "/tracklist/inital.do?trackListId=\(trackId)&deviceId=\(deviceId)"
+        case .setTrackListDefult(let trackListId, let deviceId, _): return "/tracklist/inital.do?trackListId=\(trackListId)&deviceId=\(deviceId)"
         //获取指定预制列表信息
         case .getSingleTrack:          return "/track/get.do"
             // 登录接口
@@ -47,7 +47,7 @@ extension RequestApi {
         case .joinEquiment:             return "/familymember/join.do"
             // 加入设备第二步
         case .joinEquimentGroup:        return "/suportAPP/joinEaseGroup.do"
-            // 接触设备绑定
+            // 接触设备绑定onlineSing
         case .quitEquiment(_ , let isAdmin):        return "/familymember/quit.do?byAdmin=\(isAdmin)"
             
         //根据设备号获取群组成员列表
@@ -61,6 +61,8 @@ extension RequestApi {
         // 删除收藏
         case .deleteLikeSing:          return "/favorite/delete.do"
         // 添加多首歌曲到预制列表
+        case .getSingDetail:          return "/track/getid.do"
+        // 添加多首歌曲到预制列表
         case .addSingsToTrack:          return "/resource/tracklist/addTrackBatch.do"
         // 把歌曲从旧列表拷贝到新列表
         case .copyToNewTrackList:          return "/track/copy.do"
@@ -68,6 +70,8 @@ extension RequestApi {
         case .moveToNewTrackList:          return "/track/move.do"
         // 把歌曲从列表中删除
         case .removeSingsList(let deviceId, let listId, _):          return "/track/remove.do?deviceId=\(deviceId)&id=\(listId)"
+        // 新增一首歌曲到指定的预制列表
+        case .addSongToList(let deviceId,let listId,let listName, _):          return "/track/download.do"
         // 新增一个列表
         case .addTrackList:          return "/tracklist/add.do"
         // 删除一个列表

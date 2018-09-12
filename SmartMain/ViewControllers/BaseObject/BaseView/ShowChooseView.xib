@@ -20,24 +20,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8Q-eT-jeg">
-                            <rect key="frame" x="0.0" y="0.0" width="94" height="90"/>
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="90"/>
                             <color key="backgroundColor" red="0.95103305578231812" green="0.88363194465637207" blue="0.1016235426068306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="歌单删除"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-Tx-9en">
-                            <rect key="frame" x="94" y="0.0" width="93.5" height="90"/>
+                            <rect key="frame" x="75" y="0.0" width="75" height="90"/>
                             <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="收藏"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ke2-GL-Xa0">
-                            <rect key="frame" x="187.5" y="0.0" width="94" height="90"/>
+                            <rect key="frame" x="150" y="0.0" width="75" height="90"/>
                             <color key="backgroundColor" red="1" green="0.2274509804" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="删除收藏"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLa-FQ-8cu">
-                            <rect key="frame" x="281.5" y="0.0" width="93.5" height="90"/>
+                            <rect key="frame" x="225" y="0.0" width="75" height="90"/>
                             <color key="backgroundColor" red="0.95103305578231812" green="0.88363194465637207" blue="0.1016235426068306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <state key="normal" title="删除点播"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3e-fE-JZM">
+                            <rect key="frame" x="300" y="0.0" width="75" height="90"/>
+                            <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <state key="normal" title="加入预制列表"/>
                         </button>
                     </subviews>
                 </stackView>
@@ -52,8 +62,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="btnAddSingList" destination="e8Q-eT-jeg" id="QIE-WK-sOK"/>
+                <outlet property="btnAddTrackList" destination="J3e-fE-JZM" id="zCy-8L-VuM"/>
                 <outlet property="btnCancleLike" destination="Ke2-GL-Xa0" id="3tZ-r4-fJt"/>
+                <outlet property="btnDelTrackList" destination="e8Q-eT-jeg" id="MAv-dK-OE1"/>
                 <outlet property="btnDeleteDemand" destination="rLa-FQ-8cu" id="yjO-VI-pJ7"/>
                 <outlet property="btnLike" destination="g6V-Tx-9en" id="kWM-P6-LF9"/>
             </connections>
