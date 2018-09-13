@@ -42,7 +42,7 @@ enum RequestApi{
     case copyToNewTrackList(req: [String: Any])
     case moveToNewTrackList(req: [String: Any])
     case removeSingsList(deviceId: String, listId:Int, trackIds:[String])
-    case addSongToList(deviceId: String, listId:Int, listName: String, trackIds:[String])
+    case addSongToList(deviceId: String, listId:Int, listName: String, trackIds:[AddSongTrackReqModel])
     case addTrackList(req: [String: Any])
     case deleteTrackList(req: [String: Any])
     case deleteLikeSing(req: [String: Any])
@@ -124,7 +124,9 @@ extension RequestApi:TargetType{
         case .removeSingsList(_,_,let trackIds):
             return .requestData(trackIds.toData())
         case .addSongToList(_,_,_,let trackIds):
-            return .requestData(trackIds.toData())
+            let str = trackIds.toJSON()
+            let str_data = try! JSONSerialization.data(withJSONObject: str, options: JSONSerialization.WritingOptions(rawValue: 0))
+            return .requestData(str_data)
         case .getAuthCode,.login:
             break
         case .onlineSing(let openId,let trackId):

@@ -93,7 +93,7 @@ class XBNetManager {
             return
         }
         if isShowLoding {
-            XBHud.showLoading()
+//            XBHud.showLoading()
         }
         
         _ =  requestProvider.request(target) { (result) in

@@ -39,12 +39,20 @@ class EquipmentVC: XBBaseTableViewController {
             guard let `self` = self else { return }
             self.request()
         })
-        sendTopicInfo()
+        checkEquipmentOnline()
     }
     
-    func sendTopicInfo() {
+    func checkEquipmentOnline() {
         
-//        scoketModel.sendGetMode()
+        Net.requestWithTarget(.getEquimentInfo(deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
+            if let model = Mapper<EquipmentInfoModel>().map(JSONString: result as! String) {
+                print("当前设备在线")
+                XBUserManager.online = true
+            }else {
+                print("当前设备不在线")
+                XBUserManager.online = false
+            }
+        })
 
         
     }

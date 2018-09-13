@@ -71,7 +71,7 @@ extension RequestApi {
         // 把歌曲从列表中删除
         case .removeSingsList(let deviceId, let listId, _):          return "/track/remove.do?deviceId=\(deviceId)&id=\(listId)"
         // 新增一首歌曲到指定的预制列表
-        case .addSongToList(let deviceId,let listId,let listName, _):          return "/track/download.do"
+        case .addSongToList(let deviceId,let listId,let listName, _):          return "/track/download.do?deviceId=\(deviceId)&id=\(listId)&name=\(listName.urlEncoded())"
         // 新增一个列表
         case .addTrackList:          return "/tracklist/add.do"
         // 删除一个列表

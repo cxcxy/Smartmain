@@ -65,6 +65,7 @@ let user_defaults = Defaults()
 public extension DefaultsKey {
     static let userName = Key<String>("userName")
     static let deviceId = Key<String>("deviceId")
+    static let online   = Key<Bool>("online")
 }
 //TODO
 struct XBUserManager {
@@ -82,6 +83,14 @@ struct XBUserManager {
         }
         set{
             user_defaults.set(newValue, for: .deviceId)
+        }
+    }
+    static var online:Bool { // 当前设备是否在线
+        get{
+            return user_defaults.get(for: .online) ?? false
+        }
+        set{
+            user_defaults.set(newValue, for: .online)
         }
     }
 //     保存用户信息

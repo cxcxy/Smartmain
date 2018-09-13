@@ -71,6 +71,30 @@ class ConetentSingModel: XBDataModel {
         name            <-    map["name"]
     }
 }
+class AddSongTrackReqModel: XBDataModel {
+    var id:Int?
+    var title: String?
+    var coverSmallUrl: String?
+    var duration: Int?
+    var albumTitle: String?
+    var albumCoverSmallUrl: String?
+    var url: String?
+    var downloadUrl: String?
+    var downloadSize: Int?
+    
+    override func mapping(map: Map) {
+        id             <-    map["id"]
+        title             <-    map["title"]
+        coverSmallUrl          <-    map["coverSmallUrl"]
+        duration            <-    map["duration"]
+        albumTitle            <-    map["albumTitle"]
+        albumCoverSmallUrl            <-    map["albumCoverSmallUrl"]
+        url            <-    map["url"]
+        downloadUrl            <-    map["downloadUrl"]
+        downloadSize            <-    map["downloadSize"]
+    }
+}
+
 class ConetentSingAlbumModel: XBDataModel {
     var imgLarge:String?
     var imgSmall: String?

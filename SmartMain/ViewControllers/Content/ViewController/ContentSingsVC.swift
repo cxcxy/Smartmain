@@ -82,6 +82,7 @@ extension ContentSingsVC {
 //        cell.lbTitle.set_text = dataArr[indexPath.row].name
 //        cell.lbTime.set_text = XBUtil.getDetailTimeWithTimestamp(timeStamp: dataArr[indexPath.row].length)
         cell.modelData = dataArr[indexPath.row]
+        cell.headerInfo = self.headerInfo
         cell.lbLineNumber.set_text = (indexPath.row + 1).toString
         return cell
         
