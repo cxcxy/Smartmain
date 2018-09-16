@@ -34,8 +34,9 @@ extension RequestApi {
             
         case .getAuthCode(let mobile):  return "/suportAPP/getAuthCode.do?mobile=" + mobile
             
-        
-            
+        case .resetPassword(let authCode,_): return "/suportAPP/resetPassword.do?authCode=\(authCode)"
+        case .getBabyInfo(let deviceId):           return "/suportAPP/getBabyInfo.do?deviceid=\(deviceId)"
+        case .updateBabyInfo:           return "/suportAPP/updateBabyInfo.do"
         case .familyRegister:           return "/familymember/register.do"
         // 获取设备信息
         case .getEquimentInfo:          return "/boxinfo/get.do"

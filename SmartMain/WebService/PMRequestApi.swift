@@ -25,6 +25,9 @@ enum RequestApi{
     case loginWithPass(mobile: String, password: String)
     case register(req: [String: Any])
     case getAuthCode(mobile: String)
+    case resetPassword(authCode: String,req: [String: Any])
+    case getBabyInfo(deviceId: String)
+    case updateBabyInfo(req: [String: Any])
     case familyRegister(req: [String: Any])
     case changePassword(req: [String: Any])
     case getEquimentInfo(deviceId: String)
@@ -110,7 +113,11 @@ extension RequestApi:TargetType{
              .copyToNewTrackList(let req),
              .moveToNewTrackList(let req),
              .addTrackList(let req),
-             .deleteTrackList(let req):
+             .deleteTrackList(let req),
+             .updateBabyInfo(let req):
+            params_task = req
+            break
+        case .resetPassword(_, let req):
             params_task = req
             break
         case .getSingleTrack(let id):
@@ -153,6 +160,9 @@ extension RequestApi:TargetType{
             params_task["openId"] = openId
             return .requestParameters(parameters: params_task,
                                       encoding: URLEncoding.default)
+        case .getBabyInfo(let deviceId):
+            return .requestParameters(parameters: params_task,
+                                      encoding: URLEncoding.default)
         case .getEquimentInfo(let deviceId),
              .getFamilyMemberList(let deviceId),
              .getTrackList(let deviceId):
@@ -179,7 +189,7 @@ extension RequestApi:TargetType{
     public var method:Moya.Method{
         switch self {
         case .getLikeList,.getHistoryList,.getTrackList,.getTrackSubList,
-             .getEquimentInfo,.getFamilyMemberList,.getSingleTrack,.getSingDetail:
+             .getEquimentInfo,.getFamilyMemberList,.getSingleTrack,.getSingDetail,.getBabyInfo:
             return .get
         default:
             return .post

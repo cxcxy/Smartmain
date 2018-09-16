@@ -46,8 +46,15 @@ class EquipmentVC: XBBaseTableViewController {
         
         Net.requestWithTarget(.getEquimentInfo(deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
             if let model = Mapper<EquipmentInfoModel>().map(JSONString: result as! String) {
-                print("当前设备在线")
-                XBUserManager.online = true
+                
+                if model.online == 1 {
+                    print("当前设备在线")
+                    XBUserManager.online = true
+                }else {
+                    print("当前设备不在线00")
+                    XBUserManager.online = false
+                }
+                
             }else {
                 print("当前设备不在线")
                 XBUserManager.online = false

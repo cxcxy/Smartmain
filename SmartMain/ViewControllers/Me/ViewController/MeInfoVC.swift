@@ -20,8 +20,37 @@ class MeInfoVC: XBBaseTableViewController {
         super.setUI()
         tableView.cellId_register("MeInfoHaderCell")
         tableView.cellId_register("MeInfoNameCell")
+        request()
     }
+    override func request() {
+        super.request()
+        Net.requestWithTarget(.getBabyInfo(deviceId: XBUserManager.device_Id), successClosure: { (result, code, message) in
+            print(result)
+        })
+    }
+    func updateInfo()  {
+        var params_task = [String: Any]()
+        
+        params_task["deviceid"] = XBUserManager.device_Id
+        params_task["babyname"] = ""
+        params_task["headimgurl"] = ""
+        params_task["sex"] = ""
+        params_task["birthday"] = ""
+        Net.requestWithTarget(.updateBabyInfo(req: params_task), successClosure: { (result, code, message) in
+            print(result)
+        })
+        
+    }
+    func resetPassword()  {
+        var params_task = [String: Any]()
+        
+        params_task["username"] = ""
+        params_task["password"] = ""
 
+        Net.requestWithTarget(.resetPassword(authCode: "", req: params_task), successClosure: { (result, code, message) in
+            print(result)
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
